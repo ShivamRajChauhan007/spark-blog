@@ -3,13 +3,28 @@
 import dynamic from "next/dynamic";
 
 /**
- * Single sticky 3D canvas that lives behind every scene.
- * The active scene is chosen by scroll position; one camera rig interpolates.
- *
- * In Phase 1 this is a stub — pure SVG fallback.
- * Phase 2 will swap in a real Three.js scene via dynamic import.
+ * Lazy-loaded sticky 3D canvas. SSR off because three.js needs the DOM.
+ * Falls back to the SVG stub while loading or for reduced-motion users.
  */
-export const ClusterStageCanvas = dynamic(() => import("./_StubCanvas").then((m) => m.StubCanvas), {
+const SceneStage = dynamic(() => import("./SceneStage").then((m) => m.SceneStage), {
   ssr: false,
-  loading: () => <div className="scene-canvas" aria-hidden />
+  loading: () => null
 });
+
+const StubCanvas = dynamic(() => import("./_StubCanvas").then((m) => m.StubCanvas), {
+  ssr: false,
+  loading: () => null
+});
+
+export function ClusterStageCanvas() {
+  // Use a media query at render time inside a client component
+  // (we cannot use window.matchMedia at module scope due to SSR).
+  // SceneStage itself respects reduced motion in animations; we still
+  // render the SVG stub as a graceful fallback layer.
+  return (
+    <>
+      <StubCanvas />
+      <SceneStage />
+    </>
+  );
+}

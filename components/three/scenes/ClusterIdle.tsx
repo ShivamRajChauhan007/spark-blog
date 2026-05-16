@@ -6,14 +6,14 @@ import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
 
 interface Props {
-  progress: number; // local 0..1
+  progress: number;
   visible: boolean;
 }
 
 /**
  * Scene 1 — the idle cluster.
  * Master cube at origin, 4 worker cubes on a circle of radius 3.
- * Faint network lines between them; subtle bloom-friendly emissive.
+ * Network "lines" are thin cylinders (avoids r3f v9 line-element JSX typing pain).
  */
 export function ClusterIdle({ progress: _progress, visible }: Props) {
   const group = useRef<THREE.Group>(null);
@@ -23,7 +23,7 @@ export function ClusterIdle({ progress: _progress, visible }: Props) {
       const angle = (i / 4) * Math.PI * 2 + Math.PI / 4;
       const r = 3;
       return {
-        position: [Math.cos(angle) * r, 0, Math.sin(angle) * r] as [number, number, number],
+        position: new THREE.Vector3(Math.cos(angle) * r, 0, Math.sin(angle) * r),
         tint: WORKER_TINTS[i]
       };
     });
@@ -37,50 +37,55 @@ export function ClusterIdle({ progress: _progress, visible }: Props) {
   return (
     <group ref={group} visible={visible}>
       {/* master */}
-      <mesh position={[0, 0, 0]}>
+      <mesh position={[0, 0, 0]} castShadow receiveShadow>
         <boxGeometry args={[0.9, 0.9, 0.9]} />
         <meshStandardMaterial
           color={PALETTE.accent}
           emissive={PALETTE.accent}
-          emissiveIntensity={0.35}
+          emissiveIntensity={0.4}
           metalness={0.4}
           roughness={0.4}
         />
       </mesh>
 
-      {/* workers */}
       {workers.map((w, i) => (
-        <group key={i} position={w.position}>
-          <mesh>
-            <boxGeometry args={[0.7, 0.7, 0.7]} />
-            <meshStandardMaterial
-              color={w.tint}
-              emissive={w.tint}
-              emissiveIntensity={0.25}
-              metalness={0.35}
-              roughness={0.5}
-            />
-          </mesh>
-          {/* network line from this worker to master */}
-          <line>
-            <bufferGeometry
-              attach="geometry"
-              onUpdate={(geom: THREE.BufferGeometry) => {
-                const pts = new Float32Array([0, 0, 0, -w.position[0], 0, -w.position[2]]);
-                geom.setAttribute("position", new THREE.BufferAttribute(pts, 3));
-              }}
-            />
-            {/* @ts-expect-error - r3f line material */}
-            <lineBasicMaterial color={PALETTE.line} transparent opacity={0.5} />
-          </line>
-        </group>
+        <WorkerNode key={i} position={w.position} tint={w.tint} />
       ))}
 
-      {/* floor grid hint */}
+      {/* floor grid */}
       <mesh position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[20, 20, 20, 20]} />
         <meshBasicMaterial color={PALETTE.line} wireframe transparent opacity={0.06} />
       </mesh>
+    </group>
+  );
+}
+
+function WorkerNode({ position, tint }: { position: THREE.Vector3; tint: THREE.Color }) {
+  // distance from origin (master) for line length
+  const len = position.length();
+  // direction angle on Y axis
+  const angle = Math.atan2(position.x, position.z);
+
+  return (
+    <group position={position}>
+      <mesh castShadow receiveShadow>
+        <boxGeometry args={[0.7, 0.7, 0.7]} />
+        <meshStandardMaterial
+          color={tint}
+          emissive={tint}
+          emissiveIntensity={0.3}
+          metalness={0.35}
+          roughness={0.5}
+        />
+      </mesh>
+      {/* network "cable" toward master — thin cylinder pointing along -position */}
+      <group rotation={[0, angle, 0]}>
+        <mesh position={[0, 0, -len / 2]} rotation={[Math.PI / 2, 0, 0]}>
+          <cylinderGeometry args={[0.012, 0.012, len, 8, 1]} />
+          <meshBasicMaterial color={PALETTE.fgMuted} transparent opacity={0.35} />
+        </mesh>
+      </group>
     </group>
   );
 }
