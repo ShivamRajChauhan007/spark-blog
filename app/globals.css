@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* OKLCH palette — dark by default */
+  --color-bg: oklch(0.14 0.013 252);
+  --color-bg-elev: oklch(0.17 0.014 252);
+  --color-fg: oklch(0.96 0.005 252);
+  --color-fg-muted: oklch(0.72 0.012 252);
+  --color-line: oklch(0.28 0.012 252);
+  --color-accent: oklch(0.78 0.16 65);  /* warm amber */
+  --color-accent-2: oklch(0.74 0.14 220); /* cool azure */
+  --color-success: oklch(0.78 0.16 145);
+  --color-danger: oklch(0.68 0.20 25);
+}
+
+:root {
+  color-scheme: dark light;
+}
+
+html { background: var(--color-bg); color: var(--color-fg); }
+
+body {
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif { font-family: var(--font-serif); font-feature-settings: "liga", "dlig"; }
+.font-mono  { font-family: var(--font-mono); }
+
+/* film-grain backdrop for that Bartosz feel */
+.bg-grain {
+  background-color: var(--color-bg);
+  background-image: radial-gradient(oklch(1 0 0 / 0.012) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* scene canvas — full bleed but anchored */
+.scene-canvas { position: sticky; top: 0; height: 100vh; }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
