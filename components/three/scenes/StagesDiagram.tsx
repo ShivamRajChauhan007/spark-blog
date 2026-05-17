@@ -10,36 +10,55 @@ interface Props {
   visible: boolean;
 }
 
-/** Scene 9 — three "stage" panels float above the cluster, joined by shuffle arrows. */
-export function StagesDiagram({ progress, visible }: Props) {
+/** Scene 9 — three glowing orbital "stage" rings, one fading into the next. */
+export function StagesDiagram({ progress: _progress, visible }: Props) {
   const g = useRef<THREE.Group>(null);
+  const rings = [useRef<THREE.MeshBasicMaterial>(null), useRef<THREE.MeshBasicMaterial>(null), useRef<THREE.MeshBasicMaterial>(null)];
 
   useFrame(() => {
     if (!visible || !g.current) return;
-    g.current.position.y = 2.5 - 0.2 * Math.sin(progress * Math.PI);
+    g.current.rotation.y += 0.002;
+    const t = (performance.now() * 0.0006) % 3;
+    for (let i = 0; i < 3; i++) {
+      const m = rings[i].current;
+      if (!m) continue;
+      const dist = Math.abs(t - i);
+      m.opacity = 0.35 + Math.max(0, 1 - dist) * 0.55;
+    }
   });
 
   return (
-    <group ref={g} visible={visible} position={[0, 2.5, 0]}>
-      {[-3, 0, 3].map((x, i) => (
-        <mesh key={i} position={[x, 0, 0]}>
-          <boxGeometry args={[2, 1, 0.1]} />
-          <meshStandardMaterial
-            color={PALETTE.bgElev}
-            emissive={i === 1 ? PALETTE.accent : PALETTE.accent2}
-            emissiveIntensity={0.25 + (i === 1 ? progress * 0.4 : 0)}
-            metalness={0.4}
-            roughness={0.4}
-          />
-        </mesh>
+    <group ref={g} visible={visible}>
+      {[1.4, 2.0, 2.6].map((radius, i) => (
+        <group key={i} rotation={[Math.PI / 2.4, 0, 0]}>
+          <mesh>
+            <ringGeometry args={[radius - 0.04, radius, 96]} />
+            <meshBasicMaterial
+              ref={rings[i]}
+              color={i === 1 ? PALETTE.accent : PALETTE.accent2}
+              transparent
+              opacity={0.4}
+              side={THREE.DoubleSide}
+              toneMapped={false}
+            />
+          </mesh>
+          {/* stage planet */}
+          <mesh position={[radius, 0, 0]}>
+            <sphereGeometry args={[0.22, 20, 20]} />
+            <meshStandardMaterial
+              color={i === 1 ? PALETTE.accent : PALETTE.accent2}
+              emissive={i === 1 ? PALETTE.accent : PALETTE.accent2}
+              emissiveIntensity={0.6}
+              toneMapped={false}
+            />
+          </mesh>
+        </group>
       ))}
-      {/* connector arrows */}
-      {[-1.5, 1.5].map((x, i) => (
-        <mesh key={i} position={[x, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry args={[0.03, 0.03, 1, 8]} />
-          <meshBasicMaterial color={PALETTE.fgMuted} transparent opacity={0.7} />
-        </mesh>
-      ))}
+      {/* central master */}
+      <mesh>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.6} toneMapped={false} />
+      </mesh>
     </group>
   );
 }

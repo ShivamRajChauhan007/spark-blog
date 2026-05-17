@@ -10,44 +10,46 @@ interface Props {
   visible: boolean;
 }
 
-/** Scene 11 — a cluster spawns, hums with activity, then dissipates as progress crosses 0..1. */
-export function EphemeralCycle({ progress, visible }: Props) {
+/** Scene 11 — cluster materialises, hums, dissipates, on a continuous loop. */
+export function EphemeralCycle({ progress: _progress, visible }: Props) {
   const group = useRef<THREE.Group>(null);
-  const ringRef = useRef<THREE.Group>(null);
-
-  useFrame(() => {
-    if (!visible || !group.current) return;
-    // Spawn quickly to a stable size (no empty first-half), then dissolve at end.
-    const spawn = Math.min(1, progress / 0.15);
-    const work = Math.max(0, Math.min(1, (progress - 0.15) / 0.55));
-    const decay = Math.max(0, (progress - 0.75) / 0.25);
-    const baseScale = 0.4 + spawn * 0.6; // start at 0.4 so we're never invisible
-    const scale = baseScale * (1 - decay);
-    group.current.scale.setScalar(scale);
-    if (ringRef.current) ringRef.current.rotation.y += 0.01 + work * 0.05;
-  });
 
   const workers = useMemo(() => {
     return Array.from({ length: 4 }, (_, i) => {
       const a = (i / 4) * Math.PI * 2 + Math.PI / 4;
-      return { pos: new THREE.Vector3(Math.cos(a) * 2.2, 0, Math.sin(a) * 2.2), tint: WORKER_TINTS[i] };
+      return { pos: new THREE.Vector3(Math.cos(a) * 2.4, 0, Math.sin(a) * 2.4), tint: WORKER_TINTS[i] };
     });
   }, []);
+
+  useFrame((_state, dt) => {
+    if (!visible || !group.current) return;
+    const t = ((performance.now() * 0.00015) % 1);
+    // spawn 0..0.2, work 0.2..0.8, decay 0.8..1
+    const spawn = Math.min(1, t / 0.2);
+    const decay = Math.max(0, (t - 0.8) / 0.2);
+    const scale = (0.5 + spawn * 0.5) * (1 - decay);
+    group.current.scale.setScalar(scale);
+    group.current.rotation.y += dt * 0.18;
+  });
 
   return (
     <group ref={group} visible={visible}>
       <mesh>
-        <boxGeometry args={[0.7, 0.7, 0.7]} />
-        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.4} />
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.7} toneMapped={false} />
       </mesh>
-      <group ref={ringRef}>
-        {workers.map((w, i) => (
-          <mesh key={i} position={w.pos}>
-            <boxGeometry args={[0.55, 0.55, 0.55]} />
-            <meshStandardMaterial color={w.tint} emissive={w.tint} emissiveIntensity={0.3} />
+      {workers.map((w, i) => (
+        <group key={i} position={w.pos}>
+          <mesh>
+            <sphereGeometry args={[0.36, 24, 24]} />
+            <meshStandardMaterial color={w.tint} emissive={w.tint} emissiveIntensity={0.5} toneMapped={false} />
           </mesh>
-        ))}
-      </group>
+          <mesh>
+            <sphereGeometry args={[0.45, 24, 24]} />
+            <meshBasicMaterial color={w.tint} transparent opacity={0.12} toneMapped={false} depthWrite={false} />
+          </mesh>
+        </group>
+      ))}
     </group>
   );
 }

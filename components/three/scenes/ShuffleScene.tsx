@@ -21,16 +21,12 @@ interface Row {
   curveSeed: number;
 }
 
-/** Scene 8 — THE CENTERPIECE — the shuffle.
- * Rows physically arc between executors on Catmull-Rom curves.
- * Executors are labeled A/B/C/D so the reader can read "row from A to C".
- */
-export function ShuffleScene({ progress, visible }: Props) {
+/** Scene 8 — THE CENTERPIECE — the shuffle (rows arc between planet executors). */
+export function ShuffleScene({ progress: _progress, visible }: Props) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const tmpColor = useMemo(() => new THREE.Color(), []);
 
-  // Executor positions arranged as a square
   const execPos = useMemo(() => {
     return Array.from({ length: EXECUTORS }, (_, i) => {
       const a = (i / EXECUTORS) * Math.PI * 2 + Math.PI / 4;
@@ -64,16 +60,18 @@ export function ShuffleScene({ progress, visible }: Props) {
 
   useFrame(() => {
     if (!visible || !meshRef.current) return;
+    // local loop — full shuffle takes ~6s
+    const loop = (performance.now() * 0.00017) % 1;
     for (let i = 0; i < ROWS; i++) {
       const r = rows[i];
       const stagger = (i / ROWS) * 0.5;
-      const local = Math.max(0, Math.min(1, (progress - stagger) / 0.5));
+      const local = Math.max(0, Math.min(1, (loop - stagger) / 0.5));
       const e = local * local * (3 - 2 * local);
       const p = curves[i].getPointAt(e);
       dummy.position.copy(p);
       const inFlight = local > 0 && local < 1;
       const arc = inFlight ? Math.sin(local * Math.PI) : 0;
-      dummy.scale.setScalar(0.12 + arc * 0.18);
+      dummy.scale.setScalar(0.1 + arc * 0.14);
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
 
@@ -86,27 +84,29 @@ export function ShuffleScene({ progress, visible }: Props) {
 
   return (
     <group visible={visible}>
-      {/* executors as labeled cubes */}
       {execPos.map((p, i) => (
         <group key={i} position={p}>
           <mesh>
-            <boxGeometry args={[0.8, 0.8, 0.8]} />
-            <meshStandardMaterial color={WORKER_TINTS[i]} emissive={WORKER_TINTS[i]} emissiveIntensity={0.4} />
+            <sphereGeometry args={[0.45, 28, 28]} />
+            <meshStandardMaterial color={WORKER_TINTS[i]} emissive={WORKER_TINTS[i]} emissiveIntensity={0.55} toneMapped={false} />
+          </mesh>
+          <mesh>
+            <sphereGeometry args={[0.55, 28, 28]} />
+            <meshBasicMaterial color={WORKER_TINTS[i]} transparent opacity={0.14} toneMapped={false} depthWrite={false} />
           </mesh>
           <Text
-            position={[0, 0.85, 0]}
-            fontSize={0.45}
+            position={[0, 0.75, 0]}
+            fontSize={0.32}
             color="#f4f4f5"
             anchorX="center"
             anchorY="bottom"
-            outlineWidth={0.01}
+            outlineWidth={0.012}
             outlineColor="#08090e"
           >
             {EXECUTOR_LABELS[i]}
           </Text>
         </group>
       ))}
-      {/* flying rows */}
       <instancedMesh ref={meshRef} args={[undefined, undefined, ROWS]}>
         <sphereGeometry args={[1, 10, 10]} />
         <meshBasicMaterial color={PALETTE.fg} transparent opacity={0.95} toneMapped={false} />

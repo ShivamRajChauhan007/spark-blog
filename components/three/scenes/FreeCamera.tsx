@@ -1,6 +1,5 @@
 "use client";
 
-import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -10,31 +9,31 @@ interface Props {
   visible: boolean;
 }
 
-/**
- * Scene 12 — fly mode. Larger cluster than the hero (more workers + drifting
- * partition motes) so the finale rewards the scroller. OrbitControls hand-off.
- */
+/** Scene 12 — larger system: 8 planets + drifting partition motes. */
 export function FreeCamera({ visible }: Props) {
   const mote = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
+  const ring = useRef<THREE.Group>(null);
 
-  // 8 workers in two concentric rings — bigger than the hero (4)
   const workers = useMemo(() => {
-    const arr: Array<{ pos: THREE.Vector3; tint: THREE.Color }> = [];
+    const arr: Array<{ pos: THREE.Vector3; tint: THREE.Color; r: number }> = [];
     for (let i = 0; i < 8; i++) {
       const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
-      const r = i % 2 === 0 ? 3.5 : 5.5;
-      arr.push({ pos: new THREE.Vector3(Math.cos(a) * r, 0, Math.sin(a) * r), tint: WORKER_TINTS[i % 4] });
+      const r = i % 2 === 0 ? 3.5 : 5.0;
+      arr.push({
+        pos: new THREE.Vector3(Math.cos(a) * r, 0, Math.sin(a) * r),
+        tint: WORKER_TINTS[i % 4],
+        r
+      });
     }
     return arr;
   }, []);
 
-  // 200 drifting partition motes for atmosphere
   const motes = useMemo(() => {
-    return Array.from({ length: 200 }, (_, i) => ({
+    return Array.from({ length: 180 }, (_, i) => ({
       base: new THREE.Vector3(
         (Math.sin(i * 13.7) * 0.5 + 0.5) * 16 - 8,
-        (Math.sin(i * 7.3) * 0.5 + 0.5) * 6 - 1,
+        (Math.sin(i * 7.3) * 0.5 + 0.5) * 5 - 1,
         (Math.sin(i * 19.1) * 0.5 + 0.5) * 16 - 8
       ),
       phase: i * 0.137
@@ -53,37 +52,34 @@ export function FreeCamera({ visible }: Props) {
       mote.current.setMatrixAt(i, dummy.matrix);
     }
     mote.current.instanceMatrix.needsUpdate = true;
+    if (ring.current) ring.current.rotation.y += 0.0015;
   });
 
   return (
     <group visible={visible}>
-      {visible && (
-        <OrbitControls
-          enableDamping
-          dampingFactor={0.08}
-          minDistance={3}
-          maxDistance={30}
-          enablePan={true}
-          autoRotate
-          autoRotateSpeed={0.4}
-        />
-      )}
+      {/* central master */}
       <mesh>
-        <boxGeometry args={[1.0, 1.0, 1.0]} />
-        <meshStandardMaterial
-          color={PALETTE.accent}
-          emissive={PALETTE.accent}
-          emissiveIntensity={0.5}
-          metalness={0.4}
-          roughness={0.35}
-        />
+        <sphereGeometry args={[0.8, 36, 36]} />
+        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.6} toneMapped={false} />
       </mesh>
-      {workers.map((w, i) => (
-        <mesh key={i} position={w.pos}>
-          <boxGeometry args={[0.7, 0.7, 0.7]} />
-          <meshStandardMaterial color={w.tint} emissive={w.tint} emissiveIntensity={0.32} />
-        </mesh>
-      ))}
+      <mesh>
+        <sphereGeometry args={[1.0, 36, 36]} />
+        <meshBasicMaterial color={PALETTE.accent} transparent opacity={0.14} toneMapped={false} depthWrite={false} />
+      </mesh>
+      <group ref={ring}>
+        {workers.map((w, i) => (
+          <group key={i} position={w.pos}>
+            <mesh>
+              <sphereGeometry args={[0.42, 28, 28]} />
+              <meshStandardMaterial color={w.tint} emissive={w.tint} emissiveIntensity={0.45} toneMapped={false} />
+            </mesh>
+            <mesh>
+              <sphereGeometry args={[0.52, 28, 28]} />
+              <meshBasicMaterial color={w.tint} transparent opacity={0.12} toneMapped={false} depthWrite={false} />
+            </mesh>
+          </group>
+        ))}
+      </group>
       <instancedMesh ref={mote} args={[undefined, undefined, motes.length]}>
         <sphereGeometry args={[1, 6, 6]} />
         <meshBasicMaterial color={PALETTE.fgMuted} transparent opacity={0.5} toneMapped={false} />

@@ -2,11 +2,14 @@
 
 import { ReactNode } from "react";
 import { SceneMeta } from "@/lib/scenes";
+import { SceneCanvas } from "@/components/three/SceneCanvas";
 
 /**
- * One scroll section, ~200vh tall, holding the prose for a scene.
- * The 3D scene canvas is a sibling sticky element that listens to scroll
- * position globally — not a child here.
+ * One scroll section. Two-column on md+: prose on the left, interactive 3D
+ * scene on the right. Each canvas is its own r3f tree with OrbitControls,
+ * mounted lazily when the section enters viewport.
+ *
+ * On mobile: single column — canvas above prose. Reader scrolls naturally.
  */
 export function SceneSection({ scene, children }: { scene: SceneMeta; children?: ReactNode }) {
   return (
@@ -14,20 +17,28 @@ export function SceneSection({ scene, children }: { scene: SceneMeta; children?:
       id={`scene-${scene.id}`}
       data-scene-id={scene.id}
       data-scene-index={scene.index}
-      className={`relative mx-auto flex max-w-3xl items-start px-6 ${
-        scene.index >= 10 ? "min-h-[140vh] py-[30vh]" : "min-h-[180vh] py-[40vh]"
-      }`}
+      className="relative mx-auto max-w-6xl px-6 py-24 md:py-32"
     >
-      <div className="sticky top-[18vh] max-w-xl">
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-fg-muted)]">
-          {scene.kicker}
-        </p>
-        <h2 className="mb-6 font-serif text-4xl leading-[1.1] md:text-5xl">{scene.title}</h2>
-        <p className="text-lg leading-relaxed text-[var(--color-fg)] md:text-xl">{scene.body}</p>
-        <p className="mt-6 border-l-2 border-[var(--color-accent)] pl-4 font-serif text-base italic text-[var(--color-fg-muted)]">
-          {scene.concept}
-        </p>
-        {children}
+      <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16">
+        <div className="md:sticky md:top-24">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-fg-muted)]">
+            {scene.kicker}
+          </p>
+          <h2 className="mb-8 font-serif text-4xl leading-[1.08] md:text-5xl">{scene.title}</h2>
+          <div className="space-y-5 text-base leading-[1.7] text-[var(--color-fg)] md:text-lg">
+            {scene.body.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+          <p className="mt-8 border-l-2 border-[var(--color-accent)] pl-4 font-serif text-base italic text-[var(--color-fg-muted)]">
+            {scene.concept}
+          </p>
+          {children}
+        </div>
+
+        <div className="md:order-2">
+          <SceneCanvas scene={scene} />
+        </div>
       </div>
     </section>
   );

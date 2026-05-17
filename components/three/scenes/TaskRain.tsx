@@ -15,21 +15,21 @@ const TASKS = 80;
 interface TaskState {
   startT: number;
   duration: number;
-  worker: number; // 0..3
+  worker: number;
 }
 
-/** Scene 6 — tasks rain from the driver to the workers. */
+/** Scene 6 — task spheres rain from the master to the worker planets. */
 export function TaskRain({ progress, visible }: Props) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
+  const tmpColor = useMemo(() => new THREE.Color(), []);
 
-  // generate deterministic schedule
   const tasks = useMemo<TaskState[]>(() => {
     const arr: TaskState[] = [];
     for (let i = 0; i < TASKS; i++) {
       arr.push({
-        startT: (i / TASKS) * 0.85, // staggered
-        duration: 0.18 + ((i * 13) % 7) * 0.02,
+        startT: (i / TASKS) * 1.0,
+        duration: 0.22 + ((i * 13) % 7) * 0.02,
         worker: i % 4
       });
     }
@@ -39,31 +39,32 @@ export function TaskRain({ progress, visible }: Props) {
   const workerPos = useMemo(() => {
     return Array.from({ length: 4 }, (_, i) => {
       const a = (i / 4) * Math.PI * 2 + Math.PI / 4;
-      return new THREE.Vector3(Math.cos(a) * 3, 0, Math.sin(a) * 3);
+      return new THREE.Vector3(Math.cos(a) * 3.2, 0, Math.sin(a) * 3.2);
     });
   }, []);
 
   useFrame(() => {
     if (!visible || !meshRef.current) return;
+    // loop the rain animation locally so it always plays
+    const loop = (performance.now() * 0.0003) % 1;
     for (let i = 0; i < TASKS; i++) {
       const t = tasks[i];
-      const local = Math.max(0, Math.min(1, (progress - t.startT) / t.duration));
+      const local = Math.max(0, Math.min(1, (loop - t.startT) / t.duration));
       const e = local * local * (3 - 2 * local);
       const dest = workerPos[t.worker];
 
-      // origin at master (0,0,0), arc up then down to worker
       const x = 0 + (dest.x - 0) * e;
       const z = 0 + (dest.z - 0) * e;
-      const y = 1.6 * Math.sin(e * Math.PI) + 0.0; // arc
+      const y = 1.7 * Math.sin(e * Math.PI);
 
       dummy.position.set(x, y, z);
-      dummy.scale.setScalar(local === 0 || local === 1 ? 0 : 0.07);
+      const inFlight = local > 0 && local < 1;
+      dummy.scale.setScalar(inFlight ? 0.07 + Math.sin(local * Math.PI) * 0.04 : 0);
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
 
-      // colour: derive worker tint and write it
-      const c = WORKER_TINTS[t.worker];
-      meshRef.current.setColorAt(i, c);
+      tmpColor.copy(PALETTE.fg).lerp(WORKER_TINTS[t.worker], e);
+      meshRef.current.setColorAt(i, tmpColor);
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
@@ -73,20 +74,19 @@ export function TaskRain({ progress, visible }: Props) {
     <group visible={visible}>
       {/* master */}
       <mesh position={[0, 0, 0]}>
-        <boxGeometry args={[0.6, 0.6, 0.6]} />
-        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.4} />
+        <sphereGeometry args={[0.55, 32, 32]} />
+        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.7} toneMapped={false} />
       </mesh>
       {/* workers */}
       {workerPos.map((p, i) => (
         <mesh key={i} position={p}>
-          <boxGeometry args={[0.55, 0.55, 0.55]} />
-          <meshStandardMaterial color={WORKER_TINTS[i]} emissive={WORKER_TINTS[i]} emissiveIntensity={0.3} />
+          <sphereGeometry args={[0.45, 24, 24]} />
+          <meshStandardMaterial color={WORKER_TINTS[i]} emissive={WORKER_TINTS[i]} emissiveIntensity={0.5} toneMapped={false} />
         </mesh>
       ))}
-      {/* tasks */}
       <instancedMesh ref={meshRef} args={[undefined, undefined, TASKS]}>
-        <sphereGeometry args={[1, 8, 8]} />
-        <meshBasicMaterial color={PALETTE.fg} />
+        <sphereGeometry args={[1, 10, 10]} />
+        <meshBasicMaterial color={PALETTE.fg} toneMapped={false} />
       </instancedMesh>
     </group>
   );

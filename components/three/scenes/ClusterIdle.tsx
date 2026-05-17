@@ -10,20 +10,15 @@ interface Props {
   visible: boolean;
 }
 
-/**
- * Scene 1 — the idle cluster.
- * Master cube at origin, 4 worker cubes on a circle of radius 3.
- * Network "lines" are thin cylinders (avoids r3f v9 line-element JSX typing pain).
- * Scroll progress controls orbit speed: the cluster "wakes up" as you read.
- */
+/** Scene 1 — a small constellation: a glowing "sun" master + 4 planet workers. */
 export function ClusterIdle({ progress, visible }: Props) {
   const group = useRef<THREE.Group>(null);
-  const masterRef = useRef<THREE.MeshStandardMaterial>(null);
+  const masterMat = useRef<THREE.MeshStandardMaterial>(null);
 
   const workers = useMemo(() => {
     return Array.from({ length: 4 }, (_, i) => {
       const angle = (i / 4) * Math.PI * 2 + Math.PI / 4;
-      const r = 3;
+      const r = 3.2;
       return {
         position: new THREE.Vector3(Math.cos(angle) * r, 0, Math.sin(angle) * r),
         tint: WORKER_TINTS[i]
@@ -33,69 +28,65 @@ export function ClusterIdle({ progress, visible }: Props) {
 
   useFrame((_state, dt) => {
     if (!group.current) return;
-    if (visible) {
-      // orbit speed scales with progress: idle → awake
-      group.current.rotation.y += dt * (0.04 + progress * 0.18);
-    }
-    if (masterRef.current) {
-      // breathing emissive — the master "thinks"
-      masterRef.current.emissiveIntensity = 0.35 + Math.sin(performance.now() * 0.002) * 0.07 + progress * 0.2;
+    if (visible) group.current.rotation.y += dt * (0.06 + progress * 0.15);
+    if (masterMat.current) {
+      masterMat.current.emissiveIntensity = 0.7 + Math.sin(performance.now() * 0.002) * 0.1 + progress * 0.2;
     }
   });
 
   return (
     <group ref={group} visible={visible}>
-      {/* master */}
-      <mesh position={[0, 0, 0]} castShadow receiveShadow>
-        <boxGeometry args={[0.9, 0.9, 0.9]} />
-        <meshStandardMaterial
-          ref={masterRef}
-          color={PALETTE.accent}
-          emissive={PALETTE.accent}
-          emissiveIntensity={0.4}
-          metalness={0.4}
-          roughness={0.4}
-        />
-      </mesh>
-
+      {/* master "sun" */}
+      <Planet position={[0, 0, 0]} radius={0.7} color={PALETTE.accent} matRef={masterMat} core />
+      {/* worker "planets" */}
       {workers.map((w, i) => (
-        <WorkerNode key={i} position={w.position} tint={w.tint} />
+        <Planet key={i} position={[w.position.x, w.position.y, w.position.z]} radius={0.45} color={w.tint} />
       ))}
-
-      {/* floor grid */}
-      <mesh position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[20, 20, 20, 20]} />
-        <meshBasicMaterial color={PALETTE.line} wireframe transparent opacity={0.06} />
+      {/* faint orbital ring */}
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[3.1, 3.16, 96]} />
+        <meshBasicMaterial color={PALETTE.line} transparent opacity={0.25} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );
 }
 
-function WorkerNode({ position, tint }: { position: THREE.Vector3; tint: THREE.Color }) {
-  // distance from origin (master) for line length
-  const len = position.length();
-  // direction angle on Y axis
-  const angle = Math.atan2(position.x, position.z);
-
+/**
+ * Shared sphere "planet" with emissive core and a translucent atmosphere halo.
+ * No fancy shader — just two nested spheres + emissive material.
+ */
+export function Planet({
+  position,
+  radius,
+  color,
+  matRef,
+  core = false
+}: {
+  position: [number, number, number];
+  radius: number;
+  color: THREE.Color;
+  matRef?: React.RefObject<THREE.MeshStandardMaterial | null>;
+  core?: boolean;
+}) {
   return (
     <group position={position}>
-      <mesh castShadow receiveShadow>
-        <boxGeometry args={[0.7, 0.7, 0.7]} />
+      <mesh>
+        <sphereGeometry args={[radius, 32, 32]} />
         <meshStandardMaterial
-          color={tint}
-          emissive={tint}
-          emissiveIntensity={0.3}
-          metalness={0.35}
-          roughness={0.5}
+          ref={matRef}
+          color={color}
+          emissive={color}
+          emissiveIntensity={core ? 0.7 : 0.45}
+          metalness={0.15}
+          roughness={0.55}
+          toneMapped={false}
         />
       </mesh>
-      {/* network "cable" toward master — thin cylinder pointing along -position */}
-      <group rotation={[0, angle, 0]}>
-        <mesh position={[0, 0, -len / 2]} rotation={[Math.PI / 2, 0, 0]}>
-          <cylinderGeometry args={[0.012, 0.012, len, 8, 1]} />
-          <meshBasicMaterial color={PALETTE.fgMuted} transparent opacity={0.35} />
-        </mesh>
-      </group>
+      {/* atmosphere */}
+      <mesh>
+        <sphereGeometry args={[radius * 1.18, 32, 32]} />
+        <meshBasicMaterial color={color} transparent opacity={0.12} depthWrite={false} toneMapped={false} />
+      </mesh>
     </group>
   );
 }

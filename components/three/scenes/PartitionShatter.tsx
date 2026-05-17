@@ -10,44 +10,36 @@ interface Props {
   visible: boolean;
 }
 
-const N = 64; // visible partition cubes (we *say* 8000 in copy)
+const N = 80; // visible partition motes
 
-/** Scene 5 — the data prism shatters into N partitions. */
+/** Scene 5 — the comet has shattered into many small partition motes. */
 export function PartitionShatter({ progress, visible }: Props) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
-  // pre-compute target positions on a 4x4x4 cube grid centred at origin
   const targets = useMemo(() => {
-    const side = Math.ceil(Math.cbrt(N));
-    const ts: Array<[number, number, number]> = [];
-    for (let i = 0; i < N; i++) {
-      const x = i % side;
-      const y = Math.floor(i / side) % side;
-      const z = Math.floor(i / (side * side));
-      ts.push([(x - side / 2) * 0.45, (y - side / 2) * 0.45 + 0.5, (z - side / 2) * 0.45]);
-    }
-    return ts;
-  }, []);
-
-  // start positions: lined up as the prism, x from -3 to +3
-  const starts = useMemo(() => {
-    return Array.from({ length: N }, (_, i): [number, number, number] => [-3 + (i / N) * 6, 0, 0]);
+    return Array.from({ length: N }, (_, i) => {
+      // distribute on a roughly spherical cloud
+      const theta = (i * 12.9898) % (Math.PI * 2);
+      const phi = ((i * 78.233) % Math.PI) - Math.PI / 2;
+      const r = 2.5 + ((i * 31) % 11) * 0.08;
+      return new THREE.Vector3(
+        Math.cos(theta) * Math.cos(phi) * r,
+        Math.sin(phi) * r,
+        Math.sin(theta) * Math.cos(phi) * r
+      );
+    });
   }, []);
 
   useFrame(() => {
     if (!visible || !meshRef.current) return;
-    const t = progress;
+    const t = (Math.sin(performance.now() * 0.0003) * 0.5 + 0.5);
     const e = t * t * (3 - 2 * t);
     for (let i = 0; i < N; i++) {
-      const [sx, sy, sz] = starts[i];
-      const [tx, ty, tz] = targets[i];
-      const x = sx + (tx - sx) * e;
-      const y = sy + (ty - sy) * e;
-      const z = sz + (tz - sz) * e;
-      dummy.position.set(x, y, z);
-      dummy.rotation.set(t * 1.2 * ((i % 7) - 3) * 0.3, t * 1.4 * ((i % 5) - 2) * 0.3, 0);
-      const s = 0.22 - t * 0.04;
+      const target = targets[i];
+      const drift = Math.sin(performance.now() * 0.0008 + i * 0.7) * 0.05;
+      dummy.position.copy(target).multiplyScalar(e).addScalar(0).setY(target.y * e + drift);
+      const s = 0.06 + Math.sin(i * 0.3) * 0.02;
       dummy.scale.setScalar(s);
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
@@ -57,14 +49,23 @@ export function PartitionShatter({ progress, visible }: Props) {
 
   return (
     <group visible={visible}>
+      {/* central sun */}
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshStandardMaterial
+          color={PALETTE.accent}
+          emissive={PALETTE.accent}
+          emissiveIntensity={0.55}
+          toneMapped={false}
+        />
+      </mesh>
       <instancedMesh ref={meshRef} args={[undefined, undefined, N]}>
-        <boxGeometry args={[1, 1, 1]} />
+        <sphereGeometry args={[1, 12, 12]} />
         <meshStandardMaterial
           color={PALETTE.accent2}
           emissive={PALETTE.accent2}
-          emissiveIntensity={0.4}
-          metalness={0.45}
-          roughness={0.35}
+          emissiveIntensity={0.65}
+          toneMapped={false}
         />
       </instancedMesh>
     </group>
