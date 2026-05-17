@@ -18,10 +18,16 @@ export const EXPLAINERS: Record<SceneId, string> = {
     "For each partition, Spark generates one task. The driver hands tasks to executors as soon as they're free. With four executors at four cores each, sixteen tasks run concurrently. The other 7,984 are queued.",
   "narrow-vs-wide":
     "A narrow transformation — map, filter, select — operates on one partition at a time. A wide transformation — groupBy, join, distinct — requires rows with the same key to live in the same partition. The latter forces movement.",
+  joins:
+    "Four join strategies. Broadcast Hash (small × big, no shuffle on big side, the cheapest), Sort-Merge (big × big, full shuffle on both, default), Shuffle Hash (rare middle ground, AQE-picked), Broadcast Nested Loop (non-equi joins, O(N×M), the one to avoid). The hint priority Spark respects is BROADCAST > MERGE > SHUFFLE_HASH > SHUFFLE_REPLICATE_NL.",
   shuffle:
     "The shuffle is the single most expensive thing Spark does. Each row is hashed by its key, modulo the target partition count. Then every executor sends each row to the executor responsible for that target. Disk, network, serialization — all of it lights up at once.",
+  aqe:
+    "Adaptive Query Execution re-plans the query at runtime using actual statistics from completed shuffles. Three things happen: post-shuffle partitions get coalesced toward an advisory size of 64 MB; planned Sort-Merge Joins get switched to Broadcast Hash Joins if the build side turns out smaller than expected; and partitions that are both >5× the median and >256 MB get split into smaller pieces. On by default since Spark 3.2.",
   stages:
     "Spark cuts the execution plan at every shuffle boundary. The pieces between shuffles are called stages. Tasks within a stage can pipeline freely; tasks across stages cannot — the next stage can't start until all of its inputs have been shuffled into place.",
+  "machine-types":
+    "Dataproc supports E2 (cheap, dev), N2 (default), N2D (AMD, ~15% cheaper), C3 (Sapphire Rapids, fastest single-core), N4/N4D (newer Titanium platform), M1/M2 (memory beasts). The Spark workhorse is n2-highmem-8 — 8 vCPUs, 64 GB. Highmem matters because Spark caches partitions in RAM and OOMs come from memory pressure, not CPU starvation.",
   airflow:
     "Airflow is a directed-acyclic-graph scheduler. You write Python that builds a graph of tasks; Airflow runs the graph on a schedule, retries failures, and remembers everything. It does not run Spark. It tells someone else to run Spark.",
   ephemeral:

@@ -33,6 +33,23 @@ export function SceneSection({ scene, children }: { scene: SceneMeta; children?:
           <p className="mt-8 border-l-2 border-[var(--color-accent)] pl-4 font-serif text-base italic text-[var(--color-fg-muted)]">
             {scene.concept}
           </p>
+          {scene.sources && scene.sources.length > 0 && (
+            <ul className="mt-6 space-y-1 font-mono text-[11px] uppercase tracking-wider text-[var(--color-fg-muted)]">
+              {scene.sources.map((s) => (
+                <li key={s.href}>
+                  <span className="text-[var(--color-fg-muted)]/60">↗</span>{" "}
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-b border-dashed border-[var(--color-line)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
           {children}
         </div>
 
