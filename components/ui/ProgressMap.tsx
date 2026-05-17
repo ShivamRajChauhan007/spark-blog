@@ -1,15 +1,15 @@
 "use client";
 
 import { SCENES } from "@/lib/scenes";
-import { useActiveSceneIndex } from "@/lib/useScrollProgress";
+import { useActiveSection } from "@/lib/useActiveSection";
 
 /**
- * Vertical scroll mini-map on the right edge. One dot per scene; the active
- * scene's dot fills. Subscribes to the integer scene index — only re-renders
- * on scene change, not every frame.
+ * Vertical scroll mini-map on the right edge. Reads the IntersectionObserver-driven
+ * active section so the kicker label always matches the prose currently in view,
+ * even when the header consumes scrollable height.
  */
 export function ProgressMap() {
-  const index = useActiveSceneIndex(SCENES.length);
+  const index = useActiveSection();
 
   return (
     <nav

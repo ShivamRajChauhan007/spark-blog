@@ -17,11 +17,12 @@ export function EphemeralCycle({ progress, visible }: Props) {
 
   useFrame(() => {
     if (!visible || !group.current) return;
-    // phase 0..0.33 spawn, 0.33..0.66 work, 0.66..1.0 vaporize
-    const spawn = Math.min(1, progress / 0.33);
-    const work = Math.max(0, Math.min(1, (progress - 0.33) / 0.33));
-    const decay = Math.max(0, (progress - 0.66) / 0.34);
-    const scale = (spawn) * (1 - decay);
+    // Spawn quickly to a stable size (no empty first-half), then dissolve at end.
+    const spawn = Math.min(1, progress / 0.15);
+    const work = Math.max(0, Math.min(1, (progress - 0.15) / 0.55));
+    const decay = Math.max(0, (progress - 0.75) / 0.25);
+    const baseScale = 0.4 + spawn * 0.6; // start at 0.4 so we're never invisible
+    const scale = baseScale * (1 - decay);
     group.current.scale.setScalar(scale);
     if (ringRef.current) ringRef.current.rotation.y += 0.01 + work * 0.05;
   });

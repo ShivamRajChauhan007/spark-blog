@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useActiveSceneIndex } from "@/lib/useScrollProgress";
-import { SCENES } from "@/lib/scenes";
+import { useActiveSection } from "@/lib/useActiveSection";
 import { useAudio, type CueId } from "./AudioProvider";
 
 /**
@@ -26,7 +25,7 @@ const CUE_BY_SCENE: Record<number, CueId> = {
 };
 
 export function SceneCueDriver() {
-  const index = useActiveSceneIndex(SCENES.length);
+  const index = useActiveSection();
   const { playCue, setSceneAmbient } = useAudio();
 
   useEffect(() => {

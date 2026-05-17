@@ -17,6 +17,7 @@ import { EphemeralCycle } from "./scenes/EphemeralCycle";
 import { FreeCamera } from "./scenes/FreeCamera";
 import { CameraRig } from "@/components/scroll/CameraRig";
 import { useScrollProgress, activeScene } from "@/lib/useScrollProgress";
+import { useActiveSection } from "@/lib/useActiveSection";
 import { SCENES } from "@/lib/scenes";
 
 // Each scene is visible only on its OWN index — no neighbouring overlap.
@@ -38,7 +39,11 @@ const SCENE_RENDERERS = [
 
 export function SceneStage() {
   const progress = useScrollProgress();
-  const { index, local } = activeScene(progress, SCENES.length);
+  const sectionIndex = useActiveSection();
+  // 3D selection follows the section the reader is *actually* looking at,
+  // independent of the float scroll-progress that drives camera interpolation.
+  const { local } = activeScene(progress, SCENES.length);
+  const index = sectionIndex;
 
   const isFly = index === 11;
   // Stronger bloom around scenes that lean on emissive (shuffle, driver, airflow)
