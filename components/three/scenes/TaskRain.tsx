@@ -13,7 +13,11 @@ interface Props {
 
 const TASKS = 80;
 
-/** Scene 6 — labeled master + workers with task spheres raining between them. */
+/**
+ * Scene 6 — labeled master + workers with task spheres raining between them.
+ * Workers now FLASH when a task arrives, and a brief inner pulse simulates
+ * the executor "processing" before the next task lands.
+ */
 export function TaskRain({ progress: _progress, visible }: Props) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
@@ -34,9 +38,16 @@ export function TaskRain({ progress: _progress, visible }: Props) {
     });
   }, []);
 
+  // refs for worker materials — used to flash on task arrival
+  const workerMats = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
+  // last task arrival time per worker (seconds since start)
+  const lastArrival = useRef<number[]>([0, 0, 0, 0]);
+
   useFrame(() => {
     if (!visible || !meshRef.current) return;
+    const t0 = performance.now() * 0.001;
     const loop = (performance.now() * 0.0003) % 1;
+
     for (let i = 0; i < TASKS; i++) {
       const t = tasks[i];
       const local = Math.max(0, Math.min(1, (loop - t.startT) / t.duration));
@@ -52,9 +63,23 @@ export function TaskRain({ progress: _progress, visible }: Props) {
       meshRef.current.setMatrixAt(i, dummy.matrix);
       tmpColor.copy(PALETTE.fg).lerp(WORKER_TINTS[t.worker], e);
       meshRef.current.setColorAt(i, tmpColor);
+
+      // When a task "lands" (just past local=1), mark the worker as recently-hit.
+      if (local > 0.97 && local < 1) {
+        lastArrival.current[t.worker] = t0;
+      }
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
+
+    // Apply flash decay to each worker material
+    for (let w = 0; w < 4; w++) {
+      const m = workerMats.current[w];
+      if (!m) continue;
+      const since = t0 - lastArrival.current[w];
+      const flash = Math.max(0, 1 - since / 0.5);
+      m.emissiveIntensity = 0.5 + flash * 1.5;
+    }
   });
 
   return (
@@ -66,20 +91,26 @@ export function TaskRain({ progress: _progress, visible }: Props) {
       </mesh>
       <PlanetLabel position={[0, 0, 0]} text="DRIVER" offset={0.82} size={0.14} color="#f4cf9c" />
 
-      {/* workers */}
+      {/* workers — refs captured for flash effect */}
       {workerPos.map((p, i) => (
         <group key={i}>
           <mesh position={p}>
-            <sphereGeometry args={[0.45, 24, 24]} />
-            <meshStandardMaterial color={WORKER_TINTS[i]} emissive={WORKER_TINTS[i]} emissiveIntensity={0.55} toneMapped={false} />
+            <sphereGeometry args={[0.45, 28, 28]} />
+            <meshStandardMaterial
+              ref={(el) => {
+                workerMats.current[i] = el;
+              }}
+              color={WORKER_TINTS[i]}
+              emissive={WORKER_TINTS[i]}
+              emissiveIntensity={0.55}
+              toneMapped={false}
+            />
           </mesh>
-          <PlanetLabel
-            position={[p.x, p.y, p.z]}
-            text={`W${i + 1}`}
-            offset={0.7}
-            size={0.16}
-            color="#c8dfff"
-          />
+          <mesh position={p}>
+            <sphereGeometry args={[0.56, 28, 28]} />
+            <meshBasicMaterial color={WORKER_TINTS[i]} transparent opacity={0.13} toneMapped={false} depthWrite={false} />
+          </mesh>
+          <PlanetLabel position={[p.x, p.y, p.z]} text={`W${i + 1}`} offset={0.72} size={0.16} color="#c8dfff" />
         </group>
       ))}
 

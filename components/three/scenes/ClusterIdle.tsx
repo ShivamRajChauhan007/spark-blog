@@ -11,21 +11,23 @@ interface Props {
   visible: boolean;
 }
 
-/** Scene 1 — small constellation: master "sun" + 4 worker planets, labeled. */
+/**
+ * Scene 1 — small constellation: master "sun" + 4 worker planets, labeled.
+ * Workers now have a subtle activity pulse + small orbiting "core threads"
+ * so the cluster looks alive (computation happening).
+ */
 export function ClusterIdle({ progress, visible }: Props) {
   const group = useRef<THREE.Group>(null);
   const masterMat = useRef<THREE.MeshStandardMaterial>(null);
 
   const workers = useMemo(() => {
-    return Array.from({ length: 4 }, (_, i) => {
-      const angle = (i / 4) * Math.PI * 2 + Math.PI / 4;
-      const r = 3.2;
-      return {
-        position: [Math.cos(angle) * r, 0, Math.sin(angle) * r] as [number, number, number],
-        tint: WORKER_TINTS[i],
-        label: `WORKER ${i + 1}`
-      };
-    });
+    return Array.from({ length: 4 }, (_, i) => ({
+      angle: (i / 4) * Math.PI * 2 + Math.PI / 4,
+      r: 3.2,
+      tint: WORKER_TINTS[i],
+      label: `WORKER ${i + 1}`,
+      activityOffset: i * 0.7
+    }));
   }, []);
 
   useFrame((_state, dt) => {
@@ -40,35 +42,99 @@ export function ClusterIdle({ progress, visible }: Props) {
   return (
     <group ref={group} visible={visible}>
       {/* master "sun" */}
-      <Planet
-        position={[0, 0, 0]}
-        radius={0.7}
-        color={PALETTE.accent}
-        matRef={masterMat}
-        core
-      />
+      <Planet position={[0, 0, 0]} radius={0.7} color={PALETTE.accent} matRef={masterMat} core />
       <PlanetLabel position={[0, 0, 0]} text="MASTER" offset={1.05} size={0.2} color="#f4cf9c" />
-      {/* dust ring around the sun */}
       <DustRing radius={1.15} count={60} color={PALETTE.accent} thickness={0.04} speed={0.25} />
 
       {/* worker "planets" */}
       {workers.map((w, i) => (
-        <group key={i}>
-          <Planet position={w.position} radius={0.45} color={w.tint} />
-          <PlanetLabel
-            position={w.position}
-            text={w.label}
-            offset={0.72}
-            size={0.15}
-            color="#c8dfff"
-          />
-        </group>
+        <ActiveWorker
+          key={i}
+          angle={w.angle}
+          orbitRadius={w.r}
+          tint={w.tint}
+          label={w.label}
+          phase={w.activityOffset}
+        />
       ))}
+
       {/* faint orbital ring */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <ringGeometry args={[3.1, 3.18, 128]} />
         <meshBasicMaterial color={PALETTE.line} transparent opacity={0.35} side={THREE.DoubleSide} />
       </mesh>
+    </group>
+  );
+}
+
+function ActiveWorker({
+  angle,
+  orbitRadius,
+  tint,
+  label,
+  phase
+}: {
+  angle: number;
+  orbitRadius: number;
+  tint: THREE.Color;
+  label: string;
+  phase: number;
+}) {
+  const mat = useRef<THREE.MeshStandardMaterial>(null);
+  const threads = useRef<THREE.Group>(null);
+  const position: [number, number, number] = [
+    Math.cos(angle) * orbitRadius,
+    0,
+    Math.sin(angle) * orbitRadius
+  ];
+
+  useFrame((_state, dt) => {
+    // pulsing activity — random-looking but deterministic per-worker
+    if (mat.current) {
+      const t = performance.now() * 0.001 + phase;
+      const burst = Math.max(0, Math.sin(t * 1.4)) * 0.4;
+      mat.current.emissiveIntensity = 0.45 + burst;
+    }
+    if (threads.current) threads.current.rotation.y += dt * 2.2;
+  });
+
+  return (
+    <group position={position}>
+      <mesh>
+        <sphereGeometry args={[0.45, 32, 32]} />
+        <meshStandardMaterial
+          ref={mat}
+          color={tint}
+          emissive={tint}
+          emissiveIntensity={0.5}
+          metalness={0.15}
+          roughness={0.5}
+          toneMapped={false}
+        />
+      </mesh>
+      <mesh>
+        <sphereGeometry args={[0.55, 32, 32]} />
+        <meshBasicMaterial color={tint} transparent opacity={0.14} depthWrite={false} toneMapped={false} />
+      </mesh>
+      <mesh>
+        <sphereGeometry args={[0.65, 32, 32]} />
+        <meshBasicMaterial color={tint} transparent opacity={0.06} depthWrite={false} toneMapped={false} />
+      </mesh>
+
+      {/* fast inner thread ring */}
+      <group ref={threads}>
+        {Array.from({ length: 6 }).map((_, i) => {
+          const a = (i / 6) * Math.PI * 2;
+          return (
+            <mesh key={i} position={[Math.cos(a) * 0.55, 0, Math.sin(a) * 0.55]}>
+              <sphereGeometry args={[0.025, 8, 8]} />
+              <meshBasicMaterial color={tint} transparent opacity={0.9} toneMapped={false} />
+            </mesh>
+          );
+        })}
+      </group>
+
+      <PlanetLabel position={[0, 0, 0]} text={label} offset={0.78} size={0.14} color="#c8dfff" />
     </group>
   );
 }
