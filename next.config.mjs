@@ -2,13 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Next 16 uses Turbopack by default — leave it alone.
+  turbopack: {},
   experimental: {
-    optimizePackageImports: ["lucide-react", "@react-three/drei"]
-  },
-  webpack: (config) => {
-    // shiki uses esm.sh-style imports
-    config.module.rules.push({ test: /\.wasm$/, type: "asset/resource" });
-    return config;
+    optimizePackageImports: ["lucide-react"]
   }
 };
 export default nextConfig;
