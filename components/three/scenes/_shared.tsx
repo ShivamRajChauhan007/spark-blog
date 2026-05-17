@@ -6,10 +6,13 @@ import { ReactNode, useRef } from "react";
 import * as THREE from "three";
 
 /**
- * Shared font URL — one SDF atlas across all scenes (drei caches by URL).
- * Geist Mono is loaded by the page anyway, so the network cost is amortised.
+ * No custom font URL — drei <Text> falls back to its bundled default font
+ * when `font` is omitted. The earlier Geist Mono URL was a 404 on the dev
+ * network (corp proxy) which stalled SDF atlas creation and made the entire
+ * 3D scene panel render blank. Don't bring it back without confirming the
+ * URL is reachable from the dev environment.
  */
-const FONT_MONO = "https://fonts.gstatic.com/s/geistmono/v3/or3yQ6H-1_WfwkMZI_qYPLs1ZjOQ-tIH.woff2";
+const FONT_MONO: string | undefined = undefined;
 
 /** Floating planet/element label that always faces the camera. Adapts to mobile. */
 export function PlanetLabel({
@@ -88,7 +91,7 @@ export function InfoCard({
         color={color}
         anchorX="center"
         anchorY="middle"
-        font={FONT_MONO}
+        {...(FONT_MONO ? { font: FONT_MONO } : {})}
         letterSpacing={0.04}
         maxWidth={cardW - 0.2}
       >
@@ -101,7 +104,7 @@ export function InfoCard({
           color="#d2d2d6"
           anchorX="center"
           anchorY="middle"
-          font={FONT_MONO}
+          {...(FONT_MONO ? { font: FONT_MONO } : {})}
           letterSpacing={0.02}
           maxWidth={cardW - 0.2}
         >
@@ -175,7 +178,7 @@ export function CodePanel({
           color="#eaeaf0"
           anchorX="left"
           anchorY="middle"
-          font={FONT_MONO}
+          {...(FONT_MONO ? { font: FONT_MONO } : {})}
           letterSpacing={0.02}
           maxWidth={width - padding * 2}
         >

@@ -1,0 +1,197 @@
+{
+  "url": "http://localhost:3737/spark",
+  "title": "Build a Spark cluster you can fly through — spark-blog",
+  "scrollY": 0,
+  "docHeight": 20665,
+  "viewport": {
+    "w": 1440,
+    "h": 900
+  },
+  "h1": {
+    "text": "Build a Spark cluster you can fly through.",
+    "y": 168,
+    "bottom": 363.8125,
+    "width": 848,
+    "height": 195.8125,
+    "display": "block",
+    "visibility": "visible",
+    "opacity": "1",
+    "color": "lab(95.3538 -0.497073 -1.81031)"
+  },
+  "canvasCount": 1,
+  "canvases": [
+    {
+      "w": 518,
+      "h": 648,
+      "cssW": 518,
+      "cssH": 648,
+      "top": 728.8125,
+      "left": 753,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  ],
+  "sceneCount": 16,
+  "sections": [
+    {
+      "id": "hero",
+      "width": 1152,
+      "height": 1202.078125,
+      "top": 599.8125,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "anatomy",
+      "width": 1152,
+      "height": 1324.265625,
+      "top": 1801.890625,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "driver",
+      "width": 1152,
+      "height": 1079.703125,
+      "top": 3126.15625,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "data-arrival",
+      "width": 1152,
+      "height": 957.328125,
+      "top": 4205.859375,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "action-trigger",
+      "width": 1152,
+      "height": 1059.015625,
+      "top": 5163.1875,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "partitions",
+      "width": 1152,
+      "height": 1242.578125,
+      "top": 6222.203125,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "task-rain",
+      "width": 1152,
+      "height": 1110.296875,
+      "top": 7464.78125,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "narrow-vs-wide",
+      "width": 1152,
+      "height": 1232.671875,
+      "top": 8575.078125,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "joins",
+      "width": 1152,
+      "height": 1674.703125,
+      "top": 9807.75,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "shuffle",
+      "width": 1152,
+      "height": 1314.671875,
+      "top": 11482.453125,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "aqe",
+      "width": 1152,
+      "height": 1467.875,
+      "top": 12797.125,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "stages",
+      "width": 1152,
+      "height": 987.921875,
+      "top": 14265,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "machine-types",
+      "width": 1152,
+      "height": 1446.640625,
+      "top": 15252.921875,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "airflow",
+      "width": 1152,
+      "height": 1329.703125,
+      "top": 16699.5625,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "ephemeral",
+      "width": 1152,
+      "height": 1354.859375,
+      "top": 18029.265625,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    },
+    {
+      "id": "fly",
+      "width": 1152,
+      "height": 957.328125,
+      "top": 19384.125,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1"
+    }
+  ],
+  "visibleTextSamples": [
+    "♪ off",
+    "scroll to begin",
+    "spark-blog · scrolling explainer",
+    "Build a Spark cluster",
+    "you can fly through.",
+    "Twelve scenes about Apache Spark on Google Dataproc, orchestrated by Apache Airflow. Each scene is a small interactive p",
+    "In the school of Bartosz Ciechanowski. With 2026 tools.",
+    "01 · The cluster",
+    "A cluster, asleep.",
+    "It is two in the morning. Somewhere in a Google data center, a handful of virtual machines hum at idle. One of them is t",
+    "✦ explain this"
+  ],
+  "bodyBg": "lab(2.46293 -0.424452 -2.43543)",
+  "htmlBg": "lab(2.46293 -0.424452 -2.43543)"
+}

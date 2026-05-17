@@ -1,0 +1,101 @@
+[
+  {
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+    "location": {
+      "url": "http://localhost:3737/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+      "line": 2477,
+      "column": 27,
+      "lineNumber": 2477,
+      "columnNumber": 27
+    }
+  },
+  {
+    "type": "log",
+    "text": "[HMR] connected",
+    "location": {
+      "url": "http://localhost:3737/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+      "line": 2477,
+      "column": 27,
+      "lineNumber": 2477,
+      "columnNumber": 27
+    }
+  },
+  {
+    "type": "error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "location": {
+      "url": "http://localhost:3737/favicon.ico",
+      "line": 0,
+      "column": 0,
+      "lineNumber": 0,
+      "columnNumber": 0
+    }
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "location": {
+      "url": "http://localhost:3737/_next/static/chunks/node_modules_next_dist_115brz8._.js",
+      "line": 2477,
+      "column": 27,
+      "lineNumber": 2477,
+      "columnNumber": 27
+    }
+  },
+  {
+    "type": "debug",
+    "text": "unsupported GPOS table LookupType 8 format 2",
+    "location": {
+      "url": "blob:http://localhost:3737/85d5495b-35a6-41d9-a7a8-d06031a45852",
+      "line": 933,
+      "column": 24,
+      "lineNumber": 933,
+      "columnNumber": 24
+    }
+  },
+  {
+    "type": "debug",
+    "text": "unsupported GPOS table LookupType 5 format 1",
+    "location": {
+      "url": "blob:http://localhost:3737/85d5495b-35a6-41d9-a7a8-d06031a45852",
+      "line": 933,
+      "column": 24,
+      "lineNumber": 933,
+      "columnNumber": 24
+    }
+  },
+  {
+    "type": "debug",
+    "text": "unsupported GSUB table LookupType 6 format 2",
+    "location": {
+      "url": "blob:http://localhost:3737/85d5495b-35a6-41d9-a7a8-d06031a45852",
+      "line": 1021,
+      "column": 24,
+      "lineNumber": 1021,
+      "columnNumber": 24
+    }
+  },
+  {
+    "type": "debug",
+    "text": "unsupported GSUB table LookupType 6 format 1",
+    "location": {
+      "url": "blob:http://localhost:3737/85d5495b-35a6-41d9-a7a8-d06031a45852",
+      "line": 1021,
+      "column": 24,
+      "lineNumber": 1021,
+      "columnNumber": 24
+    }
+  },
+  {
+    "type": "error",
+    "text": "Failure loading font https://fonts.gstatic.com/s/geistmono/v3/or3yQ6H-1_WfwkMZI_qYPLs1ZjOQ-tIH.woff2 Error\n    at request.onload (blob:http://localhost:3737/8dd5d02d-4884-4f60-acab-fb57413885e9:24:29)",
+    "location": {
+      "url": "blob:http://localhost:3737/8dd5d02d-4884-4f60-acab-fb57413885e9",
+      "line": 15,
+      "column": 20,
+      "lineNumber": 15,
+      "columnNumber": 20
+    }
+  }
+]
