@@ -131,6 +131,6 @@ export const SCENES: SceneMeta[] = [
     kicker: "12 · Fly mode",
     concept: "Take the controls.",
     body:
-      "You have watched it all happen on rails. Take the camera. WASD to move, mouse to look. There are eight thousand partitions out there if you can find them."
+      "You have watched it all happen on rails. Take the camera. Drag to orbit, scroll to zoom, right-click to pan. The cluster you've been reading about is sitting there, waiting."
   }
 ];

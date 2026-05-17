@@ -92,8 +92,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         else if (cue === "shatter") c.triggerAttackRelease("8n");
         else if (cue === "whoosh") c.triggerAttackRelease("4n");
         else if (cue === "thunder") c.triggerAttackRelease("2n");
-      } catch {
-        // tone context not started yet; ignore
+      } catch (e) {
+        if (process.env.NODE_ENV !== "production") console.debug("audio cue failed", cue, e);
       }
     },
     [enabled]
@@ -109,8 +109,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       try {
         r.pad.releaseAll();
         r.pad.triggerAttack([note, "G2"]);
-      } catch {
-        // ignore
+      } catch (e) {
+        if (process.env.NODE_ENV !== "production") console.debug("ambient pad failed", e);
       }
     },
     [enabled]

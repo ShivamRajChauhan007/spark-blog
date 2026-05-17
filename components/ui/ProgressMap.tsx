@@ -1,15 +1,15 @@
 "use client";
 
 import { SCENES } from "@/lib/scenes";
-import { activeScene, useScrollProgress } from "@/lib/useScrollProgress";
+import { useActiveSceneIndex } from "@/lib/useScrollProgress";
 
 /**
  * Vertical scroll mini-map on the right edge. One dot per scene; the active
- * scene's dot fills. Inactive dots are now visible at rest (was the phaseA bug).
+ * scene's dot fills. Subscribes to the integer scene index — only re-renders
+ * on scene change, not every frame.
  */
 export function ProgressMap() {
-  const progress = useScrollProgress();
-  const { index } = activeScene(progress, SCENES.length);
+  const index = useActiveSceneIndex(SCENES.length);
 
   return (
     <nav

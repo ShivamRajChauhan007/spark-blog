@@ -27,8 +27,8 @@ const WAYPOINTS: Array<{ pos: [number, number, number]; look: [number, number, n
   { pos: [4.5, 2.4, 5.5], look: [0, 0, 0] },
   // narrow vs wide — split view, side angle
   { pos: [-5.5, 1.5, 4.5], look: [0, 0, 0] },
-  // shuffle — high overview to read the arcs
-  { pos: [0, 8.5, 6.5], look: [0, 0, 0] },
+  // shuffle — oblique angle so arcs read as horizontal motion, not falling
+  { pos: [6.2, 4.4, 6.2], look: [0, 0.4, 0] },
   // stages — tilt slightly to read the floating DAG
   { pos: [0, 4.2, 7.5], look: [0, 1.5, 0] },
   // airflow — pull way out

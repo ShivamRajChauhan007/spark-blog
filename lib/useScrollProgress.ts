@@ -67,3 +67,34 @@ export function activeScene(p: number, sceneCount: number) {
   const local = Math.min(1, Math.max(0, (p - idx * span) / span));
   return { index: idx, local };
 }
+
+/**
+ * For consumers that only need the integer scene index (ProgressMap, ExplainerSidebar,
+ * SceneCueDriver). Cheaper than `useScrollProgress()` — re-renders only on scene change,
+ * not every frame.
+ */
+let _cachedIndex = 0;
+const _indexListeners = new Set<() => void>();
+function _indexSubscribe(cb: () => void) {
+  // Piggy-back on the main scroll subscriber, but only fire if the integer scene changes.
+  return subscribe(() => {
+    const sceneCount = (window as unknown as { __SPARK_SCENE_COUNT__?: number }).__SPARK_SCENE_COUNT__ ?? 12;
+    const span = 1 / sceneCount;
+    const idx = Math.min(sceneCount - 1, Math.max(0, Math.floor(progress / span)));
+    if (idx !== _cachedIndex) {
+      _cachedIndex = idx;
+      _indexListeners.forEach((l) => l());
+    }
+    cb(); // chain — but consumer will only re-render if their snapshot changed
+  });
+}
+function _indexGetSnapshot() {
+  return _cachedIndex;
+}
+
+export function useActiveSceneIndex(sceneCount = 12) {
+  if (typeof window !== "undefined") {
+    (window as unknown as { __SPARK_SCENE_COUNT__?: number }).__SPARK_SCENE_COUNT__ = sceneCount;
+  }
+  return useSyncExternalStore(_indexSubscribe, _indexGetSnapshot, () => 0);
+}

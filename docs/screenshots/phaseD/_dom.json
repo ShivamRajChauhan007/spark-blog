@@ -1,0 +1,446 @@
+{
+  "viewport": {
+    "w": 1440,
+    "h": 900
+  },
+  "scrollY": 0,
+  "scrollHeight": 20336,
+  "h1": {
+    "text": "Build a Spark cluster you can fly through.",
+    "rect": {
+      "x": 360,
+      "y": 168,
+      "w": 720,
+      "h": 195.8125
+    },
+    "inViewport": true
+  },
+  "header": {
+    "rect": {
+      "x": 336,
+      "y": 0,
+      "w": 768,
+      "h": 571.8125
+    }
+  },
+  "firstH2": {
+    "text": "A cluster, asleep.",
+    "rect": {
+      "x": 360,
+      "y": 963.8125,
+      "w": 576,
+      "h": 52.796875
+    }
+  },
+  "articleStack": {
+    "position": "relative",
+    "zIndex": "10",
+    "tag": "div"
+  },
+  "sceneCanvasNodes": [
+    {
+      "position": "fixed",
+      "zIndex": "0",
+      "inset": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      },
+      "height": "900px",
+      "width": "1440px",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      }
+    }
+  ],
+  "canvasNodes": [
+    {
+      "w": 1440,
+      "h": 900,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      }
+    }
+  ],
+  "bodyBg": "lab(2.46293 -0.424452 -2.43543)",
+  "htmlBg": "lab(2.46293 -0.424452 -2.43543)",
+  "allH2": [
+    {
+      "text": "A cluster, asleep.",
+      "y": 963.8125
+    },
+    {
+      "text": "Inside a worker.",
+      "y": 2583.8125
+    },
+    {
+      "text": "The driver wakes.",
+      "y": 4203.8125
+    },
+    {
+      "text": "A terabyte arrives.",
+      "y": 5823.8125
+    },
+    {
+      "text": "Eight thousand pieces.",
+      "y": 7443.8125
+    },
+    {
+      "text": "Tasks, in parallel.",
+      "y": 9063.8125
+    },
+    {
+      "text": "Two kinds of work.",
+      "y": 10683.8125
+    },
+    {
+      "text": "The shuffle.",
+      "y": 12303.8125
+    },
+    {
+      "text": "Stages, drawn on the air.",
+      "y": 13923.8125
+    },
+    {
+      "text": "A scheduler, above.",
+      "y": 15543.8125
+    },
+    {
+      "text": "Born at 02:00, gone by 02:12.",
+      "y": 17163.8125
+    },
+    {
+      "text": "Your cluster, your camera.",
+      "y": 18783.8125
+    }
+  ],
+  "proseCards": [
+    {
+      "position": "static",
+      "top": "auto",
+      "rect": {
+        "y": 963.8125,
+        "h": 52.796875
+      },
+      "tag": "h2",
+      "cls": "mb-6 font-serif text-4xl leading-[1.1] md:text-5xl"
+    },
+    {
+      "position": "static",
+      "top": "auto",
+      "rect": {
+        "y": 1194.609375,
+        "h": 24
+      },
+      "tag": "p",
+      "cls": "mt-6 border-l-2 border-[var(--color-accent)] pl-4 font-serif text-base italic text-[var(--color-fg-muted)]"
+    },
+    {
+      "position": "static",
+      "top": "auto",
+      "rect": {
+        "y": 2583.8125,
+        "h": 52.796875
+      },
+      "tag": "h2",
+      "cls": "mb-6 font-serif text-4xl leading-[1.1] md:text-5xl"
+    },
+    {
+      "position": "static",
+      "top": "auto",
+      "rect": {
+        "y": 2847.109375,
+        "h": 24
+      },
+      "tag": "p",
+      "cls": "mt-6 border-l-2 border-[var(--color-accent)] pl-4 font-serif text-base italic text-[var(--color-fg-muted)]"
+    },
+    {
+      "position": "static",
+      "top": "auto",
+      "rect": {
+        "y": 4203.8125,
+        "h": 52.796875
+      },
+      "tag": "h2",
+      "cls": "mb-6 font-serif text-4xl leading-[1.1] md:text-5xl"
+    },
+    {
+      "position": "static",
+      "top": "auto",
+      "rect": {
+        "y": 4434.609375,
+        "h": 24
+      },
+      "tag": "p",
+      "cls": "mt-6 border-l-2 border-[var(--color-accent)] pl-4 font-serif text-base italic text-[var(--color-fg-muted)]"
+    }
+  ],
+  "sectionMetrics": [
+    {
+      "id": "scene-hero",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-anatomy",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-driver",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-data-arrival",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-partitions",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-task-rain",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-narrow-vs-wide",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-shuffle",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-stages",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-airflow",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-ephemeral",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "scene-fly",
+      "height": 1620,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    }
+  ],
+  "sceneStateRecords": [
+    {
+      "label": "scroll-0",
+      "scrollY": 0,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "visibleSections": [
+        {
+          "id": "scene-hero",
+          "ariaLabel": null,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "height": 1620,
+          "inViewport": true
+        }
+      ],
+      "visibleH2s": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep."
+    },
+    {
+      "label": "scroll-0.5-of-scrollHeight",
+      "scrollY": 10168,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "visibleSections": [
+        {
+          "id": "scene-task-rain",
+          "ariaLabel": null,
+          "top": -1496.1875,
+          "bottom": 123.8125,
+          "height": 1620,
+          "inViewport": true
+        },
+        {
+          "id": "scene-narrow-vs-wide",
+          "ariaLabel": null,
+          "top": 123.8125,
+          "bottom": 1743.8125,
+          "height": 1620,
+          "inViewport": true
+        }
+      ],
+      "visibleH2s": [
+        {
+          "text": "Two kinds of work.",
+          "y": 515.8125,
+          "inViewport": true
+        }
+      ],
+      "activeKicker": "Jump to scene 7: Two kinds of work."
+    },
+    {
+      "label": "pct-50",
+      "scrollY": 9718,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "visibleSections": [
+        {
+          "id": "scene-task-rain",
+          "ariaLabel": null,
+          "top": -1046.1875,
+          "bottom": 573.8125,
+          "height": 1620,
+          "inViewport": true
+        },
+        {
+          "id": "scene-narrow-vs-wide",
+          "ariaLabel": null,
+          "top": 573.8125,
+          "bottom": 2193.8125,
+          "height": 1620,
+          "inViewport": true
+        }
+      ],
+      "visibleH2s": [],
+      "activeKicker": "Jump to scene 7: Two kinds of work."
+    },
+    {
+      "label": "pct-58",
+      "scrollY": 11273,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "visibleSections": [
+        {
+          "id": "scene-narrow-vs-wide",
+          "ariaLabel": null,
+          "top": -981.1875,
+          "bottom": 638.8125,
+          "height": 1620,
+          "inViewport": true
+        },
+        {
+          "id": "scene-shuffle",
+          "ariaLabel": null,
+          "top": 638.8125,
+          "bottom": 2258.8125,
+          "height": 1620,
+          "inViewport": true
+        }
+      ],
+      "visibleH2s": [
+        {
+          "text": "Two kinds of work.",
+          "y": 24.015625,
+          "inViewport": true
+        }
+      ],
+      "activeKicker": "Jump to scene 7: Two kinds of work."
+    },
+    {
+      "label": "pct-66",
+      "scrollY": 12828,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "visibleSections": [
+        {
+          "id": "scene-shuffle",
+          "ariaLabel": null,
+          "top": -916.1875,
+          "bottom": 703.8125,
+          "height": 1620,
+          "inViewport": true
+        },
+        {
+          "id": "scene-stages",
+          "ariaLabel": null,
+          "top": 703.8125,
+          "bottom": 2323.8125,
+          "height": 1620,
+          "inViewport": true
+        }
+      ],
+      "visibleH2s": [],
+      "activeKicker": "Jump to scene 8: The shuffle."
+    },
+    {
+      "label": "pct-75",
+      "scrollY": 14577,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "visibleSections": [
+        {
+          "id": "scene-stages",
+          "ariaLabel": null,
+          "top": -1045.1875,
+          "bottom": 574.8125,
+          "height": 1620,
+          "inViewport": true
+        },
+        {
+          "id": "scene-airflow",
+          "ariaLabel": null,
+          "top": 574.8125,
+          "bottom": 2194.8125,
+          "height": 1620,
+          "inViewport": true
+        }
+      ],
+      "visibleH2s": [],
+      "activeKicker": "Jump to scene 10: A scheduler, above."
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { EXPLAINERS } from "./stubExplanations";
 import { SceneId, SCENES } from "@/lib/scenes";
-import { activeScene, useScrollProgress } from "@/lib/useScrollProgress";
+import { useActiveSceneIndex } from "@/lib/useScrollProgress";
 
 /**
  * Floating right-rail explainer. Tracks current scene; toggle reveals
@@ -11,12 +11,11 @@ import { activeScene, useScrollProgress } from "@/lib/useScrollProgress";
  * AI call. The panel uses role="dialog" semantics, traps focus, and closes on Esc.
  */
 export function ExplainerSidebar() {
-  const progress = useScrollProgress();
+  const index = useActiveSceneIndex(SCENES.length);
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  const { index } = activeScene(progress, SCENES.length);
   const scene = SCENES[index];
   const sceneId: SceneId = scene.id;
   const text = EXPLAINERS[sceneId];

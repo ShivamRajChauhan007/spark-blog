@@ -14,7 +14,9 @@ export function SceneSection({ scene, children }: { scene: SceneMeta; children?:
       id={`scene-${scene.id}`}
       data-scene-id={scene.id}
       data-scene-index={scene.index}
-      className="relative mx-auto flex min-h-[180vh] max-w-3xl items-start px-6 py-[40vh]"
+      className={`relative mx-auto flex max-w-3xl items-start px-6 ${
+        scene.index >= 10 ? "min-h-[140vh] py-[30vh]" : "min-h-[180vh] py-[40vh]"
+      }`}
     >
       <div className="sticky top-[18vh] max-w-xl">
         <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-fg-muted)]">

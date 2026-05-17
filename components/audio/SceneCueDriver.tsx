@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { activeScene, useScrollProgress } from "@/lib/useScrollProgress";
+import { useEffect } from "react";
+import { useActiveSceneIndex } from "@/lib/useScrollProgress";
 import { SCENES } from "@/lib/scenes";
 import { useAudio, type CueId } from "./AudioProvider";
 
 /**
  * Watches scroll-driven scene transitions and fires a one-shot audio cue
- * every time the active scene index changes. Lives invisibly inside the
- * article tree so it can read scroll position.
+ * every time the active scene index changes. Subscribes to integer index
+ * so re-renders only happen on scene change.
  */
 const CUE_BY_SCENE: Record<number, CueId> = {
   0: "chord", // hero
@@ -26,19 +26,14 @@ const CUE_BY_SCENE: Record<number, CueId> = {
 };
 
 export function SceneCueDriver() {
-  const progress = useScrollProgress();
+  const index = useActiveSceneIndex(SCENES.length);
   const { playCue, setSceneAmbient } = useAudio();
-  const lastIndex = useRef(-1);
 
   useEffect(() => {
-    const { index } = activeScene(progress, SCENES.length);
-    if (index !== lastIndex.current) {
-      lastIndex.current = index;
-      setSceneAmbient(index);
-      const cue = CUE_BY_SCENE[index];
-      if (cue) playCue(cue);
-    }
-  }, [progress, playCue, setSceneAmbient]);
+    setSceneAmbient(index);
+    const cue = CUE_BY_SCENE[index];
+    if (cue) playCue(cue);
+  }, [index, playCue, setSceneAmbient]);
 
   return null;
 }
