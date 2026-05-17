@@ -10,7 +10,7 @@ import { Sandpack } from "@codesandbox/sandpack-react";
  */
 export function LiveSandpack() {
   return (
-    <div className="my-12 overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-bg-elev)]/60 backdrop-blur">
+    <div className="my-8 max-w-md overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-bg-elev)]/85 shadow-2xl backdrop-blur">
       <div className="border-b border-[var(--color-line)] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-fg-muted)]">
         live · pyspark-flavoured · edit and run
       </div>
@@ -47,7 +47,13 @@ export function LiveSandpack() {
           }
         }}
         template="vanilla-ts"
-        options={{ showLineNumbers: true, showTabs: false, editorHeight: 240 }}
+        options={{
+          showLineNumbers: true,
+          showTabs: false,
+          editorHeight: 200,
+          showConsole: false,
+          showConsoleButton: false
+        }}
         files={{
           "/index.ts": `// Pretend this is PySpark. Change the key, watch the shuffle re-shape.
 type Row = { country: string; city: string; amount: number };
