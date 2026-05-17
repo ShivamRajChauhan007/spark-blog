@@ -1,0 +1,658 @@
+{
+  "viewport": {
+    "w": 1440,
+    "h": 900
+  },
+  "scrollY": 0,
+  "scrollHeight": 900,
+  "h1": {
+    "text": "This page couldn’t load",
+    "rect": {
+      "x": 602.703125,
+      "y": 403.5,
+      "w": 234.59375,
+      "h": 32
+    },
+    "inViewport": true
+  },
+  "header": null,
+  "firstH2": null,
+  "articleStack": null,
+  "sceneCanvasNodes": [],
+  "canvasNodes": [],
+  "bodyBg": "rgb(255, 255, 255)",
+  "htmlBg": "lab(2.46293 -0.424452 -2.43543)",
+  "allH2": [],
+  "sectionMetrics": [],
+  "sceneStateRecords": [
+    {
+      "label": "scroll-0",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": null,
+      "activeKickerText": null,
+      "canvasProbe": null
+    },
+    {
+      "label": "desktop-0",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-8",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-16",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-25",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-33",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-42",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-50",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-58",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-66",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-75",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-83",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-92",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    },
+    {
+      "label": "desktop-100",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKicker": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "canvasSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "sampleCount": 49,
+        "lumMax": 0,
+        "lumMean": 0,
+        "brightCount": 0,
+        "brightyCount": 0,
+        "hasGeometry": false
+      }
+    }
+  ]
+}

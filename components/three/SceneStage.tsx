@@ -16,9 +16,25 @@ import { AirflowDag } from "./scenes/AirflowDag";
 import { EphemeralCycle } from "./scenes/EphemeralCycle";
 import { FreeCamera } from "./scenes/FreeCamera";
 import { CameraRig } from "@/components/scroll/CameraRig";
-import { useScrollProgress, activeScene } from "@/lib/useScrollProgress";
 import { useActiveSection } from "@/lib/useActiveSection";
+import { useEffect, useState } from "react";
 import { SCENES } from "@/lib/scenes";
+
+function useLocalProgress() {
+  // Polls readActiveSectionLocal via rAF; lightweight, single rAF.
+  const [v, setV] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const tick = async () => {
+      const { readActiveSectionLocal } = await import("@/lib/useActiveSection");
+      setV(readActiveSectionLocal());
+      raf = requestAnimationFrame(() => void tick());
+    };
+    raf = requestAnimationFrame(() => void tick());
+    return () => cancelAnimationFrame(raf);
+  }, []);
+  return v;
+}
 
 // Each scene is visible only on its OWN index — no neighbouring overlap.
 // (Crossfades happen via individual scene's `progress` ramp, not parallel rendering.)
@@ -38,11 +54,9 @@ const SCENE_RENDERERS = [
 ];
 
 export function SceneStage() {
-  const progress = useScrollProgress();
   const sectionIndex = useActiveSection();
-  // 3D selection follows the section the reader is *actually* looking at,
-  // independent of the float scroll-progress that drives camera interpolation.
-  const { local } = activeScene(progress, SCENES.length);
+  // Local progress for the active section (0..1) drives camera ease + scene anims.
+  const local = useLocalProgress();
   const index = sectionIndex;
 
   const isFly = index === 11;
@@ -70,7 +84,7 @@ export function SceneStage() {
 
         <Starfield />
 
-        {!isFly && <CameraRig progress={progress} />}
+        {!isFly && <CameraRig index={index} local={local} />}
 
         {SCENE_RENDERERS.map(({ Component, index: sceneIndex }, i) => {
           const visible = index === sceneIndex;

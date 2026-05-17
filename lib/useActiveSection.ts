@@ -13,6 +13,7 @@ import { SceneId, SCENES } from "./scenes";
  */
 let _activeId: SceneId = SCENES[0].id;
 let _activeIndex = 0;
+let _activeSection: HTMLElement | null = null;
 const _listeners = new Set<() => void>();
 let _io: IntersectionObserver | null = null;
 let _started = false;
@@ -47,6 +48,7 @@ function _start() {
       if (!best) return;
       const id = best.dataset.sceneId as SceneId;
       const idx = SCENES.findIndex((s) => s.id === id);
+      _activeSection = best;
       if (idx >= 0 && idx !== _activeIndex) {
         _activeId = id;
         _activeIndex = idx;
@@ -84,6 +86,20 @@ export function useActiveSection() {
 /** Imperative reader for use inside useFrame — no React subscription. */
 export function readActiveSection() {
   return _activeIndex;
+}
+
+/**
+ * Local progress 0..1 within the active section, computed from real DOM bounds.
+ * Use inside useFrame to drive per-scene animations in sync with the prose card
+ * the reader is actually looking at.
+ */
+export function readActiveSectionLocal(): number {
+  if (typeof window === "undefined" || !_activeSection) return 0;
+  const rect = _activeSection.getBoundingClientRect();
+  // scene starts when its top hits the viewport, ends when its bottom passes.
+  const total = rect.height + window.innerHeight;
+  const elapsed = window.innerHeight - rect.top;
+  return Math.min(1, Math.max(0, elapsed / total));
 }
 
 /** Same SSR-safe pattern but exposed for components that want the id. */

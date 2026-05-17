@@ -3,14 +3,12 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
-import { activeScene } from "@/lib/useScrollProgress";
-import { SCENES } from "@/lib/scenes";
 
 /**
  * Per-scene camera waypoints. The rig interpolates linearly between the
- * waypoint for scene N (at local=0) and scene N+1 (at local=1).
- * Values are tuned for the small cluster prop (master at origin, workers
- * on a circle of radius ~3).
+ * waypoint for the active scene (at local=0) and the next (at local=1).
+ * Index + local come from the same IntersectionObserver source the scenes
+ * use — so camera, scene visibility, and prose are all synced.
  */
 const WAYPOINTS: Array<{ pos: [number, number, number]; look: [number, number, number] }> = [
   // hero — wide orbit
@@ -40,17 +38,17 @@ const WAYPOINTS: Array<{ pos: [number, number, number]; look: [number, number, n
 ];
 
 interface Props {
-  progress: number; // 0..1 across whole document
+  index: number;
+  local: number;
 }
 
-export function CameraRig({ progress }: Props) {
+export function CameraRig({ index, local }: Props) {
   const { camera, size } = useThree();
   const target = useRef(new THREE.Vector3());
 
   useFrame(() => {
-    const { index, local } = activeScene(progress, SCENES.length);
-    const a = WAYPOINTS[index];
-    const b = WAYPOINTS[Math.min(WAYPOINTS.length - 1, index + 1)];
+    const a = WAYPOINTS[index] ?? WAYPOINTS[0];
+    const b = WAYPOINTS[Math.min(WAYPOINTS.length - 1, index + 1)] ?? a;
     // smoothstep ease
     const t = local * local * (3 - 2 * local);
 

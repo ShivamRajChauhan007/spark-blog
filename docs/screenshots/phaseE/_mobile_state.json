@@ -1,0 +1,74 @@
+[
+  {
+    "label": "mobile-0",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "mostVisibleSection": null,
+    "visibleSectionCount": 0,
+    "visibleSections": [],
+    "closestH2": null,
+    "visibleH2Count": 0,
+    "proseKickersVisible": [],
+    "activeKicker": null,
+    "activeKickerText": null,
+    "canvasProbe": null
+  },
+  {
+    "label": "mobile-33",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "mostVisibleSection": null,
+    "visibleSectionCount": 0,
+    "visibleSections": [],
+    "closestH2": null,
+    "visibleH2Count": 0,
+    "proseKickersVisible": [],
+    "activeKicker": null,
+    "activeKickerText": null,
+    "canvasProbe": null
+  },
+  {
+    "label": "mobile-50",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "mostVisibleSection": null,
+    "visibleSectionCount": 0,
+    "visibleSections": [],
+    "closestH2": null,
+    "visibleH2Count": 0,
+    "proseKickersVisible": [],
+    "activeKicker": null,
+    "activeKickerText": null,
+    "canvasProbe": null
+  },
+  {
+    "label": "mobile-75",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "mostVisibleSection": null,
+    "visibleSectionCount": 0,
+    "visibleSections": [],
+    "closestH2": null,
+    "visibleH2Count": 0,
+    "proseKickersVisible": [],
+    "activeKicker": null,
+    "activeKickerText": null,
+    "canvasProbe": null
+  }
+]
