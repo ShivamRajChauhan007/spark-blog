@@ -16,21 +16,20 @@ import { AirflowDag } from "./scenes/AirflowDag";
 import { EphemeralCycle } from "./scenes/EphemeralCycle";
 import { FreeCamera } from "./scenes/FreeCamera";
 import { CameraRig } from "@/components/scroll/CameraRig";
-import { useActiveSection } from "@/lib/useActiveSection";
+import { useActiveSection, readActiveSectionLocal } from "@/lib/useActiveSection";
 import { useEffect, useState } from "react";
 import { SCENES } from "@/lib/scenes";
 
 function useLocalProgress() {
-  // Polls readActiveSectionLocal via rAF; lightweight, single rAF.
+  // Polls readActiveSectionLocal via a single rAF loop.
   const [v, setV] = useState(0);
   useEffect(() => {
     let raf = 0;
-    const tick = async () => {
-      const { readActiveSectionLocal } = await import("@/lib/useActiveSection");
+    const tick = () => {
       setV(readActiveSectionLocal());
-      raf = requestAnimationFrame(() => void tick());
+      raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(() => void tick());
+    raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, []);
   return v;
