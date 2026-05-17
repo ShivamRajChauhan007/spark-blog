@@ -1,0 +1,61 @@
+[
+  {
+    "pct": 0,
+    "scrollY": 0,
+    "mostVis": {
+      "id": "hero",
+      "idx": "1",
+      "ratio": 0.2215903016826666
+    },
+    "closestH2": {
+      "text": "A cluster, asleep.",
+      "sceneId": "hero"
+    },
+    "kicker": "01 · The cluster",
+    "overlay": true,
+    "bodyHead": [
+      "skip to article",
+      "♪ OFF",
+      "01 · THE CLUSTER"
+    ]
+  },
+  {
+    "pct": 33,
+    "scrollY": 0,
+    "mostVis": null,
+    "closestH2": null,
+    "kicker": null,
+    "overlay": true,
+    "bodyHead": [
+      "This page couldn’t load",
+      "",
+      "Reload to try again, or go back."
+    ]
+  },
+  {
+    "pct": 50,
+    "scrollY": 0,
+    "mostVis": null,
+    "closestH2": null,
+    "kicker": null,
+    "overlay": true,
+    "bodyHead": [
+      "This page couldn’t load",
+      "",
+      "Reload to try again, or go back."
+    ]
+  },
+  {
+    "pct": 75,
+    "scrollY": 0,
+    "mostVis": null,
+    "closestH2": null,
+    "kicker": null,
+    "overlay": true,
+    "bodyHead": [
+      "This page couldn’t load",
+      "",
+      "Reload to try again, or go back."
+    ]
+  }
+]

@@ -1,0 +1,371 @@
+{
+  "scrollHeight": 19256,
+  "h1": "Build a Spark cluster you can fly through.",
+  "h1Y": 168,
+  "canvasCount": 1,
+  "sceneStateRecords": [
+    {
+      "label": "desktop-0",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "activeKickerText": "01 · The cluster",
+      "kickerIdx": 1,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-8",
+      "scrollY": 1468,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": -896.1875,
+        "bottom": 723.8125,
+        "visHeight": 723.8125,
+        "ratio": 0.8042361111111112,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "hero",
+      "activeKickerText": "01 · The cluster",
+      "kickerIdx": 1,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-16",
+      "scrollY": 2937,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "anatomy",
+        "index": 2,
+        "top": -745.1875,
+        "bottom": 874.8125,
+        "visHeight": 874.8125,
+        "ratio": 0.9720138888888888,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "anatomy",
+      "activeKickerText": "02 · Anatomy",
+      "kickerIdx": 2,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-25",
+      "scrollY": 4589,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "driver",
+        "index": 3,
+        "top": -777.1875,
+        "bottom": 842.8125,
+        "visHeight": 842.8125,
+        "ratio": 0.9364583333333333,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "driver",
+      "activeKickerText": "03 · The driver",
+      "kickerIdx": 3,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-33",
+      "scrollY": 6057,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "data-arrival",
+        "index": 4,
+        "top": -625.1875,
+        "bottom": 994.8125,
+        "visHeight": 900,
+        "ratio": 1,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "data-arrival",
+      "activeKickerText": "04 · The data",
+      "kickerIdx": 4,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-42",
+      "scrollY": 7710,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "partitions",
+        "index": 5,
+        "top": -658.1875,
+        "bottom": 961.8125,
+        "visHeight": 900,
+        "ratio": 1,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "partitions",
+      "activeKickerText": "05 · Partitions",
+      "kickerIdx": 5,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-50",
+      "scrollY": 9178,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "task-rain",
+        "index": 6,
+        "top": -506.1875,
+        "bottom": 1113.8125,
+        "visHeight": 900,
+        "ratio": 1,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "task-rain",
+      "activeKickerText": "06 · Parallelism",
+      "kickerIdx": 6,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-58",
+      "scrollY": 10646,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "narrow-vs-wide",
+        "index": 7,
+        "top": -354.1875,
+        "bottom": 1265.8125,
+        "visHeight": 900,
+        "ratio": 1,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "narrow-vs-wide",
+      "activeKickerText": "07 · Transformations",
+      "kickerIdx": 7,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-66",
+      "scrollY": 12115,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "shuffle",
+        "index": 8,
+        "top": -203.1875,
+        "bottom": 1416.8125,
+        "visHeight": 900,
+        "ratio": 1,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "shuffle",
+      "activeKickerText": "08 · The shuffle",
+      "kickerIdx": 8,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-75",
+      "scrollY": 13767,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "stages",
+        "index": 9,
+        "top": -235.1875,
+        "bottom": 1384.8125,
+        "visHeight": 900,
+        "ratio": 1,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "stages",
+      "activeKickerText": "09 · Stages",
+      "kickerIdx": 9,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-83",
+      "scrollY": 15235,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "airflow",
+        "index": 10,
+        "top": -83.1875,
+        "bottom": 1176.8125,
+        "visHeight": 900,
+        "ratio": 1,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "airflow",
+      "activeKickerText": "10 · Orchestration",
+      "kickerIdx": 10,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-92",
+      "scrollY": 16888,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "ephemeral",
+        "index": 11,
+        "top": -476.1875,
+        "bottom": 783.8125,
+        "visHeight": 783.8125,
+        "ratio": 0.8709027777777778,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "ephemeral",
+      "activeKickerText": "11 · Ephemeral clusters",
+      "kickerIdx": 11,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    },
+    {
+      "label": "desktop-100",
+      "scrollY": 18356,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "mostVisibleSection": {
+        "id": "fly",
+        "index": 12,
+        "top": -684.1875,
+        "bottom": 575.8125,
+        "visHeight": 575.8125,
+        "ratio": 0.6397916666666666,
+        "inViewport": true
+      },
+      "closestH2Sceneid": "fly",
+      "activeKickerText": "12 · Fly mode",
+      "kickerIdx": 12,
+      "kickerVsMostVisAligned": true,
+      "sandpackVisible": false,
+      "sandpackBox": null,
+      "sandpackCollapsedBtnPresent": true
+    }
+  ]
+}
