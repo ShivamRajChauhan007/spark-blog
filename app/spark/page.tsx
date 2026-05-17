@@ -22,6 +22,7 @@ export default function SparkArticle() {
       <SmoothScroll />
       <SceneCueDriver />
       <ClusterStageCanvas />
+      <div className="article-stack">
 
       <a
         href="#main-content"
@@ -78,6 +79,7 @@ export default function SparkArticle() {
           Built in the Bartosz Ciechanowski school, with 2026 tools. <Link href="/" className="underline">Back to landing</Link>.
         </p>
       </footer>
+      </div>
     </AudioProvider>
   );
 }

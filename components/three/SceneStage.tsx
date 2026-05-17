@@ -48,12 +48,11 @@ export function SceneStage() {
   })();
 
   return (
-    <div className="scene-canvas pointer-events-none -z-10" aria-hidden>
+    <div className={`scene-canvas ${isFly ? "!pointer-events-auto" : ""}`} aria-hidden>
       <Canvas
         camera={{ position: [0, 1.8, 7.5], fov: 38, near: 0.1, far: 200 }}
         dpr={[1, 1.8]}
         gl={{ antialias: true, powerPreference: "high-performance" }}
-        className={`!fixed !inset-0 ${isFly ? "!pointer-events-auto" : ""}`}
       >
         <color attach="background" args={["#08090e"]} />
         <fog attach="fog" args={["#08090e", 14, 32]} />

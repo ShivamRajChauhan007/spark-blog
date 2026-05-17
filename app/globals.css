@@ -22,6 +22,7 @@
 }
 
 html { background: var(--color-bg); color: var(--color-fg); }
+body { background: transparent; }
 
 body {
   font-family: var(--font-body);
@@ -40,8 +41,19 @@ body {
   background-size: 3px 3px;
 }
 
-/* scene canvas — full bleed but anchored */
-.scene-canvas { position: sticky; top: 0; height: 100vh; }
+/* scene canvas — fully out of normal flow so the article reads top to bottom.
+   The canvas paints behind the prose using stacking-context z-index = 0 while
+   the article gets z-index = 10 below. */
+.scene-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.scene-canvas canvas { display: block; width: 100% !important; height: 100% !important; }
+
+/* All article content must establish positioning above the canvas. */
+.article-stack { position: relative; z-index: 10; }
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {

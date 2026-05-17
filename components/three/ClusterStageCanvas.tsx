@@ -3,25 +3,20 @@
 import dynamic from "next/dynamic";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
-const SceneStage = dynamic(() => import("./SceneStage").then((m) => m.SceneStage), {
-  ssr: false,
-  loading: () => null
-});
-
+/** SVG fallback used as the loading slot AND as the reduced-motion replacement. */
 const StubCanvas = dynamic(() => import("./_StubCanvas").then((m) => m.StubCanvas), {
   ssr: false,
   loading: () => null
 });
 
+/** The real 3D canvas, lazy-loaded with the SVG as its loading state. */
+const SceneStage = dynamic(() => import("./SceneStage").then((m) => m.SceneStage), {
+  ssr: false,
+  loading: () => <StubCanvas />
+});
+
 export function ClusterStageCanvas() {
   const reduced = useReducedMotion();
-  // Reduced-motion users see only the static SVG; everyone else gets both
-  // (SVG renders behind the canvas for the loading moment and on canvas errors).
   if (reduced) return <StubCanvas />;
-  return (
-    <>
-      <StubCanvas />
-      <SceneStage />
-    </>
-  );
+  return <SceneStage />;
 }
