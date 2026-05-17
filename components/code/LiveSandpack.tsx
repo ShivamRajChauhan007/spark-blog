@@ -1,18 +1,49 @@
 "use client";
 
 import { Sandpack } from "@codesandbox/sandpack-react";
+import { useState } from "react";
+import { ChevronRight, X } from "lucide-react";
 
 /**
- * Embedded live code playground at scene 8.
- * Theme uses sRGB hex (was OKLCH; Sandpack's CSS-in-JS does support oklch
- * but we standardise on hex to match the Three.js palette and avoid mixed
- * formats across the codebase).
+ * Live code playground at scene 8 (the shuffle). Collapsed by default so the
+ * 3D centerpiece is unobstructed; expands on user click. This solves Phase E's
+ * B-E3 (Sandpack iframe occluding ~50% of the shuffle stage at scroll 66%).
  */
 export function LiveSandpack() {
+  const [open, setOpen] = useState(false);
+
+  if (!open) {
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="my-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-bg-elev)]/85 px-4 py-2 font-mono text-xs uppercase tracking-widest text-[var(--color-fg-muted)] backdrop-blur transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+        aria-expanded={false}
+        aria-controls="live-sandpack"
+      >
+        ▷ try the shuffle key live
+        <ChevronRight size={14} />
+      </button>
+    );
+  }
+
   return (
-    <div className="my-8 max-w-md overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-bg-elev)]/85 shadow-2xl backdrop-blur">
-      <div className="border-b border-[var(--color-line)] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-fg-muted)]">
-        live · pyspark-flavoured · edit and run
+    <div
+      id="live-sandpack"
+      className="my-8 max-w-md overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-bg-elev)]/85 shadow-2xl backdrop-blur"
+    >
+      <div className="flex items-center justify-between border-b border-[var(--color-line)] px-4 py-2">
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-fg-muted)]">
+          live · pyspark-flavoured · edit and run
+        </p>
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          aria-label="Close live code panel"
+          className="rounded-full p-1 text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
+        >
+          <X size={14} />
+        </button>
       </div>
       <Sandpack
         theme={{

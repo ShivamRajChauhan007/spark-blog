@@ -1,0 +1,117 @@
+[
+  {
+    "label": "mobile-0",
+    "scrollY": 0,
+    "scrollHeight": 17416,
+    "bodyH1": "Build a Spark cluster you can fly through.",
+    "viewport": {
+      "w": 472,
+      "h": 1023
+    },
+    "mostVisibleSection": {
+      "id": "hero",
+      "index": 1,
+      "top": 488.125,
+      "bottom": 1949.71875,
+      "visHeight": 534.875,
+      "ratio": 0.5228494623655914,
+      "inViewport": true
+    },
+    "visibleSectionCount": 1,
+    "visibleSections": [
+      {
+        "id": "hero",
+        "index": 1,
+        "top": 488.125,
+        "bottom": 1949.71875,
+        "visHeight": 534.875,
+        "ratio": 0.5228494623655914,
+        "inViewport": true
+      }
+    ],
+    "closestH2": {
+      "text": "A cluster, asleep.",
+      "y": 844.921875,
+      "sceneId": "hero",
+      "inViewport": true,
+      "distFromHeaderLine": 660.781875
+    },
+    "visibleH2Count": 1,
+    "proseKickersVisible": [
+      {
+        "sceneId": "hero",
+        "kicker": "01 · The cluster",
+        "y": 812.921875,
+        "inViewport": true
+      }
+    ],
+    "activeKickerLabel": "Jump to scene 1: A cluster, asleep.",
+    "activeKickerText": "01 · The cluster",
+    "canvasProbe": {
+      "contextLost": true
+    }
+  },
+  {
+    "label": "mobile-33",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "bodyH1": "This page couldn’t load",
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "mostVisibleSection": null,
+    "visibleSectionCount": 0,
+    "visibleSections": [],
+    "closestH2": null,
+    "visibleH2Count": 0,
+    "proseKickersVisible": [],
+    "activeKickerLabel": null,
+    "activeKickerText": null,
+    "canvasProbe": {
+      "noCanvas": true
+    }
+  },
+  {
+    "label": "mobile-50",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "bodyH1": "This page couldn’t load",
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "mostVisibleSection": null,
+    "visibleSectionCount": 0,
+    "visibleSections": [],
+    "closestH2": null,
+    "visibleH2Count": 0,
+    "proseKickersVisible": [],
+    "activeKickerLabel": null,
+    "activeKickerText": null,
+    "canvasProbe": {
+      "noCanvas": true
+    }
+  },
+  {
+    "label": "mobile-75",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "bodyH1": "This page couldn’t load",
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "mostVisibleSection": null,
+    "visibleSectionCount": 0,
+    "visibleSections": [],
+    "closestH2": null,
+    "visibleH2Count": 0,
+    "proseKickersVisible": [],
+    "activeKickerLabel": null,
+    "activeKickerText": null,
+    "canvasProbe": {
+      "noCanvas": true
+    }
+  }
+]

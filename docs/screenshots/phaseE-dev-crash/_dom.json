@@ -1,0 +1,572 @@
+{
+  "viewport": {
+    "w": 1440,
+    "h": 900
+  },
+  "scrollY": 0,
+  "scrollHeight": 19256,
+  "h1": {
+    "text": "Build a Spark cluster you can fly through.",
+    "rect": {
+      "x": 360,
+      "y": 168,
+      "w": 720,
+      "h": 195.8125
+    }
+  },
+  "header": {
+    "rect": {
+      "x": 336,
+      "y": 0,
+      "w": 768,
+      "h": 571.8125
+    }
+  },
+  "firstH2": {
+    "text": "A cluster, asleep.",
+    "rect": {
+      "x": 360,
+      "y": 963.8125,
+      "w": 576,
+      "h": 52.796875
+    }
+  },
+  "sceneCanvasNodes": [
+    {
+      "position": "fixed",
+      "zIndex": "0",
+      "inset": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      },
+      "height": "900px",
+      "width": "1440px",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      }
+    }
+  ],
+  "canvasNodes": [
+    {
+      "w": 1440,
+      "h": 900,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      }
+    }
+  ],
+  "bodyBg": "lab(2.46293 -0.424452 -2.43543)",
+  "htmlBg": "lab(2.46293 -0.424452 -2.43543)",
+  "allH2": [
+    {
+      "text": "A cluster, asleep.",
+      "y": 963.8125,
+      "sceneId": "hero"
+    },
+    {
+      "text": "Inside a worker.",
+      "y": 2583.8125,
+      "sceneId": "anatomy"
+    },
+    {
+      "text": "The driver wakes.",
+      "y": 4203.8125,
+      "sceneId": "driver"
+    },
+    {
+      "text": "A terabyte arrives.",
+      "y": 5823.8125,
+      "sceneId": "data-arrival"
+    },
+    {
+      "text": "Eight thousand pieces.",
+      "y": 7443.8125,
+      "sceneId": "partitions"
+    },
+    {
+      "text": "Tasks, in parallel.",
+      "y": 9063.8125,
+      "sceneId": "task-rain"
+    },
+    {
+      "text": "Two kinds of work.",
+      "y": 10683.8125,
+      "sceneId": "narrow-vs-wide"
+    },
+    {
+      "text": "The shuffle.",
+      "y": 12303.8125,
+      "sceneId": "shuffle"
+    },
+    {
+      "text": "Stages, drawn on the air.",
+      "y": 13923.8125,
+      "sceneId": "stages"
+    },
+    {
+      "text": "A scheduler, above.",
+      "y": 15453.8125,
+      "sceneId": "airflow"
+    },
+    {
+      "text": "Born at 02:00, gone by 02:12.",
+      "y": 16713.8125,
+      "sceneId": "ephemeral"
+    },
+    {
+      "text": "Your cluster, your camera.",
+      "y": 17973.8125,
+      "sceneId": "fly"
+    }
+  ],
+  "sectionMetrics": [
+    {
+      "id": "hero",
+      "index": 1,
+      "height": 1620,
+      "y": 571.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "anatomy",
+      "index": 2,
+      "height": 1620,
+      "y": 2191.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "driver",
+      "index": 3,
+      "height": 1620,
+      "y": 3811.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "data-arrival",
+      "index": 4,
+      "height": 1620,
+      "y": 5431.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "partitions",
+      "index": 5,
+      "height": 1620,
+      "y": 7051.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "task-rain",
+      "index": 6,
+      "height": 1620,
+      "y": 8671.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "narrow-vs-wide",
+      "index": 7,
+      "height": 1620,
+      "y": 10291.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "shuffle",
+      "index": 8,
+      "height": 1620,
+      "y": 11911.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "stages",
+      "index": 9,
+      "height": 1620,
+      "y": 13531.8125,
+      "minHeight": "1620px",
+      "paddingTop": "360px",
+      "paddingBottom": "360px"
+    },
+    {
+      "id": "airflow",
+      "index": 10,
+      "height": 1260,
+      "y": 15151.8125,
+      "minHeight": "1260px",
+      "paddingTop": "270px",
+      "paddingBottom": "270px"
+    },
+    {
+      "id": "ephemeral",
+      "index": 11,
+      "height": 1260,
+      "y": 16411.8125,
+      "minHeight": "1260px",
+      "paddingTop": "270px",
+      "paddingBottom": "270px"
+    },
+    {
+      "id": "fly",
+      "index": 12,
+      "height": 1260,
+      "y": 17671.8125,
+      "minHeight": "1260px",
+      "paddingTop": "270px",
+      "paddingBottom": "270px"
+    }
+  ],
+  "sceneStateRecords": [
+    {
+      "label": "init",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "contextLost": true
+      }
+    },
+    {
+      "label": "desktop-0",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "visibleSectionCount": 1,
+      "visibleSections": [
+        {
+          "id": "hero",
+          "index": 1,
+          "top": 571.8125,
+          "bottom": 2191.8125,
+          "visHeight": 328.1875,
+          "ratio": 0.36465277777777777,
+          "inViewport": true
+        }
+      ],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "canvasProbe": {
+        "contextLost": true
+      }
+    },
+    {
+      "label": "desktop-8",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-16",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-25",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-33",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-42",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-50",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-58",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-66",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-75",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-83",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-92",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    },
+    {
+      "label": "desktop-100",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "mostVisibleSection": null,
+      "visibleSectionCount": 0,
+      "visibleSections": [],
+      "closestH2": null,
+      "visibleH2Count": 0,
+      "proseKickersVisible": [],
+      "activeKickerLabel": null,
+      "activeKickerText": null,
+      "canvasProbe": {
+        "noCanvas": true
+      }
+    }
+  ]
+}

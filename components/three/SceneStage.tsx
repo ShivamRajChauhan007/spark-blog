@@ -60,13 +60,10 @@ export function SceneStage() {
   const index = sectionIndex;
 
   const isFly = index === 11;
-  // Stronger bloom around scenes that lean on emissive (shuffle, driver, airflow)
-  const bloomIntensity = (() => {
-    if (index === 2) return 0.7;
-    if (index === 7) return 1.1; // SHUFFLE
-    if (index === 9) return 0.6; // airflow
-    return 0.45;
-  })();
+  // Fixed bloom intensity — was scene-dependent, but changing it re-mounts the
+  // EffectComposer in dev (crash on scroll: "Cannot read properties of null (reading 'alpha')").
+  // We pick a single value tuned for the shuffle (the highest-emissive scene).
+  const bloomIntensity = 0.85;
 
   return (
     <div className={`scene-canvas ${isFly ? "!pointer-events-auto" : ""}`} aria-hidden>
