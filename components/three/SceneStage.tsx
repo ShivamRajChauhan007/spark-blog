@@ -1,6 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
+import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
 import { ClusterIdle } from "./scenes/ClusterIdle";
 import { WorkerCutaway } from "./scenes/WorkerCutaway";
 import { DriverIgnite } from "./scenes/DriverIgnite";
@@ -37,6 +38,13 @@ export function SceneStage() {
   const { index, local } = activeScene(progress, SCENES.length);
 
   const isFly = index === 11;
+  // Stronger bloom around scenes that lean on emissive (shuffle, driver, airflow)
+  const bloomIntensity = (() => {
+    if (index === 2) return 0.7;
+    if (index === 7) return 1.1; // SHUFFLE
+    if (index === 9) return 0.6; // airflow
+    return 0.45;
+  })();
 
   return (
     <div className="scene-canvas pointer-events-none -z-10" aria-hidden>
@@ -65,6 +73,11 @@ export function SceneStage() {
           const Any = Component as any;
           return <Any key={i} progress={localForThis} visible={visible} />;
         })}
+
+        <EffectComposer multisampling={4}>
+          <Bloom intensity={bloomIntensity} luminanceThreshold={0.32} luminanceSmoothing={0.85} mipmapBlur />
+          <Vignette eskil={false} offset={0.18} darkness={0.78} />
+        </EffectComposer>
       </Canvas>
     </div>
   );
