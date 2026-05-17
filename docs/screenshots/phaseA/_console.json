@@ -1,0 +1,286 @@
+[
+  {
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+  },
+  {
+    "type": "log",
+    "text": "[HMR] connected"
+  },
+  {
+    "type": "error",
+    "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] rebuilding"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] done in 244ms"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.14 0.013 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.17 0.014 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.96 0.005 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.72 0.012 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.28 0.012 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.78 0.16 65)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.74 0.14 220)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.78 0.16 145)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.68 0.20 25)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.78 0.10 200)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.76 0.11 220)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.74 0.12 240)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.72 0.13 260)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] rebuilding"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] done in 55ms"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] rebuilding"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] done in 25ms"
+  },
+  {
+    "type": "requestfailed",
+    "text": "https://2-19-8-sandpack.codesandbox.io/ net::ERR_ABORTED"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] rebuilding"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark net::ERR_ABORTED"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] done in 475ms"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/_next/static/chunks/components_three__StubCanvas_tsx_0u87w6t._.js net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/_next/static/chunks/components_three_SceneStage_tsx_0u87w6t._.js net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark?_rsc=MfF9HVfmKgPB1tdc net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark?_rsc=MfF9HVfmKgPB1tdc net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/_next/static/chunks/_0tc2f25._.js net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark?_rsc=MfF9HVfmKgPB1tdc net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark?_rsc=MfF9HVfmKgPB1tdc net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark?_rsc=MfF9HVfmKgPB1tdc net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark?_rsc=MfF9HVfmKgPB1tdc net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/_next/static/chunks/_0d6x~6p._.js net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/_next/static/chunks/app_globals_0jn8.0u.css net::ERR_ABORTED"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/__nextjs_font/geist-latin.woff2 net::ERR_ABORTED"
+  },
+  {
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+  },
+  {
+    "type": "log",
+    "text": "[HMR] connected"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.14 0.013 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.17 0.014 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.96 0.005 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.72 0.012 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.28 0.012 252)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.78 0.16 65)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.74 0.14 220)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.78 0.16 145)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.68 0.20 25)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.78 0.10 200)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.76 0.11 220)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.74 0.12 240)"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Color: Unknown color model oklch(0.72 0.13 260)"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] rebuilding"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] done in 105ms"
+  },
+  {
+    "type": "warning",
+    "text": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] rebuilding"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] done in 23ms"
+  },
+  {
+    "type": "requestfailed",
+    "text": "http://localhost:3737/spark?_rsc=MfF9HVfmKgPB1tdc net::ERR_ABORTED"
+  },
+  {
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+  },
+  {
+    "type": "log",
+    "text": "[HMR] connected"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] rebuilding"
+  },
+  {
+    "type": "log",
+    "text": "[Fast Refresh] done in 120ms"
+  }
+]

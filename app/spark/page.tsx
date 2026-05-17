@@ -8,6 +8,8 @@ import { AudioToggle } from "@/components/ui/AudioToggle";
 import { ExplainerSidebar } from "@/components/ai/ExplainerSidebar";
 import { LiveSandpack } from "@/components/code/LiveSandpack";
 import { CodeMorph } from "@/components/code/CodeMorph";
+import { ProgressMap } from "@/components/ui/ProgressMap";
+import { HeroHint } from "@/components/ui/HeroHint";
 import Link from "next/link";
 
 export const metadata = {
@@ -21,9 +23,19 @@ export default function SparkArticle() {
       <SceneCueDriver />
       <ClusterStageCanvas />
 
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:border focus:border-[var(--color-line)] focus:bg-[var(--color-bg-elev)] focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:text-[var(--color-fg)]"
+      >
+        skip to article
+      </a>
+
       <div className="fixed right-6 top-6 z-30 flex items-center gap-3">
         <AudioToggle />
       </div>
+
+      <ProgressMap />
+      <HeroHint />
 
       <header className="relative mx-auto max-w-3xl px-6 pt-32 pb-12">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-fg-muted)]">
@@ -37,7 +49,7 @@ export default function SparkArticle() {
         </p>
       </header>
 
-      <main role="main">
+      <main role="main" id="main-content">
         {SCENES.map((scene) => (
           <SceneSection key={scene.id} scene={scene}>
             {scene.id === "shuffle" && <LiveSandpack />}
