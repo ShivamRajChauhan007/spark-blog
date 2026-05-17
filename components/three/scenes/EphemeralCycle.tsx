@@ -4,13 +4,14 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
   visible: boolean;
 }
 
-/** Scene 11 — cluster materialises, hums, dissipates, on a continuous loop. */
+/** Scene 11 — cluster materialises and dissipates on a loop. */
 export function EphemeralCycle({ progress: _progress, visible }: Props) {
   const group = useRef<THREE.Group>(null);
 
@@ -24,7 +25,6 @@ export function EphemeralCycle({ progress: _progress, visible }: Props) {
   useFrame((_state, dt) => {
     if (!visible || !group.current) return;
     const t = ((performance.now() * 0.00015) % 1);
-    // spawn 0..0.2, work 0.2..0.8, decay 0.8..1
     const spawn = Math.min(1, t / 0.2);
     const decay = Math.max(0, (t - 0.8) / 0.2);
     const scale = (0.5 + spawn * 0.5) * (1 - decay);
@@ -33,23 +33,32 @@ export function EphemeralCycle({ progress: _progress, visible }: Props) {
   });
 
   return (
-    <group ref={group} visible={visible}>
-      <mesh>
-        <sphereGeometry args={[0.5, 32, 32]} />
-        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.7} toneMapped={false} />
-      </mesh>
-      {workers.map((w, i) => (
-        <group key={i} position={w.pos}>
-          <mesh>
-            <sphereGeometry args={[0.36, 24, 24]} />
-            <meshStandardMaterial color={w.tint} emissive={w.tint} emissiveIntensity={0.5} toneMapped={false} />
-          </mesh>
-          <mesh>
-            <sphereGeometry args={[0.45, 24, 24]} />
-            <meshBasicMaterial color={w.tint} transparent opacity={0.12} toneMapped={false} depthWrite={false} />
-          </mesh>
-        </group>
-      ))}
+    <group visible={visible}>
+      <PlanetLabel
+        position={[0, 0, 0]}
+        text="EPHEMERAL · spawn · work · dissolve"
+        offset={3.0}
+        size={0.16}
+        color="#f4cf9c"
+      />
+      <group ref={group}>
+        <mesh>
+          <sphereGeometry args={[0.5, 32, 32]} />
+          <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.7} toneMapped={false} />
+        </mesh>
+        {workers.map((w, i) => (
+          <group key={i} position={w.pos}>
+            <mesh>
+              <sphereGeometry args={[0.36, 24, 24]} />
+              <meshStandardMaterial color={w.tint} emissive={w.tint} emissiveIntensity={0.55} toneMapped={false} />
+            </mesh>
+            <mesh>
+              <sphereGeometry args={[0.45, 24, 24]} />
+              <meshBasicMaterial color={w.tint} transparent opacity={0.13} toneMapped={false} depthWrite={false} />
+            </mesh>
+          </group>
+        ))}
+      </group>
     </group>
   );
 }

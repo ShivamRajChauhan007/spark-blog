@@ -4,6 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -12,7 +13,7 @@ interface Props {
 
 const ROWS = 40;
 
-/** Scene 7 — two side-by-side mini systems. Left: narrow (no movement). Right: wide (hopping). */
+/** Scene 7 — NARROW (left, static) vs WIDE (right, hopping). */
 export function NarrowVsWide({ progress: _progress, visible }: Props) {
   const left = useRef<THREE.InstancedMesh>(null);
   const right = useRef<THREE.InstancedMesh>(null);
@@ -58,22 +59,25 @@ export function NarrowVsWide({ progress: _progress, visible }: Props) {
 
   return (
     <group visible={visible}>
-      {/* anchors */}
       <mesh position={[-2.2, 0, 0]}>
-        <sphereGeometry args={[0.3, 24, 24]} />
-        <meshStandardMaterial color={PALETTE.success} emissive={PALETTE.success} emissiveIntensity={0.45} toneMapped={false} />
+        <sphereGeometry args={[0.32, 24, 24]} />
+        <meshStandardMaterial color={PALETTE.success} emissive={PALETTE.success} emissiveIntensity={0.55} toneMapped={false} />
       </mesh>
+      <PlanetLabel position={[-2.2, 0, 0]} text="NARROW · filter" offset={1.4} size={0.16} color="#9be8b3" />
+
       <mesh position={[2.2, 0, 0]}>
-        <sphereGeometry args={[0.3, 24, 24]} />
-        <meshStandardMaterial color={PALETTE.accent2} emissive={PALETTE.accent2} emissiveIntensity={0.45} toneMapped={false} />
+        <sphereGeometry args={[0.32, 24, 24]} />
+        <meshStandardMaterial color={PALETTE.accent2} emissive={PALETTE.accent2} emissiveIntensity={0.55} toneMapped={false} />
       </mesh>
+      <PlanetLabel position={[2.2, 0, 0]} text="WIDE · groupBy" offset={1.4} size={0.16} color="#9fcef7" />
+
       <instancedMesh ref={left} args={[undefined, undefined, ROWS]}>
         <sphereGeometry args={[1, 10, 10]} />
-        <meshStandardMaterial color={PALETTE.success} emissive={PALETTE.success} emissiveIntensity={0.45} toneMapped={false} />
+        <meshStandardMaterial color={PALETTE.success} emissive={PALETTE.success} emissiveIntensity={0.5} toneMapped={false} />
       </instancedMesh>
       <instancedMesh ref={right} args={[undefined, undefined, ROWS]}>
         <sphereGeometry args={[1, 10, 10]} />
-        <meshStandardMaterial color={PALETTE.accent2} emissive={PALETTE.accent2} emissiveIntensity={0.45} toneMapped={false} />
+        <meshStandardMaterial color={PALETTE.accent2} emissive={PALETTE.accent2} emissiveIntensity={0.5} toneMapped={false} />
       </instancedMesh>
     </group>
   );

@@ -4,6 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -12,28 +13,18 @@ interface Props {
 
 const TASKS = 80;
 
-interface TaskState {
-  startT: number;
-  duration: number;
-  worker: number;
-}
-
-/** Scene 6 — task spheres rain from the master to the worker planets. */
-export function TaskRain({ progress, visible }: Props) {
+/** Scene 6 — labeled master + workers with task spheres raining between them. */
+export function TaskRain({ progress: _progress, visible }: Props) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const tmpColor = useMemo(() => new THREE.Color(), []);
 
-  const tasks = useMemo<TaskState[]>(() => {
-    const arr: TaskState[] = [];
-    for (let i = 0; i < TASKS; i++) {
-      arr.push({
-        startT: (i / TASKS) * 1.0,
-        duration: 0.22 + ((i * 13) % 7) * 0.02,
-        worker: i % 4
-      });
-    }
-    return arr;
+  const tasks = useMemo(() => {
+    return Array.from({ length: TASKS }, (_, i) => ({
+      startT: (i / TASKS) * 1.0,
+      duration: 0.22 + ((i * 13) % 7) * 0.02,
+      worker: i % 4
+    }));
   }, []);
 
   const workerPos = useMemo(() => {
@@ -45,24 +36,20 @@ export function TaskRain({ progress, visible }: Props) {
 
   useFrame(() => {
     if (!visible || !meshRef.current) return;
-    // loop the rain animation locally so it always plays
     const loop = (performance.now() * 0.0003) % 1;
     for (let i = 0; i < TASKS; i++) {
       const t = tasks[i];
       const local = Math.max(0, Math.min(1, (loop - t.startT) / t.duration));
       const e = local * local * (3 - 2 * local);
       const dest = workerPos[t.worker];
-
-      const x = 0 + (dest.x - 0) * e;
-      const z = 0 + (dest.z - 0) * e;
+      const x = dest.x * e;
+      const z = dest.z * e;
       const y = 1.7 * Math.sin(e * Math.PI);
-
       dummy.position.set(x, y, z);
       const inFlight = local > 0 && local < 1;
-      dummy.scale.setScalar(inFlight ? 0.07 + Math.sin(local * Math.PI) * 0.04 : 0);
+      dummy.scale.setScalar(inFlight ? 0.08 + Math.sin(local * Math.PI) * 0.04 : 0);
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
-
       tmpColor.copy(PALETTE.fg).lerp(WORKER_TINTS[t.worker], e);
       meshRef.current.setColorAt(i, tmpColor);
     }
@@ -75,15 +62,27 @@ export function TaskRain({ progress, visible }: Props) {
       {/* master */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[0.55, 32, 32]} />
-        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.7} toneMapped={false} />
+        <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.75} toneMapped={false} />
       </mesh>
+      <PlanetLabel position={[0, 0, 0]} text="DRIVER" offset={0.82} size={0.14} color="#f4cf9c" />
+
       {/* workers */}
       {workerPos.map((p, i) => (
-        <mesh key={i} position={p}>
-          <sphereGeometry args={[0.45, 24, 24]} />
-          <meshStandardMaterial color={WORKER_TINTS[i]} emissive={WORKER_TINTS[i]} emissiveIntensity={0.5} toneMapped={false} />
-        </mesh>
+        <group key={i}>
+          <mesh position={p}>
+            <sphereGeometry args={[0.45, 24, 24]} />
+            <meshStandardMaterial color={WORKER_TINTS[i]} emissive={WORKER_TINTS[i]} emissiveIntensity={0.55} toneMapped={false} />
+          </mesh>
+          <PlanetLabel
+            position={[p.x, p.y, p.z]}
+            text={`W${i + 1}`}
+            offset={0.7}
+            size={0.16}
+            color="#c8dfff"
+          />
+        </group>
       ))}
+
       <instancedMesh ref={meshRef} args={[undefined, undefined, TASKS]}>
         <sphereGeometry args={[1, 10, 10]} />
         <meshBasicMaterial color={PALETTE.fg} toneMapped={false} />
