@@ -1,0 +1,2894 @@
+{
+  "initialDom": {
+    "scrollY": 0,
+    "scrollHeight": 13916,
+    "innerWidth": 1440,
+    "canvasCount": 1,
+    "visibleCanvases": 1,
+    "canvasGeoms": [
+      {
+        "w": 518,
+        "h": 648,
+        "top": 729,
+        "inViewport": true
+      }
+    ],
+    "sectionCount": 12,
+    "mostVisibleSection": {
+      "id": "hero",
+      "idx": "1",
+      "ratio": 0.314
+    },
+    "h1Text": "Build a Spark cluster you can fly through.",
+    "sectionLayouts": [
+      {
+        "id": "hero",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "anatomy",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "driver",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "data-arrival",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "partitions",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "task-rain",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      }
+    ],
+    "innerGrids": [
+      {
+        "sectionId": "hero",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "anatomy",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "anatomy",
+        "display": "grid",
+        "gridTemplateColumns": "518px",
+        "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+      },
+      {
+        "sectionId": "driver",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "driver",
+        "display": "grid",
+        "gridTemplateColumns": "518px",
+        "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+      },
+      {
+        "sectionId": "data-arrival",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "data-arrival",
+        "display": "grid",
+        "gridTemplateColumns": "518px",
+        "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+      },
+      {
+        "sectionId": "partitions",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      }
+    ],
+    "proseParaCounts": [
+      {
+        "id": "hero",
+        "pCount": 5,
+        "h2": "A cluster, asleep."
+      },
+      {
+        "id": "anatomy",
+        "pCount": 5,
+        "h2": "Inside a worker."
+      },
+      {
+        "id": "driver",
+        "pCount": 5,
+        "h2": "The driver wakes."
+      },
+      {
+        "id": "data-arrival",
+        "pCount": 5,
+        "h2": "A terabyte arrives."
+      },
+      {
+        "id": "partitions",
+        "pCount": 5,
+        "h2": "Eight thousand pieces."
+      },
+      {
+        "id": "task-rain",
+        "pCount": 5,
+        "h2": "Tasks, in parallel."
+      },
+      {
+        "id": "narrow-vs-wide",
+        "pCount": 5,
+        "h2": "Two kinds of work."
+      },
+      {
+        "id": "shuffle",
+        "pCount": 5,
+        "h2": "The shuffle."
+      },
+      {
+        "id": "stages",
+        "pCount": 5,
+        "h2": "Stages, drawn on the air."
+      },
+      {
+        "id": "airflow",
+        "pCount": 6,
+        "h2": "A scheduler, above."
+      },
+      {
+        "id": "ephemeral",
+        "pCount": 5,
+        "h2": "Born at 02:00, gone by 02:12."
+      },
+      {
+        "id": "fly",
+        "pCount": 5,
+        "h2": "Your cluster, your camera."
+      }
+    ],
+    "mainWrapper": {
+      "maxWidth": "none",
+      "width": "1440px",
+      "className": ""
+    }
+  },
+  "records": [
+    {
+      "vp": "desktop",
+      "pct": 0,
+      "scrollY": 0,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 1,
+      "visibleCanvases": 1,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": 729,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "hero",
+        "idx": "1",
+        "ratio": 0.314
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "desktop",
+      "pct": 12,
+      "scrollY": 1561,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 2,
+      "visibleCanvases": 2,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": -832,
+          "inViewport": true
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": 125,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "anatomy",
+        "idx": "2",
+        "ratio": 0.884
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "desktop",
+      "pct": 25,
+      "scrollY": 3254,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 4,
+      "visibleCanvases": 2,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": -2525,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -1568,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -549,
+          "inViewport": true
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": 500,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "data-arrival",
+        "idx": "4",
+        "ratio": 0.504
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "task-rain",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "task-rain",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "desktop",
+      "pct": 38,
+      "scrollY": 4946,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 6,
+      "visibleCanvases": 2,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": -4217,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -3260,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -2241,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -1192,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -143,
+          "inViewport": true
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": 967,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "partitions",
+        "idx": "5",
+        "ratio": 0.755
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "task-rain",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "narrow-vs-wide",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "narrow-vs-wide",
+          "display": "grid",
+          "gridTemplateColumns": "518px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "desktop",
+      "pct": 50,
+      "scrollY": 6508,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 7,
+      "visibleCanvases": 2,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": -5779,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -4822,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -3803,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -2754,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -1705,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -595,
+          "inViewport": true
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": 424,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "narrow-vs-wide",
+        "idx": "7",
+        "ratio": 0.545
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "task-rain",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "narrow-vs-wide",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "shuffle",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "desktop",
+      "pct": 62,
+      "scrollY": 8069,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 8,
+      "visibleCanvases": 1,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": -7340,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -6383,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -5364,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -4315,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -3266,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -2156,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -1137,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -27,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "shuffle",
+        "idx": "8",
+        "ratio": 0.685
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "task-rain",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "narrow-vs-wide",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "shuffle",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "desktop",
+      "pct": 75,
+      "scrollY": 9762,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 10,
+      "visibleCanvases": 2,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": -9033,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -8076,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -7057,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -6008,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -4959,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -3849,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -2830,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -1720,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -405,
+          "inViewport": true
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": 583,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "stages",
+        "idx": "9",
+        "ratio": 0.459
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "task-rain",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "narrow-vs-wide",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "shuffle",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "desktop",
+      "pct": 88,
+      "scrollY": 11454,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 11,
+      "visibleCanvases": 1,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": -10725,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -9768,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -8749,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -7700,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -6651,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -5541,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -4522,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -3412,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -2097,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -1109,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": 230,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "ephemeral",
+        "idx": "11",
+        "ratio": 0.74
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "task-rain",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "narrow-vs-wide",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "shuffle",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "desktop",
+      "pct": 100,
+      "scrollY": 13016,
+      "scrollHeight": 13916,
+      "innerWidth": 1440,
+      "canvasCount": 12,
+      "visibleCanvases": 1,
+      "canvasGeoms": [
+        {
+          "w": 518,
+          "h": 648,
+          "top": -12287,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -11330,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -10311,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -9262,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -8213,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -7103,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -6084,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -4974,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -3659,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -2671,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -1332,
+          "inViewport": false
+        },
+        {
+          "w": 518,
+          "h": 648,
+          "top": -252,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "fly",
+        "idx": "12",
+        "ratio": 0.602
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "task-rain",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "narrow-vs-wide",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "shuffle",
+          "display": "grid",
+          "gridTemplateColumns": "520px 520px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "1440px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "mobile",
+      "pct": 0,
+      "scrollY": 0,
+      "scrollHeight": 19375,
+      "innerWidth": 375,
+      "canvasCount": 0,
+      "visibleCanvases": 0,
+      "canvasGeoms": [],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "hero",
+        "idx": "1",
+        "ratio": 0.175
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "331.734px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "329.734px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "375px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "mobile",
+      "pct": 33,
+      "scrollY": 6125,
+      "scrollHeight": 19375,
+      "innerWidth": 375,
+      "canvasCount": 1,
+      "visibleCanvases": 1,
+      "canvasGeoms": [
+        {
+          "w": 330,
+          "h": 330,
+          "top": -269,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "partitions",
+        "idx": "5",
+        "ratio": 0.405
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "331.734px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "375px",
+        "className": ""
+      }
+    },
+    {
+      "vp": "mobile",
+      "pct": 66,
+      "scrollY": 12251,
+      "scrollHeight": 19375,
+      "innerWidth": 375,
+      "canvasCount": 2,
+      "visibleCanvases": 1,
+      "canvasGeoms": [
+        {
+          "w": 330,
+          "h": 330,
+          "top": -6395,
+          "inViewport": false
+        },
+        {
+          "w": 325,
+          "h": 325,
+          "top": 183,
+          "inViewport": true
+        }
+      ],
+      "sectionCount": 12,
+      "mostVisibleSection": {
+        "id": "shuffle",
+        "idx": "8",
+        "ratio": 0.325
+      },
+      "h1Text": "Build a Spark cluster you can fly through.",
+      "sectionLayouts": [
+        {
+          "id": "hero",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "anatomy",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "driver",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "data-arrival",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "partitions",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        },
+        {
+          "id": "task-rain",
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "childCount": 1
+        }
+      ],
+      "innerGrids": [
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "hero",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "anatomy",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "driver",
+          "display": "grid",
+          "gridTemplateColumns": "325px",
+          "classes": "absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]"
+        },
+        {
+          "sectionId": "data-arrival",
+          "display": "grid",
+          "gridTemplateColumns": "331.734px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        },
+        {
+          "sectionId": "partitions",
+          "display": "grid",
+          "gridTemplateColumns": "327px",
+          "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+        }
+      ],
+      "proseParaCounts": [
+        {
+          "id": "hero",
+          "pCount": 5,
+          "h2": "A cluster, asleep."
+        },
+        {
+          "id": "anatomy",
+          "pCount": 5,
+          "h2": "Inside a worker."
+        },
+        {
+          "id": "driver",
+          "pCount": 5,
+          "h2": "The driver wakes."
+        },
+        {
+          "id": "data-arrival",
+          "pCount": 5,
+          "h2": "A terabyte arrives."
+        },
+        {
+          "id": "partitions",
+          "pCount": 5,
+          "h2": "Eight thousand pieces."
+        },
+        {
+          "id": "task-rain",
+          "pCount": 5,
+          "h2": "Tasks, in parallel."
+        },
+        {
+          "id": "narrow-vs-wide",
+          "pCount": 5,
+          "h2": "Two kinds of work."
+        },
+        {
+          "id": "shuffle",
+          "pCount": 5,
+          "h2": "The shuffle."
+        },
+        {
+          "id": "stages",
+          "pCount": 5,
+          "h2": "Stages, drawn on the air."
+        },
+        {
+          "id": "airflow",
+          "pCount": 6,
+          "h2": "A scheduler, above."
+        },
+        {
+          "id": "ephemeral",
+          "pCount": 5,
+          "h2": "Born at 02:00, gone by 02:12."
+        },
+        {
+          "id": "fly",
+          "pCount": 5,
+          "h2": "Your cluster, your camera."
+        }
+      ],
+      "mainWrapper": {
+        "maxWidth": "none",
+        "width": "375px",
+        "className": ""
+      }
+    }
+  ],
+  "domAt25": {
+    "scrollY": 3254,
+    "scrollHeight": 13916,
+    "innerWidth": 1440,
+    "canvasCount": 12,
+    "visibleCanvases": 2,
+    "canvasGeoms": [
+      {
+        "w": 518,
+        "h": 648,
+        "top": -2525,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": -1568,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": -549,
+        "inViewport": true
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 500,
+        "inViewport": true
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 1549,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 2659,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 3678,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 4788,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 6103,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 7091,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 8430,
+        "inViewport": false
+      },
+      {
+        "w": 518,
+        "h": 648,
+        "top": 9510,
+        "inViewport": false
+      }
+    ],
+    "sectionCount": 12,
+    "mostVisibleSection": {
+      "id": "data-arrival",
+      "idx": "4",
+      "ratio": 0.504
+    },
+    "h1Text": "Build a Spark cluster you can fly through.",
+    "sectionLayouts": [
+      {
+        "id": "hero",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "anatomy",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "driver",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "data-arrival",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "partitions",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      },
+      {
+        "id": "task-rain",
+        "display": "block",
+        "gridTemplateColumns": "none",
+        "childCount": 1
+      }
+    ],
+    "innerGrids": [
+      {
+        "sectionId": "hero",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "anatomy",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "driver",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "data-arrival",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "partitions",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "task-rain",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "narrow-vs-wide",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      },
+      {
+        "sectionId": "shuffle",
+        "display": "grid",
+        "gridTemplateColumns": "520px 520px",
+        "classes": "grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-16"
+      }
+    ],
+    "proseParaCounts": [
+      {
+        "id": "hero",
+        "pCount": 5,
+        "h2": "A cluster, asleep."
+      },
+      {
+        "id": "anatomy",
+        "pCount": 5,
+        "h2": "Inside a worker."
+      },
+      {
+        "id": "driver",
+        "pCount": 5,
+        "h2": "The driver wakes."
+      },
+      {
+        "id": "data-arrival",
+        "pCount": 5,
+        "h2": "A terabyte arrives."
+      },
+      {
+        "id": "partitions",
+        "pCount": 5,
+        "h2": "Eight thousand pieces."
+      },
+      {
+        "id": "task-rain",
+        "pCount": 5,
+        "h2": "Tasks, in parallel."
+      },
+      {
+        "id": "narrow-vs-wide",
+        "pCount": 5,
+        "h2": "Two kinds of work."
+      },
+      {
+        "id": "shuffle",
+        "pCount": 5,
+        "h2": "The shuffle."
+      },
+      {
+        "id": "stages",
+        "pCount": 5,
+        "h2": "Stages, drawn on the air."
+      },
+      {
+        "id": "airflow",
+        "pCount": 6,
+        "h2": "A scheduler, above."
+      },
+      {
+        "id": "ephemeral",
+        "pCount": 5,
+        "h2": "Born at 02:00, gone by 02:12."
+      },
+      {
+        "id": "fly",
+        "pCount": 5,
+        "h2": "Your cluster, your camera."
+      }
+    ],
+    "mainWrapper": {
+      "maxWidth": "none",
+      "width": "1440px",
+      "className": ""
+    }
+  },
+  "interaction": {
+    "target": {
+      "x": 1012,
+      "y": -217,
+      "w": 518,
+      "h": 648
+    },
+    "before": "/Users/s0k0f41/PersonalWorkSpace/spark-blog/docs/screenshots/phaseI/interaction-before.png",
+    "after": "/Users/s0k0f41/PersonalWorkSpace/spark-blog/docs/screenshots/phaseI/interaction-after.png"
+  },
+  "pageErrorCount": 0
+}
