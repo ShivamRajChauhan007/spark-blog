@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, DustRing } from "./_shared";
+import { PlanetLabel, DustRing, InfoCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -45,6 +45,22 @@ export function ClusterIdle({ progress, visible }: Props) {
       <Planet position={[0, 0, 0]} radius={0.7} color={PALETTE.accent} matRef={masterMat} core />
       <PlanetLabel position={[0, 0, 0]} text="MASTER" offset={1.05} size={0.2} color="#f4cf9c" />
       <DustRing radius={1.15} count={60} color={PALETTE.accent} thickness={0.04} speed={0.25} />
+
+      {/* Primary info card — fleet specs anchored top of canvas */}
+      <InfoCard
+        position={[0, 0, 0]}
+        offset={[-3.6, 2.6, 0]}
+        primary="FLEET · 4 × n2-highmem-8"
+        secondary="32 vCPU · 256 GB · ~$2.65/hr"
+        color="#f4cf9c"
+      />
+      <InfoCard
+        position={[0, 0, 0]}
+        offset={[3.6, 2.6, 0]}
+        primary="MASTER · n2-standard-4"
+        secondary="4 vCPU · 16 GB · $0.19/hr"
+        color="#c8dfff"
+      />
 
       {/* worker "planets" */}
       {workers.map((w, i) => (

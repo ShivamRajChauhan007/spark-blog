@@ -12,6 +12,8 @@ export const EXPLAINERS: Record<SceneId, string> = {
     "spark-submit packages your code, picks a cluster master, and asks YARN for one container for the driver. Once that container boots, the driver reads your DAG, asks YARN for executor containers, and the show begins.",
   "data-arrival":
     "On disk, your dataset is many files — Parquet, JSON, CSV. Spark builds a logical plan that says 'I will read all of these and treat them as one DataFrame.' Nothing has moved yet. This is laziness, on purpose.",
+  "action-trigger":
+    "An action wakes Spark up. The user calls df.count(), the driver runs Catalyst to optimize the plan, marks shuffle boundaries for AQE, then breaks the plan into stages and tasks. For 1 TB across 8,000 partitions that's 8,000 tasks queued on the driver's scheduler. The pulse from the code panel to the driver is the lazy→eager moment.",
   partitions:
     "Spark turns the file list into partitions: chunks of roughly 128 MB. The default exists because HDFS blocks are 128 MB and a partition that fits in one block reads with one disk seek. With 1 TB of data you get about 8,000 partitions.",
   "task-rain":

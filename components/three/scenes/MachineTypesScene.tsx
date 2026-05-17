@@ -25,11 +25,11 @@ interface MachineSpec {
  * The "recommended" planet (n2-highmem-8) gets a subtle pulsing glow ring.
  */
 const MACHINES: MachineSpec[] = [
-  { family: "E2", detail: "dev / cheap", position: [-4.5, 0, 0], radius: 0.32, color: "#9be8b3" },
-  { family: "N2", detail: "default", position: [-2.3, 0, 0], radius: 0.45, color: "#9fcef7" },
-  { family: "n2-highmem-8", detail: "★ Spark workhorse", position: [0, 0, 0], radius: 0.62, color: "#f4cf9c" },
-  { family: "C3", detail: "compute-bound", position: [2.3, 0, 0], radius: 0.48, color: "#c8dfff" },
-  { family: "M2", detail: "memory beast", position: [4.5, 0, 0], radius: 0.78, color: "#dca0e6" }
+  { family: "e2-standard-4", detail: "$0.13/hr · dev", position: [-4.5, 0, 0], radius: 0.32, color: "#9be8b3" },
+  { family: "n2-standard-8", detail: "$0.39/hr · default", position: [-2.3, 0, 0], radius: 0.45, color: "#9fcef7" },
+  { family: "n2-highmem-8", detail: "★ $0.52/hr · workhorse", position: [0, 0, 0], radius: 0.62, color: "#f4cf9c" },
+  { family: "c3-standard-8", detail: "$0.40/hr · compute", position: [2.3, 0, 0], radius: 0.48, color: "#c8dfff" },
+  { family: "m1-ultramem-40", detail: "$6.29/hr · memory beast", position: [4.5, 0, 0], radius: 0.78, color: "#dca0e6" }
 ];
 
 export function MachineTypesScene({ progress: _progress, visible }: Props) {

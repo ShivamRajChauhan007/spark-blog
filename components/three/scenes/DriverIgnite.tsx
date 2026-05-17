@@ -5,7 +5,7 @@ import { useRef } from "react";
 import * as THREE from "three";
 import { PALETTE } from "@/lib/colors";
 import { Planet } from "./ClusterIdle";
-import { PlanetLabel, DustRing } from "./_shared";
+import { PlanetLabel, DustRing, CodePanel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -46,6 +46,11 @@ export function DriverIgnite({ progress, visible }: Props) {
         <meshBasicMaterial color={PALETTE.accent} transparent opacity={0.5} side={THREE.DoubleSide} toneMapped={false} />
       </mesh>
       <DustRing radius={1.7} count={80} color={PALETTE.accent} thickness={0.06} speed={0.3} />
+      <CodePanel
+        position={[0, -2.6, 0]}
+        code={`spark-submit \\\n  --deploy-mode cluster \\\n  --executor-cores 4 \\\n  --executor-memory 11g \\\n  --num-executors 8`}
+        width={3.6}
+      />
     </group>
   );
 }

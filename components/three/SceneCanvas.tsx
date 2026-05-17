@@ -9,6 +9,7 @@ import { ClusterIdle } from "./scenes/ClusterIdle";
 import { WorkerCutaway } from "./scenes/WorkerCutaway";
 import { DriverIgnite } from "./scenes/DriverIgnite";
 import { DataArrival } from "./scenes/DataArrival";
+import { ActionTriggerScene } from "./scenes/ActionTriggerScene";
 import { PartitionShatter } from "./scenes/PartitionShatter";
 import { TaskRain } from "./scenes/TaskRain";
 import { NarrowVsWide } from "./scenes/NarrowVsWide";
@@ -32,6 +33,7 @@ const SCENE_COMPONENTS: Record<SceneId, SceneComp> = {
   anatomy: WorkerCutaway,
   driver: DriverIgnite,
   "data-arrival": DataArrival,
+  "action-trigger": ActionTriggerScene,
   partitions: PartitionShatter,
   "task-rain": TaskRain,
   "narrow-vs-wide": NarrowVsWide,
@@ -50,6 +52,7 @@ const CAMERA_BY_SCENE: Record<SceneId, { pos: [number, number, number]; target: 
   anatomy: { pos: [4.5, 1.2, 3.5], target: [3.2, 0, 0] },
   driver: { pos: [0, 1.0, 3.8], target: [0, 0, 0] },
   "data-arrival": { pos: [-1, 2.6, 7.0], target: [-2, 0, 0] },
+  "action-trigger": { pos: [0, 2.0, 8], target: [0, 0, 0] },
   partitions: { pos: [0, 5.5, 5], target: [0, 0, 0] },
   "task-rain": { pos: [4, 2.4, 5.5], target: [0, 0.4, 0] },
   "narrow-vs-wide": { pos: [-4.5, 1.5, 5.5], target: [0, 0, 0] },

@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel } from "./_shared";
+import { PlanetLabel, InfoCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -168,6 +168,20 @@ export function WorkerCutaway({ progress, visible }: Props) {
         <meshBasicMaterial color={PALETTE.success} transparent opacity={0.45} side={THREE.DoubleSide} toneMapped={false} />
       </mesh>
       <PlanetLabel position={[0, 0, 0]} text="YARN · container manager" offset={1.6} size={0.16} color="#9be8b3" />
+      <InfoCard
+        position={[0, 0, 0]}
+        offset={[-2.4, 0.6, 0]}
+        primary="WORKER · n2-highmem-8"
+        secondary="8 vCPU · 64 GB · 2 execs × 4 cores"
+        color="#c8dfff"
+      />
+      <InfoCard
+        position={[0, 0, 0]}
+        offset={[-2.4, -0.4, 0]}
+        primary="EXECUTOR · JVM"
+        secondary="4 cores · 11 GB heap + 1.1 GB ovr"
+        color="#f4cf9c"
+      />
 
       {/* outer worker shell */}
       <mesh>

@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel } from "./_shared";
+import { PlanetLabel, InfoCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -40,6 +40,20 @@ export function EphemeralCycle({ progress: _progress, visible }: Props) {
         offset={3.0}
         size={0.16}
         color="#f4cf9c"
+      />
+      <InfoCard
+        position={[0, 0, 0]}
+        offset={[-3.0, 2.0, 0]}
+        primary="EPHEMERAL: $0.53 / 12 min"
+        secondary="create 90s · run 11min · delete 15s"
+        color="#9be8b3"
+      />
+      <InfoCard
+        position={[0, 0, 0]}
+        offset={[3.0, 2.0, 0]}
+        primary="ALWAYS-ON: $64 / day"
+        secondary="$2.65/hr × 24h on idle weekends"
+        color="#e96440"
       />
       <group ref={group}>
         <mesh>
