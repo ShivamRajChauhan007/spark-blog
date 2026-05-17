@@ -14,9 +14,11 @@ interface Props {
  * Scene 1 — the idle cluster.
  * Master cube at origin, 4 worker cubes on a circle of radius 3.
  * Network "lines" are thin cylinders (avoids r3f v9 line-element JSX typing pain).
+ * Scroll progress controls orbit speed: the cluster "wakes up" as you read.
  */
-export function ClusterIdle({ progress: _progress, visible }: Props) {
+export function ClusterIdle({ progress, visible }: Props) {
   const group = useRef<THREE.Group>(null);
+  const masterRef = useRef<THREE.MeshStandardMaterial>(null);
 
   const workers = useMemo(() => {
     return Array.from({ length: 4 }, (_, i) => {
@@ -31,7 +33,14 @@ export function ClusterIdle({ progress: _progress, visible }: Props) {
 
   useFrame((_state, dt) => {
     if (!group.current) return;
-    if (visible) group.current.rotation.y += dt * 0.08;
+    if (visible) {
+      // orbit speed scales with progress: idle → awake
+      group.current.rotation.y += dt * (0.04 + progress * 0.18);
+    }
+    if (masterRef.current) {
+      // breathing emissive — the master "thinks"
+      masterRef.current.emissiveIntensity = 0.35 + Math.sin(performance.now() * 0.002) * 0.07 + progress * 0.2;
+    }
   });
 
   return (
@@ -40,6 +49,7 @@ export function ClusterIdle({ progress: _progress, visible }: Props) {
       <mesh position={[0, 0, 0]} castShadow receiveShadow>
         <boxGeometry args={[0.9, 0.9, 0.9]} />
         <meshStandardMaterial
+          ref={masterRef}
           color={PALETTE.accent}
           emissive={PALETTE.accent}
           emissiveIntensity={0.4}

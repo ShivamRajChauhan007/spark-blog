@@ -75,7 +75,9 @@ export function ShuffleScene({ progress, visible }: Props) {
       const p = curves[i].getPointAt(e);
       dummy.position.copy(p);
       const inFlight = local > 0 && local < 1;
-      dummy.scale.setScalar(inFlight ? 0.05 : 0);
+      // size pops at the apex of the arc (e=0.5), shrinks at endpoints — feels like exhalation
+      const arc = inFlight ? Math.sin(local * Math.PI) : 0;
+      dummy.scale.setScalar(0.04 + arc * 0.06);
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
 
@@ -96,10 +98,10 @@ export function ShuffleScene({ progress, visible }: Props) {
           <meshStandardMaterial color={WORKER_TINTS[i]} emissive={WORKER_TINTS[i]} emissiveIntensity={0.35} />
         </mesh>
       ))}
-      {/* flying rows */}
+      {/* flying rows — emissive + additive for cinematic glow under Bloom */}
       <instancedMesh ref={meshRef} args={[undefined, undefined, ROWS]}>
-        <sphereGeometry args={[1, 8, 8]} />
-        <meshBasicMaterial color={PALETTE.fg} />
+        <sphereGeometry args={[1, 10, 10]} />
+        <meshBasicMaterial color={PALETTE.fg} transparent opacity={0.95} toneMapped={false} />
       </instancedMesh>
     </group>
   );

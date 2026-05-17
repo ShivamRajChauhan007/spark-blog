@@ -1,0 +1,27 @@
+{
+  "probe": {
+    "findSkip": true,
+    "hasSceneNav": true,
+    "sceneNavDisplay": "flex",
+    "sceneNavVisibility": "visible",
+    "dotsCount": 12,
+    "sectionIds": [
+      "scene-hero",
+      "scene-anatomy",
+      "scene-driver",
+      "scene-data-arrival",
+      "scene-partitions",
+      "scene-task-rain",
+      "scene-narrow-vs-wide",
+      "scene-shuffle",
+      "scene-stages",
+      "scene-airflow",
+      "scene-ephemeral",
+      "scene-fly"
+    ],
+    "canvasCount": 1,
+    "explainerBtn": true
+  },
+  "fps": 7,
+  "consoleErrors": []
+}

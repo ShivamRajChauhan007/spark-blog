@@ -4,8 +4,8 @@ import { SCENES } from "@/lib/scenes";
 import { activeScene, useScrollProgress } from "@/lib/useScrollProgress";
 
 /**
- * A vertical scroll mini-map on the right edge. One dot per scene; the active
- * scene's dot fills. Bartosz-style. Click to jump.
+ * Vertical scroll mini-map on the right edge. One dot per scene; the active
+ * scene's dot fills. Inactive dots are now visible at rest (was the phaseA bug).
  */
 export function ProgressMap() {
   const progress = useScrollProgress();
@@ -25,7 +25,7 @@ export function ProgressMap() {
           className="pointer-events-auto group flex items-center gap-2 outline-none"
         >
           <span
-            className={`pointer-events-none rounded-full bg-[var(--color-bg-elev)]/80 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur transition-all ${
+            className={`pointer-events-none rounded-full bg-[var(--color-bg-elev)]/85 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur transition-all ${
               i === index
                 ? "max-w-[14rem] text-[var(--color-accent)] opacity-100"
                 : "max-w-0 overflow-hidden opacity-0 group-hover:max-w-[14rem] group-hover:opacity-100 group-focus-visible:max-w-[14rem] group-focus-visible:opacity-100"
@@ -34,8 +34,10 @@ export function ProgressMap() {
             {s.kicker}
           </span>
           <span
-            className={`block h-1.5 rounded-full transition-all ${
-              i === index ? "w-6 bg-[var(--color-accent)]" : "w-1.5 bg-[var(--color-line)] group-hover:w-3 group-hover:bg-[var(--color-fg-muted)]"
+            className={`block rounded-full transition-all ${
+              i === index
+                ? "h-2 w-7 bg-[var(--color-accent)] shadow-[0_0_10px_rgba(232,152,86,0.5)]"
+                : "h-2 w-2 bg-[var(--color-fg-muted)]/55 group-hover:w-4 group-hover:bg-[var(--color-fg)]"
             }`}
           />
         </a>

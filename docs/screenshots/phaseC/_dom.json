@@ -1,0 +1,74 @@
+{
+  "viewport": {
+    "w": 1440,
+    "h": 900
+  },
+  "scrollY": 0,
+  "scrollHeight": 22496,
+  "h1": {
+    "text": "Build a Spark cluster you can fly through.",
+    "rect": {
+      "x": 360,
+      "y": 168,
+      "w": 720,
+      "h": 195.8125
+    },
+    "inViewport": true
+  },
+  "header": {
+    "rect": {
+      "x": 336,
+      "y": 0,
+      "w": 768,
+      "h": 571.8125
+    }
+  },
+  "firstH2": {
+    "text": "A cluster, asleep.",
+    "rect": {
+      "x": 360,
+      "y": 1143.8125,
+      "w": 576,
+      "h": 52.796875
+    }
+  },
+  "articleStack": {
+    "position": "relative",
+    "zIndex": "10",
+    "tag": "div"
+  },
+  "sceneCanvasNodes": [
+    {
+      "position": "fixed",
+      "zIndex": "0",
+      "inset": {
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px"
+      },
+      "height": "900px",
+      "width": "1440px",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      }
+    }
+  ],
+  "canvasNodes": [
+    {
+      "w": 1440,
+      "h": 900,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      }
+    }
+  ],
+  "bodyBg": "lab(2.46293 -0.424452 -2.43543)",
+  "htmlBg": "lab(2.46293 -0.424452 -2.43543)"
+}
