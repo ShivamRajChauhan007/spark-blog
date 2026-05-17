@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { CodePanel, InfoCard, PlanetLabel } from "./_shared";
+import { CodePanel, InfoCard, LegendCard, PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -184,6 +184,7 @@ export function ActionTriggerScene({ progress: _progress, visible }: Props) {
         size={0.13}
         color="#b0b0b8"
       />
+      <LegendCard primary="LEGEND" secondary="• pulse = action firing • ray = stage 0 task batch" />
     </group>
   );
 }

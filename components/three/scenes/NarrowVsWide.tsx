@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel } from "./_shared";
+import { PlanetLabel, LegendCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -79,6 +79,11 @@ export function NarrowVsWide({ progress: _progress, visible }: Props) {
         <sphereGeometry args={[1, 10, 10]} />
         <meshStandardMaterial color={PALETTE.accent2} emissive={PALETTE.accent2} emissiveIntensity={0.5} toneMapped={false} />
       </instancedMesh>
+
+      <LegendCard
+        primary="LEGEND"
+        secondary="• small dots = rows · green stays put · blue hops between columns"
+      />
     </group>
   );
 }

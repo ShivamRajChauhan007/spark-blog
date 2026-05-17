@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, DustRing, InfoCard } from "./_shared";
+import { PlanetLabel, DustRing, InfoCard, LegendCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -73,6 +73,8 @@ export function ClusterIdle({ progress, visible }: Props) {
           phase={w.activityOffset}
         />
       ))}
+
+      <LegendCard primary="LEGEND" secondary="• small ring dots = core threads (8 per worker)" />
 
       {/* faint orbital ring */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>

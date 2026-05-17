@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, InfoCard } from "./_shared";
+import { PlanetLabel, InfoCard, LegendCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -55,6 +55,7 @@ export function EphemeralCycle({ progress: _progress, visible }: Props) {
         secondary="$2.65/hr × 24h on idle weekends"
         color="#e96440"
       />
+      <LegendCard primary="LEGEND" secondary="• cluster scales in / out on a 1-cycle = create → run → delete" />
       <group ref={group}>
         <mesh>
           <sphereGeometry args={[0.5, 32, 32]} />

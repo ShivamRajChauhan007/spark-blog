@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, InfoCard } from "./_shared";
+import { PlanetLabel, InfoCard, LegendCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -240,6 +240,8 @@ export function WorkerCutaway({ progress, visible }: Props) {
         <sphereGeometry args={[1.16, 36, 36]} />
         <meshBasicMaterial color={WORKER_TINTS[0]} transparent opacity={0.1} depthWrite={false} toneMapped={false} />
       </mesh>
+
+      <LegendCard primary="LEGEND" secondary="• small white sphere = thread on a core • orange = task complete" />
     </group>
   );
 }

@@ -189,6 +189,23 @@ export function CodePanel({
   );
 }
 
+/**
+ * Legend card — anchored to the bottom-left of the scene at a consistent
+ * world position so every scene has a "key" explaining what its dots mean.
+ * Use one per scene. Sits above the bottom edge of the canvas.
+ */
+export function LegendCard({ primary, secondary }: { primary: string; secondary?: string }) {
+  return (
+    <InfoCard
+      position={[0, 0, 0]}
+      offset={[-2.8, -2.8, 0]}
+      primary={primary}
+      secondary={secondary}
+      color="#b0b0b8"
+    />
+  );
+}
+
 /** A small dust/particle ring around a planet — adds "alive" quality. */
 export function DustRing({
   radius,

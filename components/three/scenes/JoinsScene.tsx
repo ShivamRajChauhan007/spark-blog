@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel } from "./_shared";
+import { PlanetLabel, LegendCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -140,6 +140,11 @@ export function JoinsScene({ progress: _progress, visible }: Props) {
           <meshBasicMaterial color={PALETTE.accent} transparent opacity={0.7} toneMapped={false} />
         </mesh>
       </group>
+
+      <LegendCard
+        primary="LEGEND"
+        secondary="• green dot = small table broadcast copy · arcing dot = row shuffled"
+      />
     </group>
   );
 }

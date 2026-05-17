@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel } from "./_shared";
+import { PlanetLabel, LegendCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -116,6 +116,11 @@ export function ShuffleScene({ progress: _progress, visible }: Props) {
         <sphereGeometry args={[1, 10, 10]} />
         <meshBasicMaterial color={PALETTE.fg} transparent opacity={0.95} toneMapped={false} />
       </instancedMesh>
+
+      <LegendCard
+        primary="LEGEND"
+        secondary="• each arcing dot = one row · ~256 B · hash(key) % N decides dest"
+      />
     </group>
   );
 }

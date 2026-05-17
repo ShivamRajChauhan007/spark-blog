@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel } from "./_shared";
+import { PlanetLabel, LegendCard } from "./_shared";
 
 interface Props {
   visible: boolean;
@@ -95,6 +95,8 @@ export function FreeCamera({ visible }: Props) {
         <sphereGeometry args={[1, 6, 6]} />
         <meshBasicMaterial color={PALETTE.fgMuted} transparent opacity={0.55} toneMapped={false} />
       </instancedMesh>
+
+      <LegendCard primary="LEGEND" secondary="• 200 small motes = 200 partitions of 128 MB each drifting in space" />
     </group>
   );
 }
