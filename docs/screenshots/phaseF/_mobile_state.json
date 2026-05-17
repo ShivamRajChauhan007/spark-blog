@@ -1,0 +1,88 @@
+[
+  {
+    "label": "mobile-0",
+    "scrollY": 0,
+    "scrollHeight": 17416,
+    "bodyH1": "Build a Spark cluster you can fly through.",
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "canvasCount": 1,
+    "sectionsCount": 12,
+    "errorOverlayPresent": true,
+    "errorOverlayText": null,
+    "mostVisibleSection": {
+      "id": "hero",
+      "index": 1,
+      "top": 488.125,
+      "bottom": 1949.71875,
+      "visHeight": 323.875,
+      "ratio": 0.39886083743842365,
+      "inViewport": true
+    },
+    "closestH2": null,
+    "activeKickerLabel": "Jump to scene 1: A cluster, asleep.",
+    "activeKickerText": "01 · The cluster",
+    "sandpackVisible": false,
+    "sandpackHeight": 0,
+    "aligned": false
+  },
+  {
+    "label": "mobile-33",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "bodyH1": "This page couldn’t load",
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "canvasCount": 0,
+    "sectionsCount": 0,
+    "errorOverlayPresent": true,
+    "errorOverlayText": null,
+    "mostVisibleSection": null,
+    "closestH2": null,
+    "sandpackVisible": false,
+    "sandpackHeight": 0,
+    "aligned": null
+  },
+  {
+    "label": "mobile-50",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "bodyH1": "This page couldn’t load",
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "canvasCount": 0,
+    "sectionsCount": 0,
+    "errorOverlayPresent": true,
+    "errorOverlayText": null,
+    "mostVisibleSection": null,
+    "closestH2": null,
+    "sandpackVisible": false,
+    "sandpackHeight": 0,
+    "aligned": null
+  },
+  {
+    "label": "mobile-75",
+    "scrollY": 0,
+    "scrollHeight": 812,
+    "bodyH1": "This page couldn’t load",
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "canvasCount": 0,
+    "sectionsCount": 0,
+    "errorOverlayPresent": true,
+    "errorOverlayText": null,
+    "mostVisibleSection": null,
+    "closestH2": null,
+    "sandpackVisible": false,
+    "sandpackHeight": 0,
+    "aligned": null
+  }
+]

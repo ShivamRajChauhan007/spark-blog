@@ -1,0 +1,358 @@
+{
+  "scrollHeight": 19256,
+  "h1": "Build a Spark cluster you can fly through.",
+  "h1Y": 168,
+  "canvasCount": 1,
+  "sectionMetrics": [
+    {
+      "id": "hero",
+      "index": 1,
+      "y": 571.8125,
+      "height": 1620
+    },
+    {
+      "id": "anatomy",
+      "index": 2,
+      "y": 2191.8125,
+      "height": 1620
+    },
+    {
+      "id": "driver",
+      "index": 3,
+      "y": 3811.8125,
+      "height": 1620
+    },
+    {
+      "id": "data-arrival",
+      "index": 4,
+      "y": 5431.8125,
+      "height": 1620
+    },
+    {
+      "id": "partitions",
+      "index": 5,
+      "y": 7051.8125,
+      "height": 1620
+    },
+    {
+      "id": "task-rain",
+      "index": 6,
+      "y": 8671.8125,
+      "height": 1620
+    },
+    {
+      "id": "narrow-vs-wide",
+      "index": 7,
+      "y": 10291.8125,
+      "height": 1620
+    },
+    {
+      "id": "shuffle",
+      "index": 8,
+      "y": 11911.8125,
+      "height": 1620
+    },
+    {
+      "id": "stages",
+      "index": 9,
+      "y": 13531.8125,
+      "height": 1620
+    },
+    {
+      "id": "airflow",
+      "index": 10,
+      "y": 15151.8125,
+      "height": 1260
+    },
+    {
+      "id": "ephemeral",
+      "index": 11,
+      "y": 16411.8125,
+      "height": 1260
+    },
+    {
+      "id": "fly",
+      "index": 12,
+      "y": 17671.8125,
+      "height": 1260
+    }
+  ],
+  "sceneStateRecords": [
+    {
+      "label": "desktop-0",
+      "scrollY": 0,
+      "scrollHeight": 19256,
+      "bodyH1": "Build a Spark cluster you can fly through.",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 1,
+      "sectionsCount": 12,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": {
+        "id": "hero",
+        "index": 1,
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "visHeight": 328.1875,
+        "ratio": 0.36465277777777777,
+        "inViewport": true
+      },
+      "closestH2": null,
+      "activeKickerLabel": "Jump to scene 1: A cluster, asleep.",
+      "activeKickerText": "01 · The cluster",
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": false
+    },
+    {
+      "label": "desktop-8",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-16",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-25",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-33",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-42",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-50",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-58",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-66",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-75",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-83",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-92",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "desktop-100",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    },
+    {
+      "label": "post-stress",
+      "scrollY": 0,
+      "scrollHeight": 900,
+      "bodyH1": "This page couldn’t load",
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "canvasCount": 0,
+      "sectionsCount": 0,
+      "errorOverlayPresent": true,
+      "errorOverlayText": null,
+      "mostVisibleSection": null,
+      "closestH2": null,
+      "sandpackVisible": false,
+      "sandpackHeight": 0,
+      "aligned": null
+    }
+  ]
+}
