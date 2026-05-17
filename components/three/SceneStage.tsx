@@ -19,19 +19,21 @@ import { CameraRig } from "@/components/scroll/CameraRig";
 import { useScrollProgress, activeScene } from "@/lib/useScrollProgress";
 import { SCENES } from "@/lib/scenes";
 
+// Each scene is visible only on its OWN index — no neighbouring overlap.
+// (Crossfades happen via individual scene's `progress` ramp, not parallel rendering.)
 const SCENE_RENDERERS = [
-  { Component: ClusterIdle, range: [0, 1] },
-  { Component: WorkerCutaway, range: [0, 2] },
-  { Component: DriverIgnite, range: [1, 3] },
-  { Component: DataArrival, range: [2, 4] },
-  { Component: PartitionShatter, range: [3, 5] },
-  { Component: TaskRain, range: [4, 6] },
-  { Component: NarrowVsWide, range: [5, 7] },
-  { Component: ShuffleScene, range: [6, 8] },
-  { Component: StagesDiagram, range: [7, 9] },
-  { Component: AirflowDag, range: [8, 10] },
-  { Component: EphemeralCycle, range: [9, 11] },
-  { Component: FreeCamera, range: [10, 11] }
+  { Component: ClusterIdle, index: 0 },
+  { Component: WorkerCutaway, index: 1 },
+  { Component: DriverIgnite, index: 2 },
+  { Component: DataArrival, index: 3 },
+  { Component: PartitionShatter, index: 4 },
+  { Component: TaskRain, index: 5 },
+  { Component: NarrowVsWide, index: 6 },
+  { Component: ShuffleScene, index: 7 },
+  { Component: StagesDiagram, index: 8 },
+  { Component: AirflowDag, index: 9 },
+  { Component: EphemeralCycle, index: 10 },
+  { Component: FreeCamera, index: 11 }
 ];
 
 export function SceneStage() {
@@ -65,9 +67,9 @@ export function SceneStage() {
 
         {!isFly && <CameraRig progress={progress} />}
 
-        {SCENE_RENDERERS.map(({ Component, range: [lo, hi] }, i) => {
-          const visible = index >= lo && index <= hi;
-          const localForThis = index === i ? local : index < i ? 0 : 1;
+        {SCENE_RENDERERS.map(({ Component, index: sceneIndex }, i) => {
+          const visible = index === sceneIndex;
+          const localForThis = visible ? local : 0;
           if (Component === FreeCamera) {
             return <FreeCamera key={i} visible={visible} />;
           }
@@ -76,8 +78,8 @@ export function SceneStage() {
           return <Any key={i} progress={localForThis} visible={visible} />;
         })}
 
-        <EffectComposer multisampling={4}>
-          <Bloom intensity={bloomIntensity} luminanceThreshold={0.32} luminanceSmoothing={0.85} mipmapBlur />
+        <EffectComposer multisampling={0}>
+          <Bloom intensity={bloomIntensity} luminanceThreshold={0.18} luminanceSmoothing={0.8} mipmapBlur />
           <Vignette eskil={false} offset={0.18} darkness={0.78} />
         </EffectComposer>
       </Canvas>

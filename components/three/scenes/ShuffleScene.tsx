@@ -75,9 +75,10 @@ export function ShuffleScene({ progress, visible }: Props) {
       const p = curves[i].getPointAt(e);
       dummy.position.copy(p);
       const inFlight = local > 0 && local < 1;
-      // size pops at the apex of the arc (e=0.5), shrinks at endpoints — feels like exhalation
+      // size pops at apex (e=0.5), shrinks at endpoints. Much larger than v1
+      // so the 96 rows are visible from a 6.5+ unit overhead camera.
       const arc = inFlight ? Math.sin(local * Math.PI) : 0;
-      dummy.scale.setScalar(0.04 + arc * 0.06);
+      dummy.scale.setScalar(0.12 + arc * 0.18);
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
 

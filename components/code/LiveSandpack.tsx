@@ -3,10 +3,10 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
 
 /**
- * Phase 6 — embedded live code playground.
- * Hosted next to the shuffle scene so readers can edit the groupBy key
- * and watch the visualisation react. The visual coupling lands in phase 6+,
- * the editor itself ships now so the layout is finalised.
+ * Embedded live code playground at scene 8.
+ * Theme uses sRGB hex (was OKLCH; Sandpack's CSS-in-JS does support oklch
+ * but we standardise on hex to match the Three.js palette and avoid mixed
+ * formats across the codebase).
  */
 export function LiveSandpack() {
   return (
@@ -17,27 +17,27 @@ export function LiveSandpack() {
       <Sandpack
         theme={{
           colors: {
-            surface1: "oklch(0.15 0.013 252)",
-            surface2: "oklch(0.18 0.014 252)",
-            surface3: "oklch(0.20 0.014 252)",
-            clickable: "oklch(0.72 0.012 252)",
-            base: "oklch(0.96 0.005 252)",
-            disabled: "oklch(0.4 0.012 252)",
-            hover: "oklch(0.96 0.005 252)",
-            accent: "oklch(0.78 0.16 65)",
-            error: "oklch(0.68 0.20 25)",
-            errorSurface: "oklch(0.2 0.06 25)"
+            surface1: "#13141a",
+            surface2: "#181a21",
+            surface3: "#1d1f28",
+            clickable: "#b0b0b8",
+            base: "#f4f4f5",
+            disabled: "#6a6b73",
+            hover: "#f4f4f5",
+            accent: "#e89856",
+            error: "#e96440",
+            errorSurface: "#3a1d12"
           },
           syntax: {
-            plain: "oklch(0.92 0.005 252)",
-            comment: { color: "oklch(0.55 0.012 252)", fontStyle: "italic" },
-            keyword: "oklch(0.78 0.16 65)",
-            tag: "oklch(0.74 0.14 220)",
-            punctuation: "oklch(0.72 0.012 252)",
-            definition: "oklch(0.96 0.005 252)",
-            property: "oklch(0.78 0.16 145)",
-            static: "oklch(0.96 0.005 252)",
-            string: "oklch(0.78 0.16 65)"
+            plain: "#eaeaf0",
+            comment: { color: "#83848c", fontStyle: "italic" },
+            keyword: "#e89856",
+            tag: "#5fa8e5",
+            punctuation: "#b0b0b8",
+            definition: "#f4f4f5",
+            property: "#62cf83",
+            static: "#f4f4f5",
+            string: "#e89856"
           },
           font: {
             body: "var(--font-body)",
