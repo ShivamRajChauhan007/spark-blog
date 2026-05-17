@@ -1,0 +1,869 @@
+{
+  "initial": {
+    "h1Text": "Build a Spark cluster you can fly through.",
+    "h1Y": 168,
+    "scrollHeight": 19256,
+    "scrollY": 0,
+    "canvasCount": 1,
+    "sectionCount": 12,
+    "sections": [
+      {
+        "id": "hero",
+        "idx": "1",
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "height": 1620
+      },
+      {
+        "id": "anatomy",
+        "idx": "2",
+        "top": 2191.8125,
+        "bottom": 3811.8125,
+        "height": 1620
+      },
+      {
+        "id": "driver",
+        "idx": "3",
+        "top": 3811.8125,
+        "bottom": 5431.8125,
+        "height": 1620
+      },
+      {
+        "id": "data-arrival",
+        "idx": "4",
+        "top": 5431.8125,
+        "bottom": 7051.8125,
+        "height": 1620
+      },
+      {
+        "id": "partitions",
+        "idx": "5",
+        "top": 7051.8125,
+        "bottom": 8671.8125,
+        "height": 1620
+      },
+      {
+        "id": "task-rain",
+        "idx": "6",
+        "top": 8671.8125,
+        "bottom": 10291.8125,
+        "height": 1620
+      },
+      {
+        "id": "narrow-vs-wide",
+        "idx": "7",
+        "top": 10291.8125,
+        "bottom": 11911.8125,
+        "height": 1620
+      },
+      {
+        "id": "shuffle",
+        "idx": "8",
+        "top": 11911.8125,
+        "bottom": 13531.8125,
+        "height": 1620
+      },
+      {
+        "id": "stages",
+        "idx": "9",
+        "top": 13531.8125,
+        "bottom": 15151.8125,
+        "height": 1620
+      },
+      {
+        "id": "airflow",
+        "idx": "10",
+        "top": 15151.8125,
+        "bottom": 16411.8125,
+        "height": 1260
+      },
+      {
+        "id": "ephemeral",
+        "idx": "11",
+        "top": 16411.8125,
+        "bottom": 17671.8125,
+        "height": 1260
+      },
+      {
+        "id": "fly",
+        "idx": "12",
+        "top": 17671.8125,
+        "bottom": 18931.8125,
+        "height": 1260
+      }
+    ]
+  },
+  "sceneStateRecords": [
+    {
+      "pct": 0,
+      "scrollY": 0,
+      "mostVisibleSection": {
+        "id": "hero",
+        "idx": "1",
+        "ratio": 0.203
+      },
+      "closestH2": {
+        "text": "A cluster, asleep.",
+        "sceneId": "hero"
+      },
+      "activeKickerText": "01 · THE CLUSTER",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 8,
+      "scrollY": 1468,
+      "mostVisibleSection": {
+        "id": "hero",
+        "idx": "1",
+        "ratio": 0.447
+      },
+      "closestH2": {
+        "text": "A cluster, asleep.",
+        "sceneId": "hero"
+      },
+      "activeKickerText": "01 · THE CLUSTER",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 16,
+      "scrollY": 2936,
+      "mostVisibleSection": {
+        "id": "anatomy",
+        "idx": "2",
+        "ratio": 0.541
+      },
+      "closestH2": {
+        "text": "Inside a worker.",
+        "sceneId": "anatomy"
+      },
+      "activeKickerText": "02 · ANATOMY",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 25,
+      "scrollY": 4589,
+      "mostVisibleSection": {
+        "id": "driver",
+        "idx": "3",
+        "ratio": 0.52
+      },
+      "closestH2": {
+        "text": "The driver wakes.",
+        "sceneId": "driver"
+      },
+      "activeKickerText": "03 · THE DRIVER",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 33,
+      "scrollY": 6057,
+      "mostVisibleSection": {
+        "id": "data-arrival",
+        "idx": "4",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "A terabyte arrives.",
+        "sceneId": "data-arrival"
+      },
+      "activeKickerText": "04 · THE DATA",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 42,
+      "scrollY": 7709,
+      "mostVisibleSection": {
+        "id": "partitions",
+        "idx": "5",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "Eight thousand pieces.",
+        "sceneId": "partitions"
+      },
+      "activeKickerText": "05 · PARTITIONS",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 50,
+      "scrollY": 9178,
+      "mostVisibleSection": {
+        "id": "task-rain",
+        "idx": "6",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "Tasks, in parallel.",
+        "sceneId": "task-rain"
+      },
+      "activeKickerText": "06 · PARALLELISM",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 58,
+      "scrollY": 10646,
+      "mostVisibleSection": {
+        "id": "narrow-vs-wide",
+        "idx": "7",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "Two kinds of work.",
+        "sceneId": "narrow-vs-wide"
+      },
+      "activeKickerText": "07 · TRANSFORMATIONS",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 66,
+      "scrollY": 12114,
+      "mostVisibleSection": {
+        "id": "shuffle",
+        "idx": "8",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "The shuffle.",
+        "sceneId": "shuffle"
+      },
+      "activeKickerText": "08 · THE SHUFFLE",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 75,
+      "scrollY": 13767,
+      "mostVisibleSection": {
+        "id": "stages",
+        "idx": "9",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "Stages, drawn on the air.",
+        "sceneId": "stages"
+      },
+      "activeKickerText": "09 · STAGES",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 83,
+      "scrollY": 15235,
+      "mostVisibleSection": {
+        "id": "airflow",
+        "idx": "10",
+        "ratio": 0.714
+      },
+      "closestH2": {
+        "text": "A scheduler, above.",
+        "sceneId": "airflow"
+      },
+      "activeKickerText": "10 · ORCHESTRATION",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 92,
+      "scrollY": 16887,
+      "mostVisibleSection": {
+        "id": "ephemeral",
+        "idx": "11",
+        "ratio": 0.623
+      },
+      "closestH2": {
+        "text": "Born at 02:00, gone by 02:12.",
+        "sceneId": "ephemeral"
+      },
+      "activeKickerText": "11 · EPHEMERAL CLUSTERS",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 100,
+      "scrollY": 18356,
+      "mostVisibleSection": {
+        "id": "fly",
+        "idx": "12",
+        "ratio": 0.457
+      },
+      "closestH2": {
+        "text": "Your cluster, your camera.",
+        "sceneId": "fly"
+      },
+      "activeKickerText": "12 · FLY MODE",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    }
+  ],
+  "crashSweep": [
+    {
+      "y": 0,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 481,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 962,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 1444,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 1925,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 2407,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 2888,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 3369,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 3851,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 4332,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 4814,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 5295,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 5776,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 6258,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 6739,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 7221,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 7702,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 8183,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 8665,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 9146,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 9628,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 10109,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 10590,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 11072,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 11553,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 12035,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 12516,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 12997,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 13479,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 13960,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 14442,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 14923,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 15404,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 15886,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 16367,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 16849,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 17330,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 17811,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 18293,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 18774,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    },
+    {
+      "y": 19256,
+      "overlay": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "errCount": 0
+    }
+  ],
+  "desktopAfter": {
+    "h1Text": "Build a Spark cluster you can fly through.",
+    "h1Y": -18188,
+    "scrollHeight": 19256,
+    "scrollY": 18356,
+    "canvasCount": 1,
+    "sectionCount": 12,
+    "sections": [
+      {
+        "id": "hero",
+        "idx": "1",
+        "top": 571.8125,
+        "bottom": 2191.8125,
+        "height": 1620
+      },
+      {
+        "id": "anatomy",
+        "idx": "2",
+        "top": 2191.8125,
+        "bottom": 3811.8125,
+        "height": 1620
+      },
+      {
+        "id": "driver",
+        "idx": "3",
+        "top": 3811.8125,
+        "bottom": 5431.8125,
+        "height": 1620
+      },
+      {
+        "id": "data-arrival",
+        "idx": "4",
+        "top": 5431.8125,
+        "bottom": 7051.8125,
+        "height": 1620
+      },
+      {
+        "id": "partitions",
+        "idx": "5",
+        "top": 7051.8125,
+        "bottom": 8671.8125,
+        "height": 1620
+      },
+      {
+        "id": "task-rain",
+        "idx": "6",
+        "top": 8671.8125,
+        "bottom": 10291.8125,
+        "height": 1620
+      },
+      {
+        "id": "narrow-vs-wide",
+        "idx": "7",
+        "top": 10291.8125,
+        "bottom": 11911.8125,
+        "height": 1620
+      },
+      {
+        "id": "shuffle",
+        "idx": "8",
+        "top": 11911.8125,
+        "bottom": 13531.8125,
+        "height": 1620
+      },
+      {
+        "id": "stages",
+        "idx": "9",
+        "top": 13531.8125,
+        "bottom": 15151.8125,
+        "height": 1620
+      },
+      {
+        "id": "airflow",
+        "idx": "10",
+        "top": 15151.8125,
+        "bottom": 16411.8125,
+        "height": 1260
+      },
+      {
+        "id": "ephemeral",
+        "idx": "11",
+        "top": 16411.8125,
+        "bottom": 17671.8125,
+        "height": 1260
+      },
+      {
+        "id": "fly",
+        "idx": "12",
+        "top": 17671.8125,
+        "bottom": 18931.8125,
+        "height": 1260
+      }
+    ]
+  },
+  "mobileInitial": {
+    "h1Text": "Build a Spark cluster you can fly through.",
+    "h1Y": 168,
+    "scrollHeight": 17416,
+    "scrollY": 0,
+    "canvasCount": 1,
+    "sectionCount": 12,
+    "sections": [
+      {
+        "id": "hero",
+        "idx": "1",
+        "top": 488.125,
+        "bottom": 1949.71875,
+        "height": 1461.59375
+      },
+      {
+        "id": "anatomy",
+        "idx": "2",
+        "top": 1949.71875,
+        "bottom": 3411.3125,
+        "height": 1461.59375
+      },
+      {
+        "id": "driver",
+        "idx": "3",
+        "top": 3411.3125,
+        "bottom": 4872.90625,
+        "height": 1461.59375
+      },
+      {
+        "id": "data-arrival",
+        "idx": "4",
+        "top": 4872.90625,
+        "bottom": 6334.5,
+        "height": 1461.59375
+      },
+      {
+        "id": "partitions",
+        "idx": "5",
+        "top": 6334.5,
+        "bottom": 7796.09375,
+        "height": 1461.59375
+      },
+      {
+        "id": "task-rain",
+        "idx": "6",
+        "top": 7796.09375,
+        "bottom": 9257.6875,
+        "height": 1461.59375
+      },
+      {
+        "id": "narrow-vs-wide",
+        "idx": "7",
+        "top": 9257.6875,
+        "bottom": 10719.28125,
+        "height": 1461.59375
+      },
+      {
+        "id": "shuffle",
+        "idx": "8",
+        "top": 10719.28125,
+        "bottom": 12180.875,
+        "height": 1461.59375
+      },
+      {
+        "id": "stages",
+        "idx": "9",
+        "top": 12180.875,
+        "bottom": 13642.46875,
+        "height": 1461.59375
+      },
+      {
+        "id": "airflow",
+        "idx": "10",
+        "top": 13642.46875,
+        "bottom": 14798.703125,
+        "height": 1156.234375
+      },
+      {
+        "id": "ephemeral",
+        "idx": "11",
+        "top": 14798.703125,
+        "bottom": 15935.5,
+        "height": 1136.796875
+      },
+      {
+        "id": "fly",
+        "idx": "12",
+        "top": 15935.5,
+        "bottom": 17072.296875,
+        "height": 1136.796875
+      }
+    ]
+  },
+  "mobileRecords": [
+    {
+      "pct": 0,
+      "scrollY": 0,
+      "mostVisibleSection": {
+        "id": "hero",
+        "idx": "1",
+        "ratio": 0.222
+      },
+      "closestH2": {
+        "text": "A cluster, asleep.",
+        "sceneId": "hero"
+      },
+      "activeKickerText": "01 · The cluster",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "01 · THE CLUSTER"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 33,
+      "scrollY": 5479,
+      "mostVisibleSection": {
+        "id": "data-arrival",
+        "idx": "4",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "A terabyte arrives.",
+        "sceneId": "data-arrival"
+      },
+      "activeKickerText": "04 · The data",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "04 · THE DATA"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 50,
+      "scrollY": 8302,
+      "mostVisibleSection": {
+        "id": "task-rain",
+        "idx": "6",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "Tasks, in parallel.",
+        "sceneId": "task-rain"
+      },
+      "activeKickerText": "06 · Parallelism",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "06 · PARALLELISM"
+      ],
+      "canvasCount": 1
+    },
+    {
+      "pct": 75,
+      "scrollY": 12453,
+      "mostVisibleSection": {
+        "id": "stages",
+        "idx": "9",
+        "ratio": 0.556
+      },
+      "closestH2": {
+        "text": "Stages, drawn on the air.",
+        "sceneId": "stages"
+      },
+      "activeKickerText": "09 · Stages",
+      "overlay": true,
+      "overlayText": ":host {\n  all: initial;\n\n  /* the direction property is not reset by 'all' */\n  direction: ltr;\n}\n\n/*!\n * Bootstrap Reboot v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blo",
+      "bodyHead": [
+        "skip to article",
+        "♪ OFF",
+        "09 · STAGES"
+      ],
+      "canvasCount": 1
+    }
+  ]
+}
