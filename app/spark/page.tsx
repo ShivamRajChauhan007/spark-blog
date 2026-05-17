@@ -9,6 +9,7 @@ import { ExplainerSidebar } from "@/components/ai/ExplainerSidebar";
 import { LiveSandpack } from "@/components/code/LiveSandpack";
 import { CodeMorph } from "@/components/code/CodeMorph";
 import { ProgressMap } from "@/components/ui/ProgressMap";
+import { MobileKicker } from "@/components/ui/MobileKicker";
 import { HeroHint } from "@/components/ui/HeroHint";
 import Link from "next/link";
 
@@ -36,6 +37,7 @@ export default function SparkArticle() {
       </div>
 
       <ProgressMap />
+      <MobileKicker />
       <HeroHint />
 
       <noscript>
