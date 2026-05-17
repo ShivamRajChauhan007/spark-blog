@@ -2,6 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
+import { Starfield } from "./Starfield";
 import { ClusterIdle } from "./scenes/ClusterIdle";
 import { WorkerCutaway } from "./scenes/WorkerCutaway";
 import { DriverIgnite } from "./scenes/DriverIgnite";
@@ -60,6 +61,8 @@ export function SceneStage() {
         <ambientLight intensity={0.28} />
         <directionalLight position={[6, 8, 6]} intensity={1.0} castShadow />
         <directionalLight position={[-6, -2, -6]} intensity={0.25} color="#88a" />
+
+        <Starfield />
 
         {!isFly && <CameraRig progress={progress} />}
 

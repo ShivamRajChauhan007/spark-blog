@@ -37,7 +37,16 @@ export default function SparkArticle() {
       <ProgressMap />
       <HeroHint />
 
+      <noscript>
+        <div className="mx-auto max-w-3xl px-6 py-8">
+          <p className="rounded-lg border border-[var(--color-line)] bg-[var(--color-bg-elev)] p-4 font-mono text-sm text-[var(--color-fg-muted)]">
+            This article uses scroll-driven WebGL and live editable code; please enable JavaScript to view the full experience.
+          </p>
+        </div>
+      </noscript>
+
       <header className="relative mx-auto max-w-3xl px-6 pt-32 pb-12">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-[5] h-[120vh] bg-gradient-to-b from-[var(--color-bg)]/85 via-[var(--color-bg)]/40 to-transparent" />
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-fg-muted)]">
           spark-blog · scrolling explainer
         </p>
@@ -46,6 +55,9 @@ export default function SparkArticle() {
         </h1>
         <p className="mt-8 max-w-xl text-lg text-[var(--color-fg-muted)]">
           Twelve scenes. One terabyte of imaginary data. One Airflow scheduler clock. Scroll to begin.
+        </p>
+        <p className="mt-12 max-w-md font-serif text-base italic text-[var(--color-fg-muted)]">
+          In the school of Bartosz Ciechanowski. With 2026 tools.
         </p>
       </header>
 
