@@ -5,6 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -84,6 +85,9 @@ export function ShuffleScene({ progress: _progress, visible }: Props) {
 
   return (
     <group visible={visible}>
+      {/* Top label: title of the scene */}
+      <PlanetLabel position={[0, 0, 0]} text="THE SHUFFLE · hash(key) % N" offset={4.0} size={0.22} color="#f4cf9c" />
+
       {execPos.map((p, i) => (
         <group key={i} position={p}>
           <mesh>
@@ -95,13 +99,14 @@ export function ShuffleScene({ progress: _progress, visible }: Props) {
             <meshBasicMaterial color={WORKER_TINTS[i]} transparent opacity={0.14} toneMapped={false} depthWrite={false} />
           </mesh>
           <Text
-            position={[0, 0.75, 0]}
-            fontSize={0.32}
+            position={[0, 0.85, 0]}
+            fontSize={0.55}
             color="#f4f4f5"
             anchorX="center"
             anchorY="bottom"
-            outlineWidth={0.012}
+            outlineWidth={0.024}
             outlineColor="#08090e"
+            outlineOpacity={1}
           >
             {EXECUTOR_LABELS[i]}
           </Text>
