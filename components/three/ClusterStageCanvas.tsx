@@ -1,11 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
-/**
- * Lazy-loaded sticky 3D canvas. SSR off because three.js needs the DOM.
- * Falls back to the SVG stub while loading or for reduced-motion users.
- */
 const SceneStage = dynamic(() => import("./SceneStage").then((m) => m.SceneStage), {
   ssr: false,
   loading: () => null
@@ -17,10 +14,10 @@ const StubCanvas = dynamic(() => import("./_StubCanvas").then((m) => m.StubCanva
 });
 
 export function ClusterStageCanvas() {
-  // Use a media query at render time inside a client component
-  // (we cannot use window.matchMedia at module scope due to SSR).
-  // SceneStage itself respects reduced motion in animations; we still
-  // render the SVG stub as a graceful fallback layer.
+  const reduced = useReducedMotion();
+  // Reduced-motion users see only the static SVG; everyone else gets both
+  // (SVG renders behind the canvas for the loading moment and on canvas errors).
+  if (reduced) return <StubCanvas />;
   return (
     <>
       <StubCanvas />

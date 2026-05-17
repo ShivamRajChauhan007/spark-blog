@@ -3,8 +3,11 @@ import { SceneSection } from "@/components/scroll/SceneSection";
 import { ClusterStageCanvas } from "@/components/three/ClusterStageCanvas";
 import { SmoothScroll } from "@/components/scroll/SmoothScroll";
 import { AudioProvider } from "@/components/audio/AudioProvider";
+import { SceneCueDriver } from "@/components/audio/SceneCueDriver";
 import { AudioToggle } from "@/components/ui/AudioToggle";
 import { ExplainerSidebar } from "@/components/ai/ExplainerSidebar";
+import { LiveSandpack } from "@/components/code/LiveSandpack";
+import { CodeMorph } from "@/components/code/CodeMorph";
 import Link from "next/link";
 
 export const metadata = {
@@ -15,6 +18,7 @@ export default function SparkArticle() {
   return (
     <AudioProvider>
       <SmoothScroll />
+      <SceneCueDriver />
       <ClusterStageCanvas />
 
       <div className="fixed right-6 top-6 z-30 flex items-center gap-3">
@@ -35,7 +39,10 @@ export default function SparkArticle() {
 
       <main role="main">
         {SCENES.map((scene) => (
-          <SceneSection key={scene.id} scene={scene} />
+          <SceneSection key={scene.id} scene={scene}>
+            {scene.id === "shuffle" && <LiveSandpack />}
+            {scene.id === "airflow" && <CodeMorph />}
+          </SceneSection>
         ))}
       </main>
 
