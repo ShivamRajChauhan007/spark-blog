@@ -13,7 +13,8 @@ import { HeroHint } from "@/components/ui/HeroHint";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Build a Spark cluster you can fly through — spark-blog"
+  // Layout applies the "%s — spark-blog" template, so just the bare title here.
+  title: "Build a Spark cluster you can fly through"
 };
 
 export default function SparkArticle() {
