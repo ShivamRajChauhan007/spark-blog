@@ -1,9 +1,6 @@
 import { SCENES } from "@/lib/scenes";
 import { SceneSection } from "@/components/scroll/SceneSection";
 import { SmoothScroll } from "@/components/scroll/SmoothScroll";
-import { AudioProvider } from "@/components/audio/AudioProvider";
-import { SceneCueDriver } from "@/components/audio/SceneCueDriver";
-import { AudioToggle } from "@/components/ui/AudioToggle";
 import { ExplainerSidebar } from "@/components/ai/ExplainerSidebar";
 import { LiveSandpack } from "@/components/code/LiveSandpack";
 import { CodeMorph } from "@/components/code/CodeMorph";
@@ -19,9 +16,8 @@ export const metadata = {
 
 export default function SparkArticle() {
   return (
-    <AudioProvider>
+    <>
       <SmoothScroll />
-      <SceneCueDriver />
 
       <a
         href="#main-content"
@@ -29,10 +25,6 @@ export default function SparkArticle() {
       >
         skip to article
       </a>
-
-      <div className="fixed right-6 top-6 z-30 flex items-center gap-3">
-        <AudioToggle />
-      </div>
 
       <ProgressMap />
       <MobileKicker />
@@ -68,6 +60,6 @@ export default function SparkArticle() {
           <Link href="/" className="underline">Back to landing</Link>.
         </p>
       </footer>
-    </AudioProvider>
+    </>
   );
 }

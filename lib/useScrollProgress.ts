@@ -69,8 +69,8 @@ export function activeScene(p: number, sceneCount: number) {
 }
 
 /**
- * For consumers that only need the integer scene index (ProgressMap, ExplainerSidebar,
- * SceneCueDriver). Cheaper than `useScrollProgress()` — re-renders only on scene change,
+ * For consumers that only need the integer scene index (ProgressMap, ExplainerSidebar).
+ * Cheaper than `useScrollProgress()` — re-renders only on scene change,
  * not every frame.
  */
 let _cachedIndex = 0;
