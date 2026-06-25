@@ -68,8 +68,8 @@ export function AqeScene({ progress: _progress, visible }: Props) {
       if (phase === "arrive" || phase === "detect") {
         const arrive = Math.min(1, t / 0.25);
         const start = new THREE.Vector3(0, 1.5, 0);
-        main.position.lerpVectors(start, w1.clone().add(new THREE.Vector3(0, 0.25, 0)), arrive);
-        main.scale.setScalar(0.45);
+        main.position.lerpVectors(start, w1.clone().add(new THREE.Vector3(0, 0.4, 0)), arrive);
+        main.scale.setScalar(0.7); // clearly oversized vs the normal partitions
         (main.material as THREE.MeshBasicMaterial).color.copy(
           phase === "detect" ? PALETTE.danger : PALETTE.accent
         );
@@ -131,7 +131,7 @@ export function AqeScene({ progress: _progress, visible }: Props) {
         <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.75} toneMapped={false} />
       </mesh>
 
-      {/* workers */}
+      {/* workers — each carries a normal-size partition except W1, which got the skewed one */}
       {workerPos.map((p, i) => (
         <group key={i}>
           <mesh position={p}>
@@ -146,6 +146,12 @@ export function AqeScene({ progress: _progress, visible }: Props) {
               toneMapped={false}
             />
           </mesh>
+          {i > 0 && (
+            <mesh position={[p.x, p.y + 0.4, p.z]}>
+              <sphereGeometry args={[0.18, 16, 16]} />
+              <meshBasicMaterial color={PALETTE.accent} transparent opacity={0.92} toneMapped={false} />
+            </mesh>
+          )}
           <PlanetLabel position={[p.x, p.y, p.z]} text={`W${i + 1}`} offset={0.72} size={0.14} color="#c8dfff" />
         </group>
       ))}

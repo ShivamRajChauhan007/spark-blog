@@ -75,12 +75,12 @@ export function JoinsScene({ progress: _progress, visible }: Props) {
 
   return (
     <group visible={visible}>
-      {/* Title (changes per strategy) */}
+      {/* Title (changes per strategy) — kept inside the frame so it never clips */}
       <PlanetLabel
         position={[0, 0, 0]}
         text={STRATEGY_LABELS[activeIdx]}
-        offset={4.0}
-        size={0.18}
+        offset={2.7}
+        size={0.17}
         color="#f4cf9c"
       />
 
@@ -119,7 +119,7 @@ export function JoinsScene({ progress: _progress, visible }: Props) {
 
       {/* Sort-Merge group */}
       <group ref={smjGroup}>
-        <PlanetLabel position={[0, -3.4, 0]} text="HASH KEY → PARTITION → SORT → MERGE" offset={0} size={0.12} color="#9fcef7" />
+        <PlanetLabel position={[0, -2.7, 0]} text="HASH KEY → PARTITION → SORT → MERGE" offset={0} size={0.12} color="#9fcef7" />
         {/* arrows BETWEEN workers (both ways) */}
         {workerPos.map((from, i) => {
           const to = workerPos[(i + 1) % 4];
@@ -133,7 +133,7 @@ export function JoinsScene({ progress: _progress, visible }: Props) {
 
       {/* Shuffle Hash group */}
       <group ref={shjGroup}>
-        <PlanetLabel position={[0, -3.4, 0]} text="HASH BUILD SIDE · STREAM PROBE SIDE" offset={0} size={0.12} color="#9fcef7" />
+        <PlanetLabel position={[0, -2.7, 0]} text="HASH BUILD SIDE · STREAM PROBE SIDE" offset={0} size={0.12} color="#9fcef7" />
         {/* central "hash table" indicator */}
         <mesh position={[0, 1.6, 0]}>
           <torusGeometry args={[0.6, 0.05, 8, 32]} />

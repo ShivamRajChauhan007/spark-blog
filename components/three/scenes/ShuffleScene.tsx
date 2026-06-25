@@ -75,7 +75,9 @@ export function ShuffleScene({ progress: _progress, visible }: Props) {
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
 
-      tmpColor.copy(WORKER_TINTS[r.startExec]).lerp(WORKER_TINTS[r.destExec], e);
+      // Row acquires its DESTINATION color as it travels — the hash bucket it
+      // was routed to. Same key → same destination → same color, every time.
+      tmpColor.copy(PALETTE.fg).lerp(WORKER_TINTS[r.destExec], e * 0.9 + 0.1);
       meshRef.current.setColorAt(i, tmpColor);
     }
     meshRef.current.instanceMatrix.needsUpdate = true;

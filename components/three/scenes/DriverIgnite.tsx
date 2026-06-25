@@ -1,35 +1,58 @@
 "use client";
 
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE } from "@/lib/colors";
 import { Planet } from "./ClusterIdle";
-import { PlanetLabel, DustRing, CodePanel } from "./_shared";
+import { PlanetLabel, CodePanel } from "./_shared";
 
 interface Props {
   progress: number;
   visible: boolean;
 }
 
-/** Scene 3 — the driver sun ignites. */
+const SHELL = 240;
+
+/**
+ * Scene 3 — the driver sun ignites at the center of the surrounding cluster.
+ * The cluster is no longer a thin ring: it's a large enveloping field of dim
+ * worker cores ("the universe, listening") that the bright driver sits inside.
+ */
 export function DriverIgnite({ progress, visible }: Props) {
   const mat = useRef<THREE.MeshStandardMaterial>(null);
   const halo = useRef<THREE.Mesh>(null);
   const flare = useRef<THREE.Mesh>(null);
+  const shell = useRef<THREE.InstancedMesh>(null);
+  const shellGroup = useRef<THREE.Group>(null);
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+
+  // place the enveloping cluster shell once (fibonacci sphere, jittered radius)
+  useEffect(() => {
+    if (!shell.current) return;
+    for (let i = 0; i < SHELL; i++) {
+      const y = 1 - (i / (SHELL - 1)) * 2;
+      const r = Math.sqrt(Math.max(0, 1 - y * y));
+      const phi = i * Math.PI * (3 - Math.sqrt(5));
+      const rad = 3.6 + (((i * 29) % 100) / 100) * 1.3; // 3.6..4.9
+      dummy.position.set(Math.cos(phi) * r * rad, y * rad, Math.sin(phi) * r * rad);
+      dummy.scale.setScalar(0.03 + (i % 5) * 0.01);
+      dummy.updateMatrix();
+      shell.current.setMatrixAt(i, dummy.matrix);
+    }
+    shell.current.instanceMatrix.needsUpdate = true;
+  }, [dummy]);
 
   useFrame(() => {
     if (!visible) return;
-    if (mat.current) {
-      mat.current.emissiveIntensity = 0.5 + progress * 1.8 + Math.sin(performance.now() * 0.003) * 0.15;
-    }
+    if (mat.current) mat.current.emissiveIntensity = 0.5 + progress * 1.8 + Math.sin(performance.now() * 0.003) * 0.15;
     if (halo.current) {
       const s = 1 + progress * 0.5 + Math.sin(performance.now() * 0.002) * 0.05;
       halo.current.scale.setScalar(s);
-      const m = halo.current.material as THREE.MeshBasicMaterial;
-      m.opacity = 0.22 + progress * 0.4;
+      (halo.current.material as THREE.MeshBasicMaterial).opacity = 0.22 + progress * 0.4;
     }
     if (flare.current) flare.current.rotation.z += 0.0015;
+    if (shellGroup.current) shellGroup.current.rotation.y += 0.0006;
   });
 
   return (
@@ -45,7 +68,15 @@ export function DriverIgnite({ progress, visible }: Props) {
         <ringGeometry args={[1.5, 1.55, 128]} />
         <meshBasicMaterial color={PALETTE.accent} transparent opacity={0.5} side={THREE.DoubleSide} toneMapped={false} />
       </mesh>
-      <DustRing radius={1.7} count={80} color={PALETTE.accent} thickness={0.06} speed={0.3} />
+
+      {/* the surrounding cluster — a large enveloping field of dim worker cores, listening */}
+      <group ref={shellGroup}>
+        <instancedMesh ref={shell} args={[undefined, undefined, SHELL]}>
+          <sphereGeometry args={[1, 8, 8]} />
+          <meshBasicMaterial color="#6f86c9" transparent opacity={0.5} toneMapped={false} />
+        </instancedMesh>
+      </group>
+
       <CodePanel
         position={[0, -2.6, 0]}
         code={`spark-submit \\\n  --deploy-mode cluster \\\n  --executor-cores 4 \\\n  --executor-memory 11g \\\n  --num-executors 8`}

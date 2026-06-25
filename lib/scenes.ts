@@ -56,9 +56,9 @@ export const SCENES: SceneMeta[] = [
     kicker: "01 · The cluster",
     concept: "A Dataproc cluster is a small constellation of virtual machines.",
     body: [
-      "It's two in the morning in a Google data center, and a handful of virtual machines hum at idle. One is the master — an `n2-standard-4`, 4 vCPUs and 16 GB of RAM. Four are workers — each an `n2-highmem-8`, 8 vCPUs and 64 GB. Together they're a Managed Service for Apache Spark cluster: the product you knew as Dataproc, rebranded in 2025. The shape is unchanged — a temporary, managed Spark environment that exists only while you need it. List price: about **$2.65/hr**, including the $0.01/vCPU Dataproc surcharge.",
-      "A cluster is just your laptop, multiplied. Your laptop reads one file, sorts one list, totals one column at a time; a cluster does the same work across five machines — sometimes hundreds in production — all at once. The trick is that Spark hides almost all the wiring: you write code that looks like it runs on one computer, and Spark spreads it across the cluster for you.",
-      "We're going to take this cluster apart and show what each piece does. Every number in the canvas is the real, current list price or default for **Apache Spark 3.5 on Dataproc 2.2** — pin that frame in your head before we start."
+      "It's two in the morning in a Google data center, and a handful of virtual machines hum at idle. One is the master — an `n2-standard-4`, 4 vCPUs and 16 GB of RAM. Four are workers, each an `n2-highmem-8` with 8 vCPUs and 64 GB. Together they're a Managed Service for Apache Spark cluster: the product you knew as Dataproc, rebranded in 2025. Nothing about it changed except the name — it still spins up only while you need it, then goes away. List price runs about **$2.65/hr**, including the $0.01/vCPU Dataproc surcharge.",
+      "A cluster is just your laptop, multiplied. Where your laptop crunches through a file one chunk at a time, the cluster splits that same job across five machines — hundreds, in production — and runs the pieces side by side. The clever part is what you don't see: you write code as if it runs on one computer, and Spark quietly fans it out across every worker.",
+      "We're going to take the thing apart, piece by piece. Every number you see in the canvas is a real list price or default for **Apache Spark 3.5 on Dataproc 2.2** — pin that frame in your head before we start."
     ],
     legend: [
       { label: "the whole assembly = one Dataproc cluster (1 master + 4 workers)" },
@@ -78,7 +78,7 @@ export const SCENES: SceneMeta[] = [
     body: [
       "Each worker is a virtual machine — an `n2-highmem-8` here: 8 vCPUs, 64 GB of memory, 8 GB per core, because Spark loves memory more than CPU. Cheaper options exist — `e2-standard-4` for dev at $0.13/hr, AMD `n2d-standard-8` (10–20% cheaper than N2 for similar performance), and the newer C3 / N4 / N4D families on Google's Titanium platform. But your Spark code doesn't run on the worker itself.",
       "The worker runs YARN, which carves its memory and CPU into containers. Inside each, YARN launches an executor — a JVM holding your code, data partitions, and cached results. Each worker here hosts **2 executors of 4 cores each**, ~**11 GB heap + 1.1 GB overhead** apiece. An executor runs one task per core, several at once — so 4 workers × 2 executors × 4 cores = **32 task slots** in parallel.",
-      "The vocabulary trips people up. Worker is hardware (the VM); executor is a process (the JVM YARN launched in a container); task is a unit of work (one per partition, per core). Drag the planet — its atmosphere is translucent, so you can see the YARN container ring and the executors orbiting inside, each spinning its own core-threads."
+      "Worker, executor, task get used interchangeably all the time, and then nothing lines up. The worker is just hardware, the VM. The executor lives inside it, a JVM process YARN launched in a container. A task is the actual work: one per partition, pinned to a single core for its whole short life. Three different things at three different scales. Drag the planet. Its atmosphere is translucent, so you can watch the YARN container ring and the executors orbiting inside, each spinning its own core-threads."
     ],
     sources: [
       { label: "Dataproc supported machine types", href: "https://cloud.google.com/dataproc/docs/concepts/compute/supported-machine-types" },
@@ -99,14 +99,14 @@ export const SCENES: SceneMeta[] = [
     kicker: "03 · The driver",
     concept: "spark-submit ignites one JVM that conducts everything else.",
     body: [
-      "Type `spark-submit` and hit Enter, and a single JVM blinks awake on the master: the driver — about **4 GB of heap** here. It doesn't move data, crunch numbers, or own any partitions. It only decides — and the executors obey.",
-      "The driver does four things: reads your code into a directed acyclic graph of operations; asks YARN (or Kubernetes, on Dataproc on GKE) for executor containers; schedules tasks onto them; and collects results back, via small final aggregations or writes to durable storage. Do `.collect()` on a billion-row DataFrame and the driver is what crashes — every row has to fit in its memory at once.",
-      "Two deploy modes matter. Client mode runs the driver on the machine where you typed spark-submit; cluster mode runs it inside the cluster on the master — what you want for any long-running production job. The canonical submit here: `spark-submit --deploy-mode cluster --executor-cores 4 --executor-memory 11g --num-executors 8 my-job.jar`."
+      "Type `spark-submit` and hit Enter, and a single JVM blinks awake on the master: the driver, about **4 GB of heap** here. It owns no partitions and moves none of the data. The math happens somewhere else entirely — the driver just decides what runs where, and the executors do as they're told.",
+      "What it decides is the whole job. It reads your code into a directed acyclic graph of operations, then goes shopping: it asks YARN (or Kubernetes, on Dataproc on GKE) for executor containers and schedules tasks onto them. When results come back, the driver is where they land — small final aggregations, or a write out to durable storage. That last part is the trap. Call `.collect()` on a billion-row DataFrame and every row has to fit in those 4 GB at once; the driver is what crashes.",
+      "Where the driver actually lives depends on deploy mode. Client mode keeps it on the machine where you typed spark-submit, which is fine for a notebook but fragile the moment your laptop goes to sleep. For anything long-running in production you want cluster mode, which puts the driver inside the cluster on the master. The canonical submit here: `spark-submit --deploy-mode cluster --executor-cores 4 --executor-memory 11g --num-executors 8 my-job.jar`."
     ],
     legend: [
       { swatch: "#e89856", label: "central amber sphere = the driver JVM (~4 GB heap)" },
       { swatch: "#e89856", label: "halo + flare ring = the driver is ignited and ready to dispatch" },
-      { swatch: "#e89856", label: "dust ring around it = the surrounding cluster, listening" },
+      { swatch: "#6f86c9", label: "enveloping field of dim dots = the surrounding cluster (hundreds of cores), listening" },
       { label: "panel below = the spark-submit command that launched everything" }
     ]
   },
@@ -119,8 +119,8 @@ export const SCENES: SceneMeta[] = [
     caption: "A 1 TB Parquet dataset (~800 files) drifts toward the master — registered, not yet read.",
     body: [
       "Picture a Parquet dataset on Cloud Storage — exactly one terabyte across about **800 files**. To you it's one DataFrame: `df = spark.read.parquet(\"gs://orders/2026/*.parquet\")`. To Spark it's a directory listing of those files and their schemas.",
-      "Notice what doesn't happen: Spark doesn't download the terabyte, or even open the files. It builds a logical plan — \"read all of these and treat them as one DataFrame.\" This is lazy evaluation, the single most important idea in Spark.",
-      "Nothing runs until you call an *action*. A transformation like `.filter()` or `.select()` only extends the plan; an action — `.count()`, `.show()`, `.collect()`, `.write()` — wakes Spark up. The next scene shows exactly what that wake-up looks like."
+      "That's the whole of it for now. Spark hasn't downloaded the terabyte. It hasn't opened a single file. All it built was a logical plan: read all of these, treat them as one DataFrame. This is lazy evaluation — Spark writes down what you want and waits.",
+      "It keeps waiting through every `.filter()` and `.select()` you stack on top, because those just bolt more steps onto the plan. Then you call `.count()`, or `.show()`, `.collect()`, `.write()` — an *action* — and Spark finally has a reason to do the work."
     ],
     legend: [
       { swatch: "#e89856", label: "central amber sphere = master node (idle, just waiting)" },
@@ -134,10 +134,11 @@ export const SCENES: SceneMeta[] = [
     title: "The Spark wakes.",
     kicker: "05 · The action",
     concept: "An action turns the lazy plan into 8,000 real tasks.",
+    caption: "df.count() fires: the lazy plan goes eager — the driver wakes and dispatches tasks out to the workers.",
     body: [
-      "Type `df.count()` and press Enter — the moment of transition from lazy to eager. Watch the canvas.",
-      "First the call lands on the driver. Catalyst, Spark's query optimizer, rewrites your whole chain of operations through the rules it knows — predicate pushdown, column pruning, join reordering. The Adaptive Query Execution layer (on by default since Spark 3.2) marks shuffle boundaries where it'll re-plan with live statistics. The output is a *physical plan*: a tree of operators the driver can ship to executors.",
-      "Then the driver breaks the plan into stages, each a set of tasks — one per partition. For our 1 TB input split into ~8,000 partitions of 128 MB, that's 8,000 tasks queued in the driver's scheduling pool, handed out as executor slots free up. The pulse you see is the lazy plan turning into work. From now on, the cluster is hot."
+      "Type `df.count()` and press Enter. That one call flips Spark from lazy to eager, and everything that was sitting around as a plan suddenly has to run.",
+      "The call lands on the driver. Catalyst, Spark's query optimizer, rewrites your whole chain of operations: it shoves filters down to the scan so less data ever loads, drops columns nobody reads, and reorders joins to cut what moves between them. The Adaptive Query Execution layer (on by default since Spark 3.2) marks the shuffle boundaries where it'll re-plan later using live statistics. What comes out is a *physical plan* — a tree of operators the driver can ship to executors.",
+      "Now the driver carves that plan into stages, and each stage into tasks, one per partition. Our 1 TB read is split into ~8,000 partitions of 128 MB, so 8,000 tasks pile into the driver's scheduling pool and get handed out as executor slots free up. The pulse you're watching is a lazy plan finally turning into work, and every core in the cluster stays pinned to it until `.count()` comes back with a number."
     ],
     sources: [
       { label: "Databricks AQE deep-dive", href: "https://www.databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html" }
@@ -158,9 +159,9 @@ export const SCENES: SceneMeta[] = [
     concept: "Spark slices data into ~128 MB partitions — the unit of parallelism.",
     caption: "Each dot = one ~128 MB partition. A 1 TB job has roughly 8,000 of them.",
     body: [
-      "When Spark actually reads the terabyte, it splits the file list into partitions — chunks of rows roughly 128 MB each. 128 isn't magic: it matches the historical default block size of HDFS, the file system before Cloud Storage. A 128 MB partition reads in one disk seek, amortising nicely against the cost of starting a task.",
-      "A terabyte at 128 MB per partition is about **8,000 partitions**. At a typical Parquet compression ratio of 5–10×, each decompresses to roughly **6–12 million rows** in memory (at ~100 bytes/row). The work-stealing scheduler lets faster executors grab more partitions and slower ones fewer — no central dispatcher to bottleneck.",
-      "Change the count after the read with `.repartition(n)` (reshuffles to exactly n — expensive) or `.coalesce(n)` (only merges, never splits — cheap, but only for reducing). The default `spark.sql.shuffle.partitions = 200` has been wrong for almost every real workload since Spark 1.1 — for a 1 TB job you want closer to **5,000–8,000** (shuffle size ÷ 128 MB target). With AQE on, set a *large* initial number and let coalesce drive it down at runtime."
+      "To read the terabyte, Spark chops the file list into partitions: chunks of rows around 128 MB apiece. That number traces straight back to HDFS, the file system everyone used before Cloud Storage, whose default block size was 128 MB. A partition that size reads in roughly one disk seek, so the read cost stays comfortably ahead of the cost of starting a task.",
+      "A terabyte chopped that way lands at about **8,000 partitions**. Parquet compresses 5–10×, so each one decompresses to somewhere between **6 and 12 million rows** in memory at ~100 bytes a row. There's no central desk handing them out. A work-stealing scheduler lets a fast executor grab more partitions while a slow one grabs fewer, so a single straggler never throttles the rest.",
+      "You can change the count after the read, and the two ways of doing it are not interchangeable. `.repartition(n)` reshuffles to exactly n and pays the full shuffle cost for the privilege. `.coalesce(n)` is cheap — it just glues existing partitions together — which is also why it can only shrink the count, never grow it. The default, `spark.sql.shuffle.partitions = 200`, has been wrong for almost every real workload since Spark 1.1. A 1 TB job wants closer to **5,000–8,000**; divide your shuffle size by the 128 MB target and that's roughly where you land. With AQE on, set a deliberately *large* initial number and let coalesce walk it back down at runtime."
     ],
     sources: [
       { label: "Sahaj on shuffle partition tuning", href: "https://sahaj.ai/fine-tuning-shuffle-partitions-in-apache-spark-for-maximum-efficiency/" }
@@ -180,8 +181,8 @@ export const SCENES: SceneMeta[] = [
     caption: "Each mote in flight = one task. 32 run at once; the other ~8,000 wait in the queue.",
     body: [
       "Spark generates one task per partition — 8,000 of them — and the driver hands them to executors as they free up. With our four `n2-highmem-8` workers running 8 executor cores each (**32 slots total**), 32 tasks run at any moment; the other 7,968 wait in the driver's priority queue.",
-      "Each task is a small bundle: a serialized closure of your code, the location of its partition's input, and the address of the executor to pick it up. On finishing, the executor reports success or failure and gets the next task. A failed task is retried up to four times by default before the whole stage is marked failed.",
-      "The `spark.speculation` flag (off by default) is the safety net for slow tasks: if one runs past 1.5× the median at the 75th percentile, Spark launches a duplicate on another executor — first to finish wins, the other is killed. Reports cite **13–24% faster jobs** when paired with dynamic allocation, but only on heterogeneous clusters with flaky disks; on uniform CPU-bound jobs it just wastes cores."
+      "A task is a tiny bundle — a serialized closure of your code plus the location of its partition's input — addressed to whichever executor is meant to pick it up. The executor runs it, reports back success or failure, and grabs the next one off the queue. Fail, and Spark retries the task up to four times by default. Fail all four, and the whole stage goes down with it.",
+      "And the one task that's dragging the whole stage out? `spark.speculation` is built for it, though Spark ships with it off. Switch it on, and once a task runs past 1.5× the median at the 75th percentile, Spark fires a duplicate at another executor. Whichever copy finishes first wins, and Spark kills the other one mid-flight. Reports cite **13–24% faster jobs** when you pair it with dynamic allocation — but that number comes from heterogeneous clusters with flaky disks. On a uniform CPU-bound job it just burns cores running the same work twice."
     ],
     legend: [
       { swatch: "#e89856", label: "center = the driver (handing out tasks)" },
@@ -198,9 +199,9 @@ export const SCENES: SceneMeta[] = [
     concept: "Narrow stays local. Wide forces data to move between executors.",
     caption: "Left = narrow (rows stay put). Right = wide (rows shuffle across executors).",
     body: [
-      "Not all transformations are equal. A `filter`, a `map`, a `select` that trims columns — each partition decides on its own which rows to keep. These are narrow: each output partition depends on exactly one input partition. On our 32-slot cluster a narrow scan of 1 TB takes roughly **3–5 minutes** (1024 GB / (32 cores × ~100 MB/s) ≈ 5 min).",
-      "A `groupBy` is louder. To group all American sellers, every row with `country = \"US\"` must land on the same executor — but those rows could be in any of the 8,000 partitions across all four executors, so Spark has to move them. These are wide transformations: every output partition depends on every input partition. So are `join`, `distinct`, `orderBy`, and window functions.",
-      "The cost is enormous. Every row is serialised, written to disk, sent over the network, deserialised, and re-inserted into a new partition. Shuffle write for 1 TB of Parquet is roughly **2 TB** (rows are uncompressed during shuffle, while Parquet on disk is column-compressed). A terabyte that filtered in five minutes can take **30–40 minutes** to shuffle. The biggest performance lesson in Spark: ask which operations are wide, and do them once — not three times in a row."
+      "Some transformations keep to themselves. Run a `filter`, a `map`, or a `select` that trims columns and each partition just looks at its own rows and decides what to keep — no coordination with anyone. Spark calls these narrow: each output partition depends on exactly one input partition. On our 32-slot cluster a narrow scan of 1 TB runs in roughly **3–5 minutes**. The math is unglamorous: 1024 GB over 32 cores reading at ~100 MB/s lands you just under five.",
+      "A `groupBy` needs cooperation. Say you want every American seller in one place. Each row with `country = \"US\"` has to land on the same executor, but those rows are scattered across 8,000 partitions on all four executors, so Spark physically moves them. That's a wide transformation. `join`, `distinct`, `orderBy`, the window functions — same story. None of them can answer a single piece of the result from one partition alone.",
+      "Moving data isn't cheap. Every row has to be serialised, dumped to disk, pushed across the network, then read back and slotted into a fresh partition on the far side. Shuffle write for 1 TB of Parquet runs around **2 TB**, because rows go uncompressed during the shuffle while Parquet on disk is column-compressed. So a terabyte that filtered in five minutes can take **30–40 minutes** to shuffle. Know which of your operations are wide, and shape the query so you pay for each one once instead of shuffling the same data three times over."
     ],
     legend: [
       { swatch: "#62cf83", label: "left green planet = a narrow transformation (filter / select)" },
@@ -214,12 +215,12 @@ export const SCENES: SceneMeta[] = [
     index: 9,
     title: "How joins really work.",
     kicker: "09 · Joins",
-    concept: "Broadcast a small table, sort-merge two big ones, shuffle-hash in between, never nested-loop.",
+    concept: "Broadcast the small table. Sort-merge two big ones, shuffle-hash for the in-between case, and never let it nested-loop.",
     caption: "Small table broadcast to every worker; big tables shuffled and sort-merged.",
     body: [
-      "Joining two DataFrames is the most common wide transformation in production Spark, and the strategy Spark picks decides whether the query takes ten seconds or ten minutes. There are four: **Broadcast Hash Join** (BHJ), **Sort-Merge Join** (SMJ), **Shuffle Hash Join** (SHJ), and the catastrophic-when-misused **Broadcast Nested Loop Join** (BNLJ). The first three are equi-joins (`a.key = b.key`); BNLJ is the fallback when there's no equality in the join condition.",
-      "Broadcast Hash Join is the one to root for. When one side is below `spark.sql.autoBroadcastJoinThreshold` (default 10 MB at planning, 30 MB at runtime under AQE since Spark 3.2), Spark collects that small table to the driver, broadcasts it to every executor, and each builds a hash map and streams the big side through locally — no shuffle on the big side. For a 1 TB orders × 100 MB countries lookup with the threshold bumped to 200 MB, that's ~8,000 tasks of pure local work — about **2 to 5 minutes** end-to-end versus 20 to 40 for Sort-Merge. Force it with `df_big.join(broadcast(df_small), \"key\")` or `/*+ BROADCAST(countries) */`, but watch for driver OOM during collect.",
-      "Sort-Merge Join is the default when both sides are big: Spark hashes both on the key, shuffles each into the same partitions, sorts locally, and walks the two sorted streams in lockstep — correct, but pays the full shuffle cost on both inputs. Shuffle Hash Join is the rare middle ground AQE picks when post-shuffle partitions fit a per-task hash build. BNLJ — the one to avoid — fires for non-equi joins (`>`, `BETWEEN`, complex predicates) and is O(N×M); when a big-data join \"hangs forever,\" check the physical plan, chances are BNLJ snuck in. Hint priority Spark respects: `BROADCAST > MERGE > SHUFFLE_HASH > SHUFFLE_REPLICATE_NL`."
+      "Joining two DataFrames is the most common wide transformation in production Spark, and the strategy Spark picks is often the difference between a query that finishes and one you kill. Give it an equi-join (`a.key = b.key`) and it has three plans to choose from: **Broadcast Hash Join**, **Sort-Merge Join**, and **Shuffle Hash Join**. Take the equality away and it has only one — **Broadcast Nested Loop Join**, the fallback for any condition without an `=`. That's the one that wrecks jobs.",
+      "The broadcast is the one you want. When one side sits below `spark.sql.autoBroadcastJoinThreshold` (default 10 MB at planning, 30 MB at runtime under AQE since Spark 3.2), Spark pulls that small table back to the driver, ships a copy to every executor, and each one builds a hash map and streams the big side through locally. The big side never moves. Take a 1 TB orders × 100 MB countries lookup with the threshold bumped to 200 MB: ~8,000 tasks of pure local work, **2 to 5 minutes** end-to-end against 20 to 40 for Sort-Merge. Force it with `df_big.join(broadcast(df_small), \"key\")` or `/*+ BROADCAST(countries) */`. Just watch the driver doesn't OOM during the collect.",
+      "When both sides are big, you get Sort-Merge. Spark hashes both on the key, shuffles each into matching partitions, sorts locally, then walks the two sorted streams in lockstep. Correct, dependable, the workhorse — but you pay the full shuffle on both inputs. Shuffle Hash Join is the rarer middle ground AQE reaches for when the post-shuffle partitions are small enough to hash-build per task. Then there's BNLJ, the one waiting for any non-equi join — `>`, `BETWEEN`, anything without an `=`. It's O(N×M). It scales like a brick. So when a big-data join \"hangs forever,\" check the physical plan; chances are BNLJ snuck in. If you're handing Spark hints, it honors them in this order: `BROADCAST > MERGE > SHUFFLE_HASH > SHUFFLE_REPLICATE_NL`."
     ],
     sources: [
       { label: "Spark SQL Performance Tuning", href: "https://spark.apache.org/docs/latest/sql-performance-tuning.html" },
@@ -243,9 +244,9 @@ export const SCENES: SceneMeta[] = [
     concept: "The shuffle is the most expensive thing Spark does. Understand it.",
     caption: "Each arc = one row flying to a new executor, chosen by hash(key) % N.",
     body: [
-      "The shuffle is what makes wide transformations expensive. Every row in flight is leaving one executor for another, and the rule is simple: Spark computes `hash(key) % num_partitions`, and that integer is the row's destination executor. Same key, same destination, every time — that's how `groupBy` puts all the Americans together and all the Mexicans together.",
-      "Mechanically, each executor scans its partitions and writes one shuffle file per destination. With **8 source executors and 5,000 destination partitions**, that's 40,000 small files on local disk in seconds. (The 200 default is too small for 1 TB — see Scene 6.) Each destination executor then reads back exactly the files meant for it, often from many machines over the network, and merges them into its new partition. Then the next stage begins.",
-      "Skew is the failure mode to fear. If one key is 100× more common than the rest — `null`, often, or `\"unknown\"` — one destination executor gets 100× the work, becomes the long tail of the stage, and the whole job waits for it. The next scene shows what AQE does about it automatically — and when you still have to salt the key yourself."
+      "The shuffle is what makes wide transformations expensive. Every row in flight is leaving one executor for another. The rule that decides where it lands: Spark computes `hash(key) % num_partitions`, and that integer is the row's destination executor. Same key, same destination, every time. That's how `groupBy` collects every American into one partition and every Mexican into another.",
+      "Each executor scans its partitions and writes one shuffle file per destination. Run that with **8 source executors and 5,000 destination partitions** and you've got 40,000 small files on local disk within seconds. (The 200 default is too small for 1 TB — see Scene 6.) Each destination executor then reads back exactly the files meant for it, usually pulling from a dozen machines over the network, and merges them into its new partition. Only then does the next stage begin.",
+      "Skew is what breaks this. One key shows up 100× more often than the rest — `null`, usually, or `\"unknown\"` — and the executor it hashes to inherits 100× the rows. It turns into the long tail of the stage while every other executor sits idle, done with its work, waiting. AQE handles some of this for you; the rest you salt by hand. Next scene."
     ],
     legend: [
       { swatch: "#79b9d4", label: "four planets A B C D = the worker executors" },
@@ -262,9 +263,10 @@ export const SCENES: SceneMeta[] = [
     concept: "AQE re-plans the query at runtime using actual statistics, not estimates.",
     caption: "AQE spots a skewed partition (> 5× median & > 256 MB) mid-run and splits it across free executors.",
     body: [
-      "Catalyst, Spark's query optimizer, used to plan the whole job ahead of time from whatever statistics it had on disk. AQE — on by default since Spark 3.2 — lets it pause at every shuffle boundary, look at the actual sizes of the partitions it just wrote, and re-plan downstream. Three things change in flight.",
-      "First, Adaptive Coalesce: the default `spark.sql.shuffle.partitions = 200` was almost always wrong, so you set it intentionally too high and AQE merges adjacent small partitions toward `advisoryPartitionSizeInBytes` (default **64 MB**) at runtime — the right count without guessing. Second, Dynamic Join Switch: a planned `SortMergeJoin` becomes a `BroadcastHashJoin` mid-query if the build side turns out smaller than expected after a filter, and the shuffle simply doesn't happen.",
-      "Third, and most important — Skew Split. A partition is flagged skewed when its size is both **> 5× the median** AND **> 256 MB**. AQE splits it into ~64 MB pieces, replicates the matching rows from the other side, and spreads the work; a skewed Sort-Merge Join that ran for an hour can finish in five minutes. The canvas shows it: a giant 1.4 GB partition arrives, AQE detects it (the red ring fires), and it cleaves into 6 sub-partitions of ~240 MB that flow to free executors. When AQE misses skew — mild skew under thresholds, group-by aggregations, non-equi joins — you still salt the key by hand."
+      "Catalyst, Spark's query optimizer, used to plan the whole job ahead of time from whatever statistics it had on disk. AQE — on by default since Spark 3.2 — lets it pause at every shuffle boundary, measure the partitions it just wrote, and re-plan everything downstream from those real sizes.",
+      "The cheapest win is coalescing. The default `spark.sql.shuffle.partitions = 200` is almost always wrong, so you set it deliberately too high and let AQE merge adjacent small partitions toward `advisoryPartitionSizeInBytes` (default **64 MB**) at runtime — the right count, arrived at from real sizes instead of a guess. Joins get re-decided too: a planned `SortMergeJoin` flips to a `BroadcastHashJoin` mid-query when the build side turns out smaller than expected after a filter, and the shuffle just doesn't happen.",
+      "Skew splitting is the feature people actually turn AQE on for. A partition gets flagged skewed only when it clears both bars — **> 5× the median** AND **> 256 MB**, so a partition that's relatively huge but still small in absolute terms doesn't trigger the machinery. AQE chops the offender into ~64 MB pieces, replicates the matching rows from the other side, and spreads the work. A skewed Sort-Merge Join that ran for an hour finishes in five. On the canvas, a 1.4 GB partition arrives, the red ring fires, and it cleaves into 6 sub-partitions of ~240 MB that flow off to free executors.",
+      "It won't catch everything. Mild skew under the thresholds slips through, and so do group-by aggregations and non-equi joins — those you still salt by hand."
     ],
     sources: [
       { label: "Databricks AQE deep-dive", href: "https://www.databricks.com/blog/2020/05/29/adaptive-query-execution-speeding-up-spark-sql-at-runtime.html" },
@@ -286,16 +288,16 @@ export const SCENES: SceneMeta[] = [
     concept: "Spark cuts the DAG at every shuffle boundary. Tasks within a stage pipeline.",
     caption: "Spark cuts the job into stages at each shuffle boundary; tasks pipeline within one.",
     body: [
-      "Look at a Spark job from above and you don't see a single river of work — you see islands separated by shuffles. Each island is a stage, and tasks within it run end-to-end with no cross-executor communication. The boundary between stages is always a shuffle.",
-      "Why does this matter? Within a stage, Spark pipelines operations: `.filter().select().map()` all happen in the same task, on the same row, never writing to disk — the intermediate values live in CPU registers for the lifetime of one row. That's the source of Spark's speed claim: many narrow operations per row before checkpointing.",
-      "Across stages, though, every row is written and read back. The DAG in the Spark UI is broken into stages precisely so you can spot the shuffles: a job with five stages did four shuffles; a job with one stage did none — and that's what you want."
+      "Look at a Spark job from above and you don't see one river of work. You see islands, separated by shuffles. Each island is a stage, and the tasks inside it run end-to-end with no cross-executor chatter. The thing that divides one stage from the next is always a shuffle.",
+      "Inside a stage, Spark pipelines. `.filter().select().map()` all land in the same task, on the same row, with nothing touching disk. The intermediate values live in CPU registers for the lifetime of one row, and dozens of narrow operations can hit that row before anything gets checkpointed.",
+      "Cross a boundary and the bookkeeping flips. Now every row gets written out and read back. The Spark UI splits the DAG into stages for exactly this reason: count the boxes and you've counted the shuffles. Five stages, four shuffles. One stage, none at all."
     ],
     legend: [
-      { swatch: "#e89856", label: "center = master node coordinating the run" },
-      { swatch: "#5fa8e5", label: "blue concentric orbits = stages 1 and 3" },
-      { swatch: "#e89856", label: "amber orbit = stage 2 (the one running right now)" },
-      { swatch: "#e89856", label: "spheres on each orbit = the parallel tasks in that stage" },
-      { label: "the gap between any two orbits = a shuffle boundary" }
+      { swatch: "#9fcef7", label: "left & right columns = stages 1 and 3" },
+      { swatch: "#f4cf9c", label: "amber column = stage 2 (running right now)" },
+      { label: "dots flowing down a column = tasks pipelining within a stage (no data moves)" },
+      { swatch: "#e96440", label: "red plane between columns = a shuffle boundary" },
+      { label: "white dots crossing a boundary = the shuffle redistributing rows" }
     ]
   },
   {
@@ -305,9 +307,9 @@ export const SCENES: SceneMeta[] = [
     kicker: "13 · Machine types",
     concept: "Spark on Dataproc is mostly N2-highmem. The other families exist for a reason.",
     body: [
-      "Dataproc supports a wide menu — E2, N1, N2, N2D, C2, C2D, C3, N4, N4D, M1, M2, plus the Arm-based C4A — but the right answer for most Spark jobs is the same: `n2-highmem-8` at about **$0.52/hr**. Eight vCPUs, 64 GB — 8 GB per core — and per-second billing. Highmem matters because Spark caches partitions in RAM and OOMs rarely come from CPU starvation. The cheaper `n2-standard-8` ($0.39/hr) runs, but spills to disk on big shuffles.",
-      "When does that change? E2 (`e2-standard-4`, ~$0.13/hr) is for dev and CI where speed doesn't matter. N2D is AMD, 10–20% cheaper than N2 for similar work. C3 (`c3-standard-8`, $0.40/hr, Sapphire Rapids) is the fastest single-core and shines on shuffle-heavy SQL. The memory beasts — M1 (`m1-ultramem-40`, $6.29/hr) and M2 — reach ~28 GB per vCPU, for jobs that broadcast huge tables or cache massive state. Sizing rule of thumb: pick 10–20 `n2-highmem-8` workers for a 1 TB batch ETL, scale horizontally first, vertically only when broadcast joins or large UDFs dominate.",
-      "Secondary (spot) workers are 60–91% cheaper but can be reclaimed mid-job — cap them at ~50% of your primary count for jobs over an hour, since Spark recovery is cheap but recomputing lost shuffle data isn't. The master? An `n2-standard-4` is fine until ~100 workers, then go HA with three. On Serverless for Apache Spark you don't pick a machine type at all — you pick a DCU count and Google scales it, with cold start in 30–60 seconds."
+      "For most Spark jobs the pick never changes. It's `n2-highmem-8` at about **$0.52/hr** — eight vCPUs, 64 GB, so 8 GB per core, billed per second. Why highmem? Spark caches partitions in RAM, and the OOMs that kill you almost never trace back to starved CPUs. The cheaper `n2-standard-8` at $0.39/hr will run your job too, then spill to disk the moment a big shuffle shows up. Dataproc lists a dozen more families — E2, N1, N2, N2D, C2, C2D, C3, N4, N4D, M1, M2, the Arm-based C4A — and most of that menu is there for jobs that aren't yours.",
+      "A few of them do earn a second look. E2 (`e2-standard-4`, ~$0.13/hr) is the dev-and-CI box, where nobody's watching the clock. N2D is just N2 on AMD silicon, 10–20% cheaper for the same work. When shuffle-heavy SQL bottlenecks on raw per-core speed, C3 (`c3-standard-8`, $0.40/hr, Sapphire Rapids) is the fastest single core money buys. And when a job broadcasts a giant table or parks massive state in cache, you call in the memory monsters: M1 (`m1-ultramem-40`, $6.29/hr) and M2, both around 28 GB per vCPU. For a 1 TB batch ETL, start with 10–20 `n2-highmem-8` workers and grow from there. Reach for more boxes before bigger ones. The bigger box only earns its keep once broadcast joins or fat UDFs are what's actually slowing you down.",
+      "Secondary (spot) workers cost 60–91% less, with the catch that Google can yank them mid-job. On anything over an hour, cap them at ~50% of your primary count — Spark shrugs off a lost executor, but recomputing the shuffle data that went with it isn't free. The master? An `n2-standard-4` carries you to ~100 workers; past that, go HA with three. On Serverless for Apache Spark you skip machine types entirely. You hand Google a DCU count, it scales the thing, and cold start lands in 30–60 seconds."
     ],
     sources: [
       { label: "Dataproc machine type support matrix", href: "https://cloud.google.com/dataproc/docs/concepts/compute/supported-machine-types" },
@@ -329,9 +331,9 @@ export const SCENES: SceneMeta[] = [
     kicker: "14 · Orchestration",
     concept: "Spark runs one job. Airflow runs the same job every day, with retries.",
     body: [
-      "Spark is brilliant at running one job. It's not good at running that job at two every morning, retrying on failure, paging an engineer on a missed SLA, and remembering every run. That's what Airflow is for.",
-      "Airflow runs on a different machine — usually a small VM — and does only three things: it reads Python files that define DAGs; runs them on a schedule (cron-like `0 2 * * *` for daily at 02:00), on demand, or via a sensor; and records the state of every task ever run, so tomorrow you can ask \"did Tuesday's job succeed?\".",
-      "Airflow doesn't run Spark — it tells someone else to. The `DataprocSubmitJobOperator` above wraps Google's Dataproc Jobs API, which submits a spark-submit on your behalf, polls for status, and reports back; Airflow knows the job succeeded only because Dataproc said so. That separation lets you swap Spark for a Beam job, a dbt run, or anything else without touching Airflow."
+      "Spark is brilliant at running one job. Running that same job at two every morning is a different problem. Now something has to retry it when it fails. When an SLA slips, something has to page the engineer who'll fix it, and keep a record of what happened so anyone can reconstruct the morning afterward. Airflow does that part.",
+      "It runs on its own machine, usually a small VM. You hand it Python files that define DAGs, and it fires them off on a schedule (cron-like `0 2 * * *` for daily at 02:00), on demand, or when a sensor trips. It also keeps the books — the state of every task it's ever run — so tomorrow morning you can ask \"did Tuesday's job succeed?\" and get a straight answer.",
+      "What Airflow doesn't do is run Spark itself; it tells something else to. The `DataprocSubmitJobOperator` above wraps Google's Dataproc Jobs API, which submits a spark-submit on your behalf, polls for status, and reports back. Airflow only knows the job succeeded because Dataproc said so. Swap Spark for a Beam job or a dbt run and Airflow doesn't notice the difference."
     ],
     legend: [
       { swatch: "#b0b0b8", label: "gray clock dial overhead = Airflow's schedule" },
@@ -349,9 +351,10 @@ export const SCENES: SceneMeta[] = [
     kicker: "15 · Ephemeral clusters",
     concept: "Create cluster → submit job → delete cluster. Pay only for the minutes used.",
     body: [
-      "The ephemeral pattern is the modern way to run Spark in the cloud. Your Airflow DAG has three tasks: `DataprocCreateClusterOperator` spins up a cluster, `DataprocSubmitJobOperator` runs your job on it, and `DataprocDeleteClusterOperator` tears it down. The first takes ~90 seconds, the last ~15, the middle however long your job runs.",
-      "Why bother? Our canonical cluster — 4 × `n2-highmem-8` + 1 master with the surcharge — costs about **$2.65/hr**. Run it only the 12 minutes your job needs (create 90s + run 11min + delete 15s) and you pay about **$0.53**; leave it on 24/7 and it's $64 every day, weekends and holidays included. Multiply by your pipeline count and the savings are real money.",
-      "Set `trigger_rule='all_done'` on the delete step so even a failed job cleans up its cluster. Use Spot secondary workers (Google's preemptible successor) for another 60–91% off, accepting mid-job reclaim — Spark retries on remaining workers, though shuffle data on the lost node must be recomputed. Keep a small \"always-on\" cluster for data scientists' ad-hoc queries — the ephemeral pattern is for scheduled production jobs, not interactive notebooks. The newest tier, Lightning Engine on Serverless for Apache Spark, claims up to 4.3× speedups on TPC-DS, at the price of the premium SKU."
+      "Spin the cluster up, run the job, tear it down — that's the ephemeral pattern, and the Airflow DAG is three tasks. `DataprocCreateClusterOperator` builds the cluster, `DataprocSubmitJobOperator` runs your job on it, `DataprocDeleteClusterOperator` deletes it. The first takes ~90 seconds, the last ~15, the middle however long your job runs.",
+      "Our canonical cluster — 4 × `n2-highmem-8` + 1 master with the surcharge — runs about **$2.65/hr**. The job needs the cluster for roughly 12 minutes: a minute and a half to build it, eleven to run, fifteen seconds to tear down. That's about **$0.53**. Leave the same cluster on 24/7 and it's $64 a day whether anything runs or not. One pipeline. You probably have forty.",
+      "Wire one thing into the delete step: `trigger_rule='all_done'`. Skip it and a failed job leaves its cluster running. Spot secondary workers (Google's preemptible successor) cut another 60–91% off, and you pay for it mid-job — when one gets reclaimed, Spark retries on the workers that survive, but any shuffle data that lived on the lost node gets recomputed from scratch.",
+      "The pattern is for scheduled production jobs, not notebooks. A data scientist poking at ad-hoc queries wants a small always-on cluster, not a fresh build on every run. And if you'd rather pay than wait, the newest tier — Lightning Engine on Serverless for Apache Spark — claims up to 4.3× speedups on TPC-DS, at the premium SKU price."
     ],
     sources: [
       { label: "Dataproc pricing", href: "https://cloud.google.com/dataproc/pricing" },
@@ -372,9 +375,9 @@ export const SCENES: SceneMeta[] = [
     kicker: "16 · Fly mode",
     concept: "Take the controls.",
     body: [
-      "You've watched the cluster on rails for fifteen scenes. Now take the camera — drag to orbit, scroll to zoom, right-click to pan. The cluster you've been reading about is sitting there, breathing.",
-      "Eight planets here instead of four — the same shape, a larger fleet, because in production you rarely stop at four workers. Around them, two hundred tiny motes drift: partitions, the unit you now understand, each a 128 MB chunk of someone's data waiting to be picked up by an executor, processed, and sent to the next stage.",
-      "There's nothing more to teach. Move around, notice the orbit, find the master at the center. When you scroll past this section the article ends — but everything you learned about Spark, you still know."
+      "You've watched fifteen scenes run on rails. This one's yours to fly: drag to orbit, scroll to zoom, right-click to pan.",
+      "Eight planets this time instead of four, because production clusters rarely stop at four workers. Roughly 180 tiny motes drift among them, and each one is a partition — a 128 MB chunk of someone's data, waiting for an executor to grab it, chew through it, and hand it to the next stage.",
+      "That's the whole machine: the master at the center, the fleet orbiting it. Have a look around for as long as you like. When you scroll past this section, the article ends."
     ],
     legend: [
       { swatch: "#e89856", label: "center = master node" },
