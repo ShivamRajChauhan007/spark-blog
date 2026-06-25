@@ -124,14 +124,6 @@ export function AqeScene({ progress: _progress, visible }: Props) {
 
   return (
     <group visible={visible}>
-      <PlanetLabel position={[0, 0, 0]} text="AQE · SKEW SPLIT" offset={4.0} size={0.2} color="#f4cf9c" />
-      <PlanetLabel
-        position={[0, 0, 0]}
-        text="factor > 5× median ∧ size > 256 MB → split"
-        offset={3.55}
-        size={0.12}
-        color="#b0b0b8"
-      />
 
       {/* central master */}
       <mesh position={[0, 0, 0]}>

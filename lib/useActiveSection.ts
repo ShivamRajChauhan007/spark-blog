@@ -8,7 +8,7 @@ import { SceneId, SCENES } from "./scenes";
  * Measures the y-position of every `<section data-scene-id="...">` and picks the
  * one whose midpoint is closest to viewport-center. This is independent of the
  * scroll-progress float used to drive camera animation — so the ProgressMap
- * and ExplainerSidebar stay synced with the prose in the
+ * stays synced with the prose in the
  * viewport even when the header consumes some scrollable height.
  */
 let _activeId: SceneId = SCENES[0].id;

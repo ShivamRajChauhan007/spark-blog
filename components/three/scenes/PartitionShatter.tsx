@@ -4,7 +4,6 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE } from "@/lib/colors";
-import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -52,9 +51,6 @@ export function PartitionShatter({ progress: _progress, visible }: Props) {
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshStandardMaterial color={PALETTE.accent} emissive={PALETTE.accent} emissiveIntensity={0.6} toneMapped={false} />
       </mesh>
-      <PlanetLabel position={[0, 0, 0]} text="~8,000 PARTITIONS" offset={3.0} size={0.18} color="#9fcef7" />
-      <PlanetLabel position={[0, 0, 0]} text="128 MB EACH" offset={2.65} size={0.14} color="#c8dfff" />
-
       <instancedMesh ref={meshRef} args={[undefined, undefined, N]}>
         <sphereGeometry args={[1, 12, 12]} />
         <meshStandardMaterial color={PALETTE.accent2} emissive={PALETTE.accent2} emissiveIntensity={0.75} toneMapped={false} />

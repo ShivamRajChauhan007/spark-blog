@@ -46,6 +46,26 @@ export function DataArrival({ progress: _progress, visible }: Props) {
           <capsuleGeometry args={[0.1, 1.6, 8, 16]} />
           <meshBasicMaterial color={PALETTE.accent2} transparent opacity={0.6} toneMapped={false} />
         </mesh>
+        {/* a stream of data shards trailing behind — the "~800 files" of the dataset */}
+        {Array.from({ length: 14 }).map((_, i) => {
+          const d = i + 1;
+          const x = -0.5 - d * 0.32;
+          const y = Math.sin(i * 1.7) * 0.22;
+          const z = Math.cos(i * 2.3) * 0.22;
+          return (
+            <mesh key={i} position={[x, y, z]}>
+              <boxGeometry args={[0.11, 0.11, 0.11]} />
+              <meshStandardMaterial
+                color={PALETTE.accent2}
+                emissive={PALETTE.accent2}
+                emissiveIntensity={0.7}
+                transparent
+                opacity={Math.max(0.15, 0.85 - d * 0.05)}
+                toneMapped={false}
+              />
+            </mesh>
+          );
+        })}
         <PlanetLabel position={[0, 0, 0]} text="1 TB · orders.parquet" offset={0.6} size={0.14} color="#9fcef7" />
       </group>
     </group>

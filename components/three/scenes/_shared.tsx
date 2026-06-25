@@ -14,7 +14,14 @@ import * as THREE from "three";
  */
 const FONT_MONO: string | undefined = undefined;
 
-/** Floating planet/element label that always faces the camera. Adapts to mobile. */
+/**
+ * Element label that always faces the camera. For small/medium offsets the
+ * label is *tethered* to its planet — a thin leader stem out of the planet
+ * plus a marker dot at the label end — so the name reads as "popping out of
+ * this planet" instead of floating free in space. Captions (offset 0) and far
+ * titles (large offset) render as plain billboarded text, no stem/dot.
+ * Adapts to mobile.
+ */
 export function PlanetLabel({
   position,
   text,
@@ -31,21 +38,49 @@ export function PlanetLabel({
   const { size: vp } = useThree();
   const compact = vp.width > 0 && vp.width < 600;
   const fs = Math.max(compact ? 0.18 : size, size);
+
+  const tether = offset !== 0 && Math.abs(offset) <= 1.6;
+  const dir = Math.sign(offset) || 1;
+  // Text sits just beyond the marker dot (away from the planet) when tethered;
+  // otherwise it keeps its original position so captions/titles don't move.
+  const textY = tether ? offset + dir * fs * 1.15 : offset;
+
   return (
-    <Text
-      position={[position[0], position[1] + offset, position[2]]}
-      fontSize={fs}
-      color={color}
-      anchorX="center"
-      anchorY="middle"
-      outlineWidth={fs * 0.06}
-      outlineColor="#08090e"
-      outlineOpacity={0.95}
-      letterSpacing={0.08}
-      maxWidth={3}
-    >
-      {text.toUpperCase()}
-    </Text>
+    <group position={position}>
+      {tether && (
+        <>
+          <mesh position={[0, offset / 2, 0]}>
+            <cylinderGeometry args={[0.008, 0.008, Math.abs(offset), 6]} />
+            <meshBasicMaterial
+              color={color}
+              transparent
+              opacity={0.4}
+              toneMapped={false}
+              depthWrite={false}
+            />
+          </mesh>
+          <mesh position={[0, offset, 0]}>
+            <sphereGeometry args={[0.055, 14, 14]} />
+            <meshBasicMaterial color={color} toneMapped={false} />
+          </mesh>
+        </>
+      )}
+      <Billboard position={[0, textY, 0]}>
+        <Text
+          fontSize={fs}
+          color={color}
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={fs * 0.06}
+          outlineColor="#08090e"
+          outlineOpacity={0.95}
+          letterSpacing={0.08}
+          maxWidth={3}
+        >
+          {text.toUpperCase()}
+        </Text>
+      </Billboard>
+    </group>
   );
 }
 

@@ -158,6 +158,13 @@ export function SceneCanvas({ scene }: Props) {
           <span className="font-mono text-[10px] uppercase tracking-widest">loading scene…</span>
         </div>
       )}
+      {scene.caption && (
+        <div className="pointer-events-none absolute left-3 top-3 z-10 max-w-[20rem]">
+          <p className="font-serif text-[12.5px] leading-snug text-[var(--color-fg)]/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.95)]">
+            {scene.caption}
+          </p>
+        </div>
+      )}
       {!useStatic && (
         <div className="pointer-events-none absolute bottom-3 left-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-fg-muted)]/70">
           drag · scroll · right-click

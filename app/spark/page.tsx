@@ -1,7 +1,6 @@
 import { SCENES } from "@/lib/scenes";
 import { SceneSection } from "@/components/scroll/SceneSection";
 import { SmoothScroll } from "@/components/scroll/SmoothScroll";
-import { ExplainerSidebar } from "@/components/ai/ExplainerSidebar";
 import { LiveSandpack } from "@/components/code/LiveSandpack";
 import { CodeMorph } from "@/components/code/CodeMorph";
 import { ProgressMap } from "@/components/ui/ProgressMap";
@@ -51,8 +50,6 @@ export default function SparkArticle() {
           </SceneSection>
         ))}
       </main>
-
-      <ExplainerSidebar />
 
       <footer className="mx-auto max-w-3xl px-6 py-32 text-center text-sm text-[var(--color-fg-muted)]">
         <p className="font-serif text-2xl italic">— end of the article —</p>

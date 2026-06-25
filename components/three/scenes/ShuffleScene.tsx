@@ -5,7 +5,6 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -85,9 +84,6 @@ export function ShuffleScene({ progress: _progress, visible }: Props) {
 
   return (
     <group visible={visible}>
-      {/* Top label: title of the scene */}
-      <PlanetLabel position={[0, 0, 0]} text="THE SHUFFLE · hash(key) % N" offset={4.0} size={0.22} color="#f4cf9c" />
-
       {execPos.map((p, i) => (
         <group key={i} position={p}>
           <mesh>

@@ -32,30 +32,41 @@ export function StagesDiagram({ progress: _progress, visible }: Props) {
 
   return (
     <group ref={g} visible={visible}>
-      {[1.4, 2.0, 2.6].map((radius, i) => (
-        <group key={i} rotation={[Math.PI / 2.4, 0, 0]}>
-          <mesh>
-            <ringGeometry args={[radius - 0.04, radius, 128]} />
-            <meshBasicMaterial
-              ref={rings[i]}
-              color={i === 1 ? PALETTE.accent : PALETTE.accent2}
-              transparent
-              opacity={0.4}
-              side={THREE.DoubleSide}
-              toneMapped={false}
-            />
-          </mesh>
-          <mesh position={[radius, 0, 0]}>
-            <sphereGeometry args={[0.24, 22, 22]} />
-            <meshStandardMaterial
-              color={i === 1 ? PALETTE.accent : PALETTE.accent2}
-              emissive={i === 1 ? PALETTE.accent : PALETTE.accent2}
-              emissiveIntensity={0.7}
-              toneMapped={false}
-            />
-          </mesh>
-        </group>
-      ))}
+      {[1.4, 2.0, 2.6].map((radius, i) => {
+        const ringColor = i === 1 ? PALETTE.accent : PALETTE.accent2;
+        // Each stage = a set of parallel tasks: scatter task dots around the orbit.
+        const taskCount = 6 + i * 2;
+        return (
+          <group key={i} rotation={[Math.PI / 2.4, 0, 0]}>
+            <mesh>
+              <ringGeometry args={[radius - 0.04, radius, 128]} />
+              <meshBasicMaterial
+                ref={rings[i]}
+                color={ringColor}
+                transparent
+                opacity={0.4}
+                side={THREE.DoubleSide}
+                toneMapped={false}
+              />
+            </mesh>
+            {Array.from({ length: taskCount }).map((_, k) => {
+              const a = (k / taskCount) * Math.PI * 2;
+              const lead = k === 0;
+              return (
+                <mesh key={k} position={[Math.cos(a) * radius, Math.sin(a) * radius, 0]}>
+                  <sphereGeometry args={[lead ? 0.2 : 0.09, 18, 18]} />
+                  <meshStandardMaterial
+                    color={ringColor}
+                    emissive={ringColor}
+                    emissiveIntensity={lead ? 0.8 : 0.5}
+                    toneMapped={false}
+                  />
+                </mesh>
+              );
+            })}
+          </group>
+        );
+      })}
       {/* central master */}
       <mesh>
         <sphereGeometry args={[0.5, 32, 32]} />
@@ -74,7 +85,6 @@ export function StagesDiagram({ progress: _progress, visible }: Props) {
           />
         ))}
       </group>
-      <PlanetLabel position={[0, 0, 0]} text="SHUFFLE BOUNDARY ↕" offset={3.4} size={0.13} color="#b0b0b8" />
     </group>
   );
 }

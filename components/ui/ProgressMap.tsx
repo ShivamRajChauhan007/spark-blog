@@ -14,7 +14,7 @@ export function ProgressMap() {
   return (
     <nav
       aria-label="Scene navigator"
-      className="pointer-events-none fixed right-3 top-1/2 z-30 hidden -translate-y-1/2 flex-col items-end gap-2 md:flex"
+      className="pointer-events-none fixed right-3 inset-y-0 z-30 hidden flex-col items-end justify-between py-12 md:flex"
     >
       {SCENES.map((s, i) => (
         <a
@@ -25,10 +25,10 @@ export function ProgressMap() {
           className="pointer-events-auto group flex items-center gap-2 outline-none"
         >
           <span
-            className={`pointer-events-none rounded-full bg-[var(--color-bg-elev)]/85 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur transition-all ${
+            className={`pointer-events-none whitespace-nowrap rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest transition-all ${
               i === index
-                ? "max-w-[14rem] text-[var(--color-accent)] opacity-100"
-                : "max-w-0 overflow-hidden opacity-0 group-hover:max-w-[14rem] group-hover:opacity-100 group-focus-visible:max-w-[14rem] group-focus-visible:opacity-100"
+                ? "bg-[var(--color-bg-elev)]/85 text-[var(--color-accent)] opacity-100 backdrop-blur"
+                : "text-[var(--color-fg-muted)]/45 opacity-100 group-hover:bg-[var(--color-bg-elev)]/85 group-hover:text-[var(--color-fg)] group-hover:backdrop-blur group-focus-visible:bg-[var(--color-bg-elev)]/85 group-focus-visible:text-[var(--color-fg)]"
             }`}
           >
             {s.kicker}
