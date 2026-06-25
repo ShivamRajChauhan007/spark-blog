@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, DustRing, InfoCard, LegendCard } from "./_shared";
+import { PlanetLabel, DustRing, InfoCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -32,7 +32,7 @@ export function ClusterIdle({ progress, visible }: Props) {
 
   useFrame((_state, dt) => {
     if (!group.current) return;
-    if (visible) group.current.rotation.y += dt * (0.06 + progress * 0.15);
+    if (visible) group.current.rotation.y += dt * (0.025 + progress * 0.06);
     if (masterMat.current) {
       masterMat.current.emissiveIntensity =
         0.7 + Math.sin(performance.now() * 0.002) * 0.12 + progress * 0.2;
@@ -41,25 +41,34 @@ export function ClusterIdle({ progress, visible }: Props) {
 
   return (
     <group ref={group} visible={visible}>
+      {/* Scene title — the whole assembly is one cluster */}
+      <PlanetLabel
+        position={[0, 3.15, 0]}
+        text="DATAPROC CLUSTER"
+        offset={0}
+        size={0.18}
+        color="#f4f4f5"
+      />
+
       {/* master "sun" */}
       <Planet position={[0, 0, 0]} radius={0.7} color={PALETTE.accent} matRef={masterMat} core />
       <PlanetLabel position={[0, 0, 0]} text="MASTER" offset={1.05} size={0.2} color="#f4cf9c" />
-      <DustRing radius={1.15} count={60} color={PALETTE.accent} thickness={0.04} speed={0.25} />
+      <DustRing radius={1.15} count={60} color={PALETTE.accent} thickness={0.04} speed={0.12} />
 
-      {/* Primary info card — fleet specs anchored top of canvas */}
+      {/* Centered vertical-stack InfoCards — top: fleet of workers; bottom: master. */}
       <InfoCard
         position={[0, 0, 0]}
-        offset={[-3.6, 2.6, 0]}
+        offset={[0, 2.35, 0]}
         primary="FLEET · 4 × n2-highmem-8"
         secondary="32 vCPU · 256 GB · ~$2.65/hr"
-        color="#f4cf9c"
+        color="#c8dfff"
       />
       <InfoCard
         position={[0, 0, 0]}
-        offset={[3.6, 2.6, 0]}
+        offset={[0, -2.35, 0]}
         primary="MASTER · n2-standard-4"
         secondary="4 vCPU · 16 GB · $0.19/hr"
-        color="#c8dfff"
+        color="#f4cf9c"
       />
 
       {/* worker "planets" */}
@@ -73,8 +82,6 @@ export function ClusterIdle({ progress, visible }: Props) {
           phase={w.activityOffset}
         />
       ))}
-
-      <LegendCard primary="LEGEND" secondary="• small ring dots = core threads (8 per worker)" />
 
       {/* faint orbital ring */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
@@ -110,10 +117,10 @@ function ActiveWorker({
     // pulsing activity — random-looking but deterministic per-worker
     if (mat.current) {
       const t = performance.now() * 0.001 + phase;
-      const burst = Math.max(0, Math.sin(t * 1.4)) * 0.4;
+      const burst = Math.max(0, Math.sin(t * 0.7)) * 0.35;
       mat.current.emissiveIntensity = 0.45 + burst;
     }
-    if (threads.current) threads.current.rotation.y += dt * 2.2;
+    if (threads.current) threads.current.rotation.y += dt * 0.9;
   });
 
   return (

@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, LegendCard } from "./_shared";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   visible: boolean;
@@ -54,7 +54,7 @@ export function FreeCamera({ visible }: Props) {
       mote.current.setMatrixAt(i, dummy.matrix);
     }
     mote.current.instanceMatrix.needsUpdate = true;
-    if (ring.current) ring.current.rotation.y += 0.0015;
+    if (ring.current) ring.current.rotation.y += 0.0007;
   });
 
   return (
@@ -96,7 +96,6 @@ export function FreeCamera({ visible }: Props) {
         <meshBasicMaterial color={PALETTE.fgMuted} transparent opacity={0.55} toneMapped={false} />
       </instancedMesh>
 
-      <LegendCard primary="LEGEND" secondary="• 200 small motes = 200 partitions of 128 MB each drifting in space" />
     </group>
   );
 }

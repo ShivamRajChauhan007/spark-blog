@@ -68,10 +68,12 @@ export function InfoCard({
 }) {
   const { size: vp } = useThree();
   const compact = vp.width > 0 && vp.width < 600;
-  const primaryFS = compact ? 0.2 : 0.16;
+  const primaryFS = compact ? 0.17 : 0.14;
   const secondaryFS = compact ? 0.13 : 0.11;
-  const cardW = compact ? 2.4 : 2.6;
-  const cardH = secondary ? (compact ? 0.7 : 0.62) : (compact ? 0.42 : 0.34);
+  const cardW = compact ? 3.2 : 3.4;
+  const cardH = secondary ? (compact ? 0.9 : 0.82) : (compact ? 0.48 : 0.42);
+  const primaryY = secondary ? (compact ? 0.18 : 0.16) : 0;
+  const secondaryY = compact ? -0.22 : -0.2;
   const px = position[0] + offset[0];
   const py = position[1] + offset[1];
   const pz = position[2] + offset[2];
@@ -79,34 +81,34 @@ export function InfoCard({
     <Billboard position={[px, py, pz]}>
       <mesh>
         <planeGeometry args={[cardW, cardH]} />
-        <meshBasicMaterial color="#0c0d12" transparent opacity={0.75} depthWrite={false} />
+        <meshBasicMaterial color="#0c0d12" transparent opacity={0.78} depthWrite={false} />
       </mesh>
       <mesh position={[0, 0, 0.001]}>
         <planeGeometry args={[cardW, 0.012]} />
         <meshBasicMaterial color={color} toneMapped={false} />
       </mesh>
       <Text
-        position={[0, secondary ? 0.1 : 0, 0.002]}
+        position={[0, primaryY, 0.002]}
         fontSize={primaryFS}
         color={color}
         anchorX="center"
         anchorY="middle"
         {...(FONT_MONO ? { font: FONT_MONO } : {})}
-        letterSpacing={0.04}
-        maxWidth={cardW - 0.2}
+        letterSpacing={0.02}
+        maxWidth={cardW - 0.3}
       >
         {primary.toUpperCase()}
       </Text>
       {secondary && (
         <Text
-          position={[0, -0.13, 0.002]}
+          position={[0, secondaryY, 0.002]}
           fontSize={secondaryFS}
           color="#d2d2d6"
           anchorX="center"
           anchorY="middle"
           {...(FONT_MONO ? { font: FONT_MONO } : {})}
-          letterSpacing={0.02}
-          maxWidth={cardW - 0.2}
+          letterSpacing={0.015}
+          maxWidth={cardW - 0.3}
         >
           {secondary}
         </Text>
@@ -189,30 +191,13 @@ export function CodePanel({
   );
 }
 
-/**
- * Legend card — anchored to the bottom-left of the scene at a consistent
- * world position so every scene has a "key" explaining what its dots mean.
- * Use one per scene. Sits above the bottom edge of the canvas.
- */
-export function LegendCard({ primary, secondary }: { primary: string; secondary?: string }) {
-  return (
-    <InfoCard
-      position={[0, 0, 0]}
-      offset={[-2.8, -2.8, 0]}
-      primary={primary}
-      secondary={secondary}
-      color="#b0b0b8"
-    />
-  );
-}
-
 /** A small dust/particle ring around a planet — adds "alive" quality. */
 export function DustRing({
   radius,
   count = 80,
   color,
   thickness = 0.06,
-  speed = 0.4
+  speed = 0.18
 }: {
   radius: number;
   count?: number;

@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, InfoCard, LegendCard } from "./_shared";
+import { PlanetLabel, InfoCard } from "./_shared";
 
 interface Props {
   progress: number;
@@ -37,6 +37,7 @@ export function WorkerCutaway({ progress, visible }: Props) {
   const doneMotes = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
+  // 2 executors per worker — matches prose "2 executors × 4 cores"
   const executors = useMemo<ExecutorState[]>(
     () => [
       {
@@ -44,40 +45,31 @@ export function WorkerCutaway({ progress, visible }: Props) {
         matRef: { current: null } as React.RefObject<THREE.MeshStandardMaterial | null>,
         cores: 4,
         phase: 0,
-        speed: 0.9,
-        radius: 0.45,
-        yOffset: 0.22
+        speed: 0.4,
+        radius: 0.42,
+        yOffset: 0.18
       },
       {
         ref: { current: null } as React.RefObject<THREE.Group | null>,
         matRef: { current: null } as React.RefObject<THREE.MeshStandardMaterial | null>,
         cores: 4,
-        phase: 2,
-        speed: 1.2,
-        radius: 0.32,
-        yOffset: -0.06
-      },
-      {
-        ref: { current: null } as React.RefObject<THREE.Group | null>,
-        matRef: { current: null } as React.RefObject<THREE.MeshStandardMaterial | null>,
-        cores: 4,
-        phase: 4,
-        speed: 0.7,
-        radius: 0.5,
-        yOffset: -0.22
+        phase: Math.PI,
+        speed: 0.4,
+        radius: 0.42,
+        yOffset: -0.18
       }
     ],
     []
   );
 
   // Track when each executor last "completed a task" — drives the flash + mote
-  const lastFlash = useRef<number[]>([0, 0, 0]);
+  const lastFlash = useRef<number[]>([0, 0]);
   const moteStates = useMemo(
     () =>
-      Array.from({ length: 18 }, (_, i) => ({
+      Array.from({ length: 12 }, (_, i) => ({
         active: false,
         startT: 0,
-        execIdx: i % 3,
+        execIdx: i % 2,
         seed: i
       })),
     []
@@ -91,8 +83,8 @@ export function WorkerCutaway({ progress, visible }: Props) {
       outer.current.opacity = 0.32 + (1 - progress) * 0.4;
       outer.current.transparent = true;
     }
-    if (orbits.current) orbits.current.rotation.y += dt * 0.4;
-    if (yarnRing.current) yarnRing.current.rotation.z += dt * 0.15;
+    if (orbits.current) orbits.current.rotation.y += dt * 0.18;
+    if (yarnRing.current) yarnRing.current.rotation.z += dt * 0.08;
 
     // Position executors on their orbit + breathing scale
     executors.forEach((ex, idx) => {
@@ -162,28 +154,37 @@ export function WorkerCutaway({ progress, visible }: Props) {
 
   return (
     <group visible={visible} position={[3.2, 0, 0]}>
-      {/* YARN container ring (outermost) */}
-      <mesh ref={yarnRing} rotation={[Math.PI / 2.3, 0, 0]}>
-        <ringGeometry args={[1.35, 1.41, 96]} />
-        <meshBasicMaterial color={PALETTE.success} transparent opacity={0.45} side={THREE.DoubleSide} toneMapped={false} />
+      {/* YARN — resource manager ring around the whole VM */}
+      <mesh ref={yarnRing} rotation={[Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[1.32, 1.38, 96]} />
+        <meshBasicMaterial color={PALETTE.success} transparent opacity={0.55} side={THREE.DoubleSide} toneMapped={false} />
       </mesh>
-      <PlanetLabel position={[0, 0, 0]} text="YARN · container manager" offset={1.6} size={0.16} color="#9be8b3" />
+      {/* "YARN" label sits beside the green ring, not above the worker, so it
+          can't collide with the WORKER InfoCard. */}
+      <PlanetLabel
+        position={[1.55, 0, 0]}
+        text="YARN"
+        offset={0}
+        size={0.15}
+        color="#9be8b3"
+      />
+
       <InfoCard
         position={[0, 0, 0]}
-        offset={[-2.4, 0.6, 0]}
+        offset={[0, 1.95, 0]}
         primary="WORKER · n2-highmem-8"
-        secondary="8 vCPU · 64 GB · 2 execs × 4 cores"
+        secondary="8 vCPU · 64 GB RAM"
         color="#c8dfff"
       />
       <InfoCard
         position={[0, 0, 0]}
-        offset={[-2.4, -0.4, 0]}
-        primary="EXECUTOR · JVM"
-        secondary="4 cores · 11 GB heap + 1.1 GB ovr"
+        offset={[0, -1.75, 0]}
+        primary="2 EXECUTORS · JVM"
+        secondary="4 cores · 11 GB heap each"
         color="#f4cf9c"
       />
 
-      {/* outer worker shell */}
+      {/* outer worker shell — the VM */}
       <mesh>
         <sphereGeometry args={[0.95, 36, 36]} />
         <meshStandardMaterial
@@ -194,11 +195,10 @@ export function WorkerCutaway({ progress, visible }: Props) {
           metalness={0.2}
           roughness={0.5}
           transparent
-          opacity={0.5}
+          opacity={0.42}
           toneMapped={false}
         />
       </mesh>
-      <PlanetLabel position={[0, 0, 0]} text="WORKER NODE · VM" offset={1.18} size={0.14} color="#c8dfff" />
 
       {/* inner executors with thread orbits */}
       <group ref={orbits}>
@@ -206,7 +206,7 @@ export function WorkerCutaway({ progress, visible }: Props) {
           <group key={idx} ref={ex.ref}>
             {/* executor JVM */}
             <mesh>
-              <sphereGeometry args={[0.16, 22, 22]} />
+              <sphereGeometry args={[0.18, 22, 22]} />
               <meshStandardMaterial
                 ref={ex.matRef}
                 color={PALETTE.accent}
@@ -216,21 +216,13 @@ export function WorkerCutaway({ progress, visible }: Props) {
               />
             </mesh>
             {/* core threads orbiting this executor */}
-            <CoreThreads count={ex.cores} radius={0.26} phaseOffset={ex.phase} speed={3} />
+            <CoreThreads count={ex.cores} radius={0.3} phaseOffset={ex.phase} speed={1.0} />
           </group>
         ))}
       </group>
 
-      <PlanetLabel
-        position={[0, -1.2, 0]}
-        text="EXECUTORS · JVMs with 4 cores each"
-        offset={0}
-        size={0.12}
-        color="#f4cf9c"
-      />
-
       {/* "task done" motes flying out */}
-      <instancedMesh ref={doneMotes} args={[undefined, undefined, 18]}>
+      <instancedMesh ref={doneMotes} args={[undefined, undefined, 12]}>
         <sphereGeometry args={[1, 8, 8]} />
         <meshBasicMaterial color={PALETTE.accent} transparent opacity={0.9} toneMapped={false} />
       </instancedMesh>
@@ -240,8 +232,6 @@ export function WorkerCutaway({ progress, visible }: Props) {
         <sphereGeometry args={[1.16, 36, 36]} />
         <meshBasicMaterial color={WORKER_TINTS[0]} transparent opacity={0.1} depthWrite={false} toneMapped={false} />
       </mesh>
-
-      <LegendCard primary="LEGEND" secondary="• small white sphere = thread on a core • orange = task complete" />
     </group>
   );
 }

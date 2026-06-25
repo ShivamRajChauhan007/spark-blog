@@ -20,7 +20,7 @@ export function DataArrival({ progress: _progress, visible }: Props) {
     if (!visible || !comet.current) return;
     const t = (performance.now() * 0.00015) % 1;
     comet.current.position.set(-7 + t * 7, 2 - t * 2, -3 + t * 3);
-    comet.current.rotation.y = t * 0.6;
+    comet.current.rotation.y = t * 0.25;
     if (tail.current) {
       const m = tail.current.material as THREE.MeshBasicMaterial;
       m.opacity = 0.7 * (1 - t);

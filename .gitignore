@@ -6,3 +6,6 @@ out
 .DS_Store
 *.log
 docs/screenshots/**/*.png
+
+# internal Walmart notes — never publish
+WORKSPACE_CONTEXT.md

@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, LegendCard } from "./_shared";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -199,10 +199,6 @@ export function AqeScene({ progress: _progress, visible }: Props) {
         />
       </mesh>
 
-      <LegendCard
-        primary="LEGEND"
-        secondary="• big orange = skewed partition (>5× median) · red ring = AQE detect · blue split = sub-partitions"
-      />
     </group>
   );
 }

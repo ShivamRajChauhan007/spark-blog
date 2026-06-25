@@ -48,9 +48,6 @@ export default function SparkArticle() {
           Twelve scenes about Apache Spark on Google Dataproc, orchestrated by Apache Airflow. Each scene is a small interactive
           planet system — drag, scroll, and right-click to explore. The reading is the lesson.
         </p>
-        <p className="mt-12 max-w-md font-serif text-base italic text-[var(--color-fg-muted)]">
-          In the school of Bartosz Ciechanowski. With 2026 tools.
-        </p>
       </header>
 
       <main role="main" id="main-content">
@@ -67,7 +64,7 @@ export default function SparkArticle() {
       <footer className="mx-auto max-w-3xl px-6 py-32 text-center text-sm text-[var(--color-fg-muted)]">
         <p className="font-serif text-2xl italic">— end of the article —</p>
         <p className="mt-4">
-          Built in the Bartosz Ciechanowski school, with 2026 tools. <Link href="/" className="underline">Back to landing</Link>.
+          <Link href="/" className="underline">Back to landing</Link>.
         </p>
       </footer>
     </AudioProvider>

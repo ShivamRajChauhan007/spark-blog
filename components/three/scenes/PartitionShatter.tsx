@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE } from "@/lib/colors";
-import { PlanetLabel, LegendCard } from "./_shared";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -60,7 +60,6 @@ export function PartitionShatter({ progress: _progress, visible }: Props) {
         <meshStandardMaterial color={PALETTE.accent2} emissive={PALETTE.accent2} emissiveIntensity={0.75} toneMapped={false} />
       </instancedMesh>
 
-      <LegendCard primary="LEGEND" secondary="• each blue dot = one 128 MB partition · ~6-12 M rows" />
     </group>
   );
 }

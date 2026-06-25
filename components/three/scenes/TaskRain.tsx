@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, LegendCard } from "./_shared";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -119,7 +119,6 @@ export function TaskRain({ progress: _progress, visible }: Props) {
         <meshBasicMaterial color={PALETTE.fg} toneMapped={false} />
       </instancedMesh>
 
-      <LegendCard primary="LEGEND" secondary="• each white dot in flight = one task (closure + partition addr)" />
     </group>
   );
 }

@@ -1,9 +1,37 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const title = "Build a Spark cluster you can fly through";
+const description =
+  "An interactive, scroll-driven WebGL explainer for Apache Spark on Google Dataproc, orchestrated by Apache Airflow.";
+
+// Resolve the canonical origin so OpenGraph/Twitter image URLs are absolute.
+// Vercel injects these at build/runtime; falls back to the dev port locally.
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3737";
+
 export const metadata: Metadata = {
-  title: "spark-blog — Build a Spark cluster you can fly through",
-  description: "An interactive scroll-driven explainer for Apache Spark on Google Dataproc + Airflow."
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `spark-blog — ${title}`,
+    template: "%s — spark-blog"
+  },
+  description,
+  openGraph: {
+    type: "website",
+    siteName: "spark-blog",
+    title,
+    description,
+    url: "/"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

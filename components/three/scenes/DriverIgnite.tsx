@@ -29,7 +29,7 @@ export function DriverIgnite({ progress, visible }: Props) {
       const m = halo.current.material as THREE.MeshBasicMaterial;
       m.opacity = 0.22 + progress * 0.4;
     }
-    if (flare.current) flare.current.rotation.z += 0.004;
+    if (flare.current) flare.current.rotation.z += 0.0015;
   });
 
   return (

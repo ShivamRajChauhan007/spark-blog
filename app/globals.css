@@ -34,7 +34,7 @@ body {
 .font-serif { font-family: var(--font-serif); font-feature-settings: "liga", "dlig"; }
 .font-mono  { font-family: var(--font-mono); }
 
-/* film-grain backdrop for that Bartosz feel */
+/* film-grain backdrop */
 .bg-grain {
   background-color: var(--color-bg);
   background-image: radial-gradient(oklch(1 0 0 / 0.012) 1px, transparent 1px);

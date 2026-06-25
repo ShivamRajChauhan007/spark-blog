@@ -18,7 +18,7 @@ export function StagesDiagram({ progress: _progress, visible }: Props) {
 
   useFrame(() => {
     if (!visible || !g.current) return;
-    g.current.rotation.y += 0.0025;
+    g.current.rotation.y += 0.0012;
     const t = (performance.now() * 0.0006) % 3;
     for (let i = 0; i < 3; i++) {
       const m = rings[i].current;

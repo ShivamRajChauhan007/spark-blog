@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { PALETTE, WORKER_TINTS } from "@/lib/colors";
-import { PlanetLabel, LegendCard } from "./_shared";
+import { PlanetLabel } from "./_shared";
 
 interface Props {
   progress: number;
@@ -64,7 +64,7 @@ export function JoinsScene({ progress: _progress, visible }: Props) {
     // SMJ: rows shuffle BETWEEN workers (both ways), then "sort" into lines
     if (smjGroup.current) {
       smjGroup.current.visible = phase === 1;
-      smjGroup.current.rotation.y += 0.005;
+      smjGroup.current.rotation.y += 0.002;
     }
 
     // SHJ: rows arrive at the workers (shuffle), one side hashes (light up)
@@ -141,10 +141,6 @@ export function JoinsScene({ progress: _progress, visible }: Props) {
         </mesh>
       </group>
 
-      <LegendCard
-        primary="LEGEND"
-        secondary="• green dot = small table broadcast copy · arcing dot = row shuffled"
-      />
     </group>
   );
 }
