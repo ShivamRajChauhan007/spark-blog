@@ -1,0 +1,93 @@
+"use client";
+
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { ComponentType } from "react";
+import type { SceneId } from "@/lib/scenes";
+
+import { ClusterIdle } from "./scenes/ClusterIdle";
+import { WorkerCutaway } from "./scenes/WorkerCutaway";
+import { DriverIgnite } from "./scenes/DriverIgnite";
+import { DataArrival } from "./scenes/DataArrival";
+import { ActionTriggerScene } from "./scenes/ActionTriggerScene";
+import { PartitionShatter } from "./scenes/PartitionShatter";
+import { TaskRain } from "./scenes/TaskRain";
+import { NarrowVsWide } from "./scenes/NarrowVsWide";
+import { JoinsScene } from "./scenes/JoinsScene";
+import { ShuffleScene } from "./scenes/ShuffleScene";
+import { AqeScene } from "./scenes/AqeScene";
+import { StagesDiagram } from "./scenes/StagesDiagram";
+import { MachineTypesScene } from "./scenes/MachineTypesScene";
+import { AirflowDag } from "./scenes/AirflowDag";
+import { EphemeralCycle } from "./scenes/EphemeralCycle";
+import { FreeCamera } from "./scenes/FreeCamera";
+
+type SceneComp = ComponentType<{ progress: number; visible: boolean }>;
+
+// All scene components share the same prop shape EXCEPT FreeCamera which
+// doesn't take `progress` — we wrap it to fit the shape.
+const FreeCameraAdapter: SceneComp = ({ visible }) => <FreeCamera visible={visible} />;
+
+const SCENE_COMPONENTS: Record<SceneId, SceneComp> = {
+  hero: ClusterIdle,
+  anatomy: WorkerCutaway,
+  driver: DriverIgnite,
+  "data-arrival": DataArrival,
+  "action-trigger": ActionTriggerScene,
+  partitions: PartitionShatter,
+  "task-rain": TaskRain,
+  "narrow-vs-wide": NarrowVsWide,
+  joins: JoinsScene,
+  shuffle: ShuffleScene,
+  aqe: AqeScene,
+  stages: StagesDiagram,
+  "machine-types": MachineTypesScene,
+  airflow: AirflowDag,
+  ephemeral: EphemeralCycle,
+  fly: FreeCameraAdapter
+};
+
+const CAMERA_BY_SCENE: Record<SceneId, { pos: [number, number, number]; target: [number, number, number] }> = {
+  hero: { pos: [0, 1.5, 7.8], target: [0, 0, 0] },
+  anatomy: { pos: [5.8, 1.4, 5.4], target: [3.2, 0, 0] },
+  driver: { pos: [0, 1.6, 7.2], target: [0, 0, 0] },
+  "data-arrival": { pos: [-1, 2.6, 7.0], target: [-2, 0, 0] },
+  "action-trigger": { pos: [0, 2.0, 8], target: [0, 0, 0] },
+  partitions: { pos: [0, 5.5, 5], target: [0, 0, 0] },
+  "task-rain": { pos: [4, 2.4, 5.5], target: [0, 0.4, 0] },
+  "narrow-vs-wide": { pos: [0, 1.0, 7.5], target: [0, 0, 0] },
+  joins: { pos: [0, 3.5, 8], target: [0, 0, 0] },
+  shuffle: { pos: [5.5, 3.8, 5.5], target: [0, 0.5, 0] },
+  aqe: { pos: [0, 3.2, 7.5], target: [0, 0.2, 0] },
+  stages: { pos: [0, 1.2, 8.5], target: [0, 0, 0] },
+  "machine-types": { pos: [0, 2.0, 8.5], target: [0, 0, 0] },
+  airflow: { pos: [0, 4.5, 10], target: [0, 2.0, 0] },
+  ephemeral: { pos: [3.5, 2.4, 6.5], target: [0, 0, 0] },
+  fly: { pos: [0, 2.5, 9], target: [0, 0, 0] }
+};
+
+/**
+ * The actual WebGL renderer for one scene. This module statically imports
+ * three / @react-three/fiber / drei and every scene component, so it is the
+ * heavy bundle. It is loaded via next/dynamic from SceneCanvas only when a
+ * section nears the viewport — keeping it out of the initial /spark payload.
+ */
+export function SceneRenderer({ sceneId, active }: { sceneId: SceneId; active: boolean }) {
+  const SceneComponent = SCENE_COMPONENTS[sceneId];
+  const cam = CAMERA_BY_SCENE[sceneId];
+  return (
+    <Canvas
+      camera={{ position: cam.pos, fov: 50, near: 0.1, far: 200 }}
+      dpr={[1, 1.8]}
+      gl={{ antialias: true, powerPreference: "high-performance" }}
+      frameloop={active ? "always" : "demand"}
+    >
+      <color attach="background" args={["#0b0c11"]} />
+      <ambientLight intensity={0.45} />
+      <directionalLight position={[5, 7, 5]} intensity={1.1} />
+      <directionalLight position={[-5, -2, -4]} intensity={0.3} color="#88a" />
+      <OrbitControls target={cam.target} enableDamping dampingFactor={0.08} minDistance={2} maxDistance={20} enablePan />
+      <SceneComponent progress={active ? 0.5 : 0} visible />
+    </Canvas>
+  );
+}

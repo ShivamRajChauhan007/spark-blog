@@ -10,8 +10,8 @@ export default function Home() {
         Build a Spark cluster <em>you can fly through.</em>
       </h1>
       <p className="max-w-xl text-lg text-[var(--color-fg-muted)]">
-        An interactive scroll-driven explainer for Apache Spark on Google Dataproc, orchestrated by Apache Airflow. Hand-rolled WebGL, ambient
-        spatial audio, live editable code, and an inline AI tutor.
+        An interactive, scroll-driven explainer for Apache Spark on Google Dataproc, orchestrated by Apache Airflow. Hand-rolled WebGL,
+        live editable code, and sixteen scenes you can fly through.
       </p>
       <Link
         href="/spark"

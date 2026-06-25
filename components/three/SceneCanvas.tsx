@@ -1,79 +1,29 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { ComponentType, useEffect, useRef, useState } from "react";
-import type { SceneMeta, SceneId } from "@/lib/scenes";
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
+import type { SceneMeta } from "@/lib/scenes";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
-import { ClusterIdle } from "./scenes/ClusterIdle";
-import { WorkerCutaway } from "./scenes/WorkerCutaway";
-import { DriverIgnite } from "./scenes/DriverIgnite";
-import { DataArrival } from "./scenes/DataArrival";
-import { ActionTriggerScene } from "./scenes/ActionTriggerScene";
-import { PartitionShatter } from "./scenes/PartitionShatter";
-import { TaskRain } from "./scenes/TaskRain";
-import { NarrowVsWide } from "./scenes/NarrowVsWide";
-import { JoinsScene } from "./scenes/JoinsScene";
-import { ShuffleScene } from "./scenes/ShuffleScene";
-import { AqeScene } from "./scenes/AqeScene";
-import { StagesDiagram } from "./scenes/StagesDiagram";
-import { MachineTypesScene } from "./scenes/MachineTypesScene";
-import { AirflowDag } from "./scenes/AirflowDag";
-import { EphemeralCycle } from "./scenes/EphemeralCycle";
-import { FreeCamera } from "./scenes/FreeCamera";
-
-type SceneComp = ComponentType<{ progress: number; visible: boolean }>;
-
-// All scene components share the same prop shape EXCEPT FreeCamera which
-// doesn't take `progress` — we wrap it to fit the shape.
-const FreeCameraAdapter: SceneComp = ({ visible }) => <FreeCamera visible={visible} />;
-
-const SCENE_COMPONENTS: Record<SceneId, SceneComp> = {
-  hero: ClusterIdle,
-  anatomy: WorkerCutaway,
-  driver: DriverIgnite,
-  "data-arrival": DataArrival,
-  "action-trigger": ActionTriggerScene,
-  partitions: PartitionShatter,
-  "task-rain": TaskRain,
-  "narrow-vs-wide": NarrowVsWide,
-  joins: JoinsScene,
-  shuffle: ShuffleScene,
-  aqe: AqeScene,
-  stages: StagesDiagram,
-  "machine-types": MachineTypesScene,
-  airflow: AirflowDag,
-  ephemeral: EphemeralCycle,
-  fly: FreeCameraAdapter
-};
-
-const CAMERA_BY_SCENE: Record<SceneId, { pos: [number, number, number]; target: [number, number, number] }> = {
-  hero: { pos: [0, 1.5, 7.8], target: [0, 0, 0] },
-  anatomy: { pos: [5.8, 1.4, 5.4], target: [3.2, 0, 0] },
-  driver: { pos: [0, 1.6, 7.2], target: [0, 0, 0] },
-  "data-arrival": { pos: [-1, 2.6, 7.0], target: [-2, 0, 0] },
-  "action-trigger": { pos: [0, 2.0, 8], target: [0, 0, 0] },
-  partitions: { pos: [0, 5.5, 5], target: [0, 0, 0] },
-  "task-rain": { pos: [4, 2.4, 5.5], target: [0, 0.4, 0] },
-  "narrow-vs-wide": { pos: [0, 1.0, 7.5], target: [0, 0, 0] },
-  joins: { pos: [0, 3.5, 8], target: [0, 0, 0] },
-  shuffle: { pos: [5.5, 3.8, 5.5], target: [0, 0.5, 0] },
-  aqe: { pos: [0, 3.2, 7.5], target: [0, 0.2, 0] },
-  stages: { pos: [0, 1.2, 8.5], target: [0, 0, 0] },
-  "machine-types": { pos: [0, 2.0, 8.5], target: [0, 0, 0] },
-  airflow: { pos: [0, 4.5, 10], target: [0, 2.0, 0] },
-  ephemeral: { pos: [3.5, 2.4, 6.5], target: [0, 0, 0] },
-  fly: { pos: [0, 2.5, 9], target: [0, 0, 0] }
-};
+/**
+ * The heavy WebGL renderer (three + @react-three/fiber + drei + every scene)
+ * is code-split into its own chunk and only downloaded when a section nears the
+ * viewport — keeping it out of the initial /spark payload so the prose loads
+ * fast. The poster shows while the chunk downloads.
+ */
+const SceneRenderer = dynamic(() => import("./SceneRenderer").then((m) => m.SceneRenderer), {
+  ssr: false,
+  loading: () => <ScenePoster />
+});
 
 interface Props {
   scene: SceneMeta;
 }
 
 /**
- * Per-section 3D canvas. Mounts Canvas only when section is in (or near)
- * viewport — so 12 canvases don't all hold WebGL contexts at once.
+ * Per-section 3D canvas. The WebGL chunk is lazy-loaded (dynamic import) and
+ * the Canvas is mounted only when the section is within 600px of the viewport,
+ * then torn down when it scrolls well away to release the GL context.
  */
 export function SceneCanvas({ scene }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -83,7 +33,7 @@ export function SceneCanvas({ scene }: Props) {
   const [smallScreen, setSmallScreen] = useState(false);
 
   // On phones (and for prefers-reduced-motion users) we serve a static SVG
-  // poster instead of a live WebGL canvas: 12 GL contexts on a mobile GPU is
+  // poster instead of a live WebGL canvas: many GL contexts on a mobile GPU is
   // both heavy and prone to context loss. 768px matches the `md:` breakpoint
   // the article layout already switches on.
   useEffect(() => {
@@ -104,60 +54,30 @@ export function SceneCanvas({ scene }: Props) {
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
+            // Within 600px of the viewport: mount now so the 3D chunk downloads
+            // and the scene renders *before* the reader scrolls to it.
             setMounted(true);
             setActive(e.intersectionRatio > 0.25);
           } else {
-            // Scrolled well away (beyond the 200px rootMargin): tear the canvas
+            // Scrolled well away (beyond the 600px rootMargin): tear the canvas
             // down so its WebGL context is released. Browsers cap live contexts
-            // (~8–16, fewer on mobile Safari) and these 12 scenes would otherwise
+            // (~8–16, fewer on mobile Safari) and these scenes would otherwise
             // accumulate and start dropping contexts on a long scroll.
             setActive(false);
             setMounted(false);
           }
         }
       },
-      { threshold: [0, 0.05, 0.25, 0.5, 1], rootMargin: "200px 0px" }
+      { threshold: [0, 0.05, 0.25, 0.5, 1], rootMargin: "600px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
   }, [useStatic]);
 
-  const SceneComponent = SCENE_COMPONENTS[scene.id];
-  const cam = CAMERA_BY_SCENE[scene.id];
-
   return (
-    <div
-      ref={wrapperRef}
-      className="relative aspect-square w-full overflow-hidden md:aspect-[4/5]"
-    >
-      {useStatic ? (
-        <ScenePoster />
-      ) : mounted ? (
-        <Canvas
-          camera={{ position: cam.pos, fov: 50, near: 0.1, far: 200 }}
-          dpr={[1, 1.8]}
-          gl={{ antialias: true, powerPreference: "high-performance" }}
-          frameloop={active ? "always" : "demand"}
-        >
-          <color attach="background" args={["#0b0c11"]} />
-          <ambientLight intensity={0.45} />
-          <directionalLight position={[5, 7, 5]} intensity={1.1} />
-          <directionalLight position={[-5, -2, -4]} intensity={0.3} color="#88a" />
-          <OrbitControls
-            target={cam.target}
-            enableDamping
-            dampingFactor={0.08}
-            minDistance={2}
-            maxDistance={20}
-            enablePan
-          />
-          <SceneComponent progress={active ? 0.5 : 0} visible />
-        </Canvas>
-      ) : (
-        <div className="absolute inset-0 grid place-items-center text-[var(--color-fg-muted)]">
-          <span className="font-mono text-[10px] uppercase tracking-widest">loading scene…</span>
-        </div>
-      )}
+    <div ref={wrapperRef} className="relative aspect-square w-full overflow-hidden md:aspect-[4/5]">
+      {useStatic ? <ScenePoster /> : mounted ? <SceneRenderer sceneId={scene.id} active={active} /> : <ScenePoster />}
+
       {scene.caption && (
         <div className="pointer-events-none absolute left-3 top-3 z-10 max-w-[20rem]">
           <p className="font-serif text-[12.5px] leading-snug text-[var(--color-fg)]/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.95)]">
@@ -196,11 +116,9 @@ export function SceneCanvas({ scene }: Props) {
 
 /**
  * Static, dependency-free SVG stand-in for the live WebGL scene. Shown to
- * reduced-motion users and on small screens. Fills the aspect-ratio wrapper
- * (unlike `_StubCanvas`, which is `position: fixed` for the legacy full-bleed
- * layout). It evokes the cluster topology — a driver core wired to four
- * worker nodes over a field of data motes — so the poster reads as "the same
- * thing, paused" rather than a blank box.
+ * reduced-motion users, on small screens, and while the 3D chunk downloads —
+ * so there's never an empty box. Evokes the cluster topology so it reads as
+ * "the same thing, paused" rather than a blank.
  */
 function ScenePoster() {
   return (
